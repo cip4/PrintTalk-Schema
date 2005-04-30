@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:pt="http://www.printtalk.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_1_Types" targetNamespace="http://www.printtalk.org/schema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V1.2">
-	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1" schemaLocation="C:\Projects\CIP4\Schema\Version_1_2\JDF.xsd"/>
-	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1_Types" schemaLocation="C:\Projects\CIP4\Schema\Version_1_2\JDFTypes.xsd"/>
+	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1" schemaLocation="C:\Projects\CIP4\Schema\Version_1_3\JDF.xsd"/>
+	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1_Types" schemaLocation="C:\Projects\CIP4\Schema\Version_1_3\JDFTypes.xsd"/>
 	<!-- the top level element -->
 	<xs:element name="PrintTalk" type="pt:PrintTalk"/>
 	<xs:complexType name="PrintTalk">
@@ -9,7 +9,11 @@
 			<xs:element name="Header" type="pt:Header"/>
 			<xs:element name="Request" type="pt:Request"/>
 		</xs:sequence>
-		<xs:attribute name="version" type="xs:string" use="required"/>
+		<xs:attribute name="version" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
 		<xs:attribute name="payloadID" type="xs:string" use="required"/>
 		<xs:attribute name="timeStamp" type="xs:dateTime" use="optional"/>
 	</xs:complexType>
@@ -66,7 +70,7 @@
 	<xs:element name="BusinessObject" type="pt:BusinessObject" abstract="true"/>
 	<!-- the derived business objects -->
 	<xs:element name="RFQ" type="pt:RFQ" substitutionGroup="pt:BusinessObject"/>
-	<xs:element name="Quote" type="pt:Quote" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="Quotation" type="pt:Quotation" substitutionGroup="pt:BusinessObject"/>
 	<xs:element name="PurchaseOrder" type="pt:PurchaseOrder" substitutionGroup="pt:BusinessObject"/>
 	<xs:element name="Invoice" type="pt:Invoice" substitutionGroup="pt:BusinessObject"/>
 	<xs:element name="Confirmation" type="pt:Confirmation" substitutionGroup="pt:BusinessObject"/>
@@ -140,30 +144,10 @@
 		<xs:attribute name="ReorderID" type="xs:NMTOKENS" use="optional"/>
 		<xs:attribute name="ReplaceID" type="xs:NMTOKEN" use="optional"/>
 	</xs:attributeGroup>
-	<xs:attributeGroup name="PriceAttribs">
-		<xs:attribute name="Amount" type="xs:double" use="required"/>
-		<xs:attribute name="Price" type="xs:double" use="required"/>
-	</xs:attributeGroup>
 	<xs:attributeGroup name="PricingAttribs">
 		<xs:attributeGroup ref="pt:QuoteCommonAttribs"/>
-		<xs:attributeGroup ref="pt:PriceAttribs"/>
 		<xs:attribute name="ItemRefs" type="xs:NMTOKENS" use="optional"/>
 	</xs:attributeGroup>
-	<xs:complexType name="Quote">
-		<xs:complexContent>
-			<xs:extension base="pt:BusinessObject">
-				<xs:sequence>
-					<xs:element ref="jdf:JDF"/>
-				</xs:sequence>
-				<xs:attribute name="Currency" type="xs:NMTOKEN" use="optional"/>
-				<xs:attribute name="Estimate" type="xs:boolean" use="optional"/>
-				<xs:attribute name="Expires" type="xs:dateTime" use="required"/>
-				<xs:attribute name="ReorderID" type="xs:NMTOKENS" use="optional"/>
-				<xs:attribute name="ReplaceID" type="xs:NMTOKEN" use="optional"/>
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-	<xs:element name="Quotation" type="pt:Quotation" substitutionGroup="pt:BusinessObject"/>
 	<xs:complexType name="Quotation">
 		<xs:complexContent>
 			<xs:extension base="pt:BusinessObject">
@@ -207,8 +191,8 @@
 			<xs:extension base="pt:BusinessObjectChild">
 				<xs:sequence minOccurs="0" maxOccurs="unbounded">
 					<xs:element ref="jdf:Comment" minOccurs="0"/>
+					<xs:element name="Price" type="pt:Price" maxOccurs="unbounded"/>
 				</xs:sequence>
-				<xs:attributeGroup ref="pt:PriceAttribs"/>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
@@ -217,6 +201,13 @@
 			<xs:extension base="pt:BusinessObjectChild">
 				<xs:sequence>
 					<xs:element name="Comment" type="jdf:Comment_Type" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Price" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pt:Price"/>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
 					<xs:element name="Additional" type="pt:Additional" minOccurs="0" maxOccurs="unbounded"/>
 					<xs:element name="Payment" type="pt:Payment" minOccurs="0"/>
 					<xs:element name="PartPricing" type="pt:Pricing" minOccurs="0" maxOccurs="unbounded"/>
@@ -224,6 +215,14 @@
 				<xs:attributeGroup ref="pt:PricingAttribs"/>
 			</xs:extension>
 		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Price">
+		<xs:sequence>
+			<xs:element name="Comment" type="jdf:Comment_Type" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="Amount" type="xs:double" use="required"/>
+		<xs:attribute name="Price" type="xs:double" use="required"/>
+		<xs:attribute name="EntryDescription" type="jdftyp:shortString"/>
 	</xs:complexType>
 	<xs:complexType name="Payment">
 		<xs:complexContent>
