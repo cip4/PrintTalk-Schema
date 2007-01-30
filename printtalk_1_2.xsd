@@ -1,0 +1,386 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:pt="http://www.printtalk.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_1_Types" targetNamespace="http://www.printtalk.org/schema" elementFormDefault="qualified" attributeFormDefault="unqualified" version="V1.2">
+	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1" schemaLocation="C:\Projects\CIP4\Schema\Version_1_3\JDF.xsd"/>
+	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1_Types" schemaLocation="C:\Projects\CIP4\Schema\Version_1_3\JDFTypes.xsd"/>
+	<!-- the top level element -->
+	<xs:element name="PrintTalk" type="pt:PrintTalk"/>
+	<xs:complexType name="PrintTalk">
+		<xs:sequence>
+			<xs:element name="Header" type="pt:Header"/>
+			<xs:element name="Request" type="pt:Request"/>
+		</xs:sequence>
+		<xs:attribute name="version" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string"/>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="payloadID" type="xs:string" use="required"/>
+		<xs:attribute name="timeStamp" type="xs:dateTime" use="optional"/>
+	</xs:complexType>
+	<!-- the PrintTalk header -->
+	<xs:complexType name="Header">
+		<xs:sequence>
+			<xs:element name="From" type="pt:From"/>
+			<xs:element name="To" type="pt:To"/>
+			<xs:element name="Sender" type="pt:Sender"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- define the common cXML stuff as an abstract type -->
+	<xs:complexType name="cXML-identify" abstract="true">
+		<xs:sequence maxOccurs="unbounded">
+			<xs:element name="Credential" type="pt:Credential"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Credential">
+		<xs:all>
+			<xs:element name="Identity" type="xs:string"/>
+			<xs:element name="SharedSecret" type="xs:string" minOccurs="0"/>
+		</xs:all>
+		<xs:attribute name="domain" type="xs:string" use="required"/>
+		<xs:attribute name="type" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<!-- From and To are effectively aliases for the cXML common stuff -->
+	<xs:complexType name="From">
+		<xs:complexContent>
+			<xs:extension base="pt:cXML-identify"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="To">
+		<xs:complexContent>
+			<xs:extension base="pt:cXML-identify"/>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Sender adds UserAgent to the cXML common stuff -->
+	<xs:complexType name="Sender">
+		<xs:complexContent>
+			<xs:extension base="pt:cXML-identify">
+				<xs:sequence>
+					<xs:element name="UserAgent" type="xs:string"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- the PrintTalk request -->
+	<xs:complexType name="Request">
+		<xs:sequence>
+			<xs:element ref="pt:BusinessObject"/>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Abstract Business Object -->
+	<xs:element name="BusinessObject" type="pt:BusinessObject" abstract="true"/>
+	<!-- the derived business objects -->
+	<xs:element name="RFQ" type="pt:RFQ" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="Quotation" type="pt:Quotation" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="PurchaseOrder" type="pt:PurchaseOrder" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="Invoice" type="pt:Invoice" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="Confirmation" type="pt:Confirmation" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="Cancellation" type="pt:Cancellation" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="Refusal" type="pt:Refusal" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="OrderStatusRequest" type="pt:OrderStatusRequest" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="OrderStatusResponse" type="pt:OrderStatusResponse" substitutionGroup="pt:BusinessObject"/>
+	<xs:element name="ProofApprovalResponse" type="pt:ProofApprovalResponse" substitutionGroup="pt:BusinessObject"/>
+	<!-- the types -->
+	<xs:complexType name="BusinessObject" abstract="true">
+		<xs:sequence minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="jdf:Comment" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="AgentID" type="xs:NMTOKEN" use="required"/>
+		<xs:attribute name="AgentDisplayName" type="xs:string" use="required"/>
+		<xs:attribute name="RequestDate" type="xs:dateTime" use="required"/>
+		<xs:attribute name="BusinessID" type="xs:NMTOKEN" use="required"/>
+		<xs:attribute name="BusinessRefID" type="xs:NMTOKEN" use="optional"/>
+		<xs:attribute name="AuxID" type="xs:NMTOKEN" use="optional"/>
+		<xs:attribute name="DescriptiveName" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<xs:complexType name="BusinessObjectChild" abstract="true">
+		<xs:attribute name="AgentID" type="xs:NMTOKEN" use="optional"/>
+		<xs:attribute name="AgentDisplayName" type="xs:string" use="optional"/>
+		<xs:attribute name="RequestDate" type="xs:dateTime" use="optional"/>
+		<xs:attribute name="BusinessID" type="xs:NMTOKEN" use="required"/>
+		<xs:attribute name="BusinessRefID" type="xs:NMTOKEN" use="optional"/>
+		<xs:attribute name="AuxID" type="xs:NMTOKEN" use="optional"/>
+		<xs:attribute name="DescriptiveName" type="xs:string" use="optional"/>
+	</xs:complexType>
+	<!-- RFQ (Request for Quote) -->
+	<xs:complexType name="RFQ">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:sequence>
+					<xs:element ref="jdf:JDF"/>
+				</xs:sequence>
+				<xs:attribute name="Currency" type="xs:NMTOKEN" use="optional"/>
+				<xs:attribute name="Estimate" type="xs:boolean" use="optional"/>
+				<xs:attribute name="Expires" type="xs:dateTime" use="required"/>
+				<xs:attribute name="ReorderID" type="xs:NMTOKENS" use="optional"/>
+				<xs:attribute name="ReplaceID" type="xs:NMTOKEN" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Quote -->
+	<xs:attributeGroup name="QuoteCommonAttribs">
+		<xs:attribute name="Currency" type="xs:NMTOKEN" use="optional"/>
+		<xs:attribute name="Estimate" type="xs:boolean" use="optional"/>
+		<xs:attribute name="Expires" type="xs:dateTime" use="optional"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="QuoteSetAttribs">
+		<xs:attribute name="QuoteSetID" type="xs:ID" use="required"/>
+		<xs:attribute name="Description" type="xs:string" use="optional"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="QuotationSetDetailsAttribs">
+		<xs:attributeGroup ref="pt:QuoteSetAttribs"/>
+		<xs:attributeGroup ref="pt:QuoteCommonAttribs"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="QuoteAttribs">
+		<xs:attributeGroup ref="pt:QuoteCommonAttribs"/>
+		<xs:attribute name="DeviationFactor" use="optional" default="None">
+			<xs:simpleType>
+				<xs:restriction base="xs:NMTOKEN">
+					<xs:enumeration value="None"/>
+					<xs:enumeration value="Slight"/>
+					<xs:enumeration value="Significant"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+		<xs:attribute name="ReorderID" type="xs:NMTOKENS" use="optional"/>
+		<xs:attribute name="ReplaceID" type="xs:NMTOKEN" use="optional"/>
+	</xs:attributeGroup>
+	<xs:attributeGroup name="PricingAttribs">
+		<xs:attributeGroup ref="pt:QuoteCommonAttribs"/>
+		<xs:attribute name="ItemRefs" type="xs:NMTOKENS" use="optional"/>
+	</xs:attributeGroup>
+	<xs:complexType name="Quotation">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:sequence>
+					<xs:element name="Quote" type="pt:QuoteType" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attributeGroup ref="pt:QuoteCommonAttribs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QuoteType">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObjectChild">
+				<xs:sequence minOccurs="0">
+					<xs:element ref="jdf:Comment" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Pricing" minOccurs="0" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pt:Pricing"/>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element ref="jdf:JDF"/>
+				</xs:sequence>
+				<xs:attributeGroup ref="pt:QuoteAttribs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="QuoteDetailsSetType">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObjectChild">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Comment" minOccurs="0"/>
+					<xs:element name="Quote" type="pt:QuoteType" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Additional">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObjectChild">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Comment" minOccurs="0"/>
+					<xs:element name="Price" type="pt:Price" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Pricing">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObjectChild">
+				<xs:sequence>
+					<xs:element name="Comment" type="jdf:Comment_Type" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Price" maxOccurs="unbounded">
+						<xs:complexType>
+							<xs:complexContent>
+								<xs:extension base="pt:Price"/>
+							</xs:complexContent>
+						</xs:complexType>
+					</xs:element>
+					<xs:element name="Additional" type="pt:Additional" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="Payment" type="pt:Payment" minOccurs="0"/>
+					<xs:element name="PartPricing" type="pt:Pricing" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attributeGroup ref="pt:PricingAttribs"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Price">
+		<xs:sequence>
+			<xs:element name="Comment" type="jdf:Comment_Type" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="Amount" type="xs:double" use="required"/>
+		<xs:attribute name="Price" type="xs:double" use="required"/>
+		<xs:attribute name="EntryDescription" type="jdftyp:shortString"/>
+	</xs:complexType>
+	<xs:complexType name="Payment">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObjectChild">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element name="Comment" type="jdf:Comment_Type" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="PayTerm" type="jdf:Comment_Type" minOccurs="0"/>
+					<xs:element name="CreditCard" type="pt:CreditCard" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="CreditCard">
+		<xs:attribute name="Authorization" type="jdftyp:string" use="optional"/>
+		<xs:attribute name="AuthorizationExpires" type="jdftyp:gYearMonth" use="optional"/>
+		<xs:attribute name="Expires" type="jdftyp:gYearMonth" use="required"/>
+		<xs:attribute name="Number" type="jdftyp:NMTOKEN" use="required"/>
+		<xs:attribute name="Type" type="jdftyp:NMTOKEN" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="Notation">
+		<xs:sequence>
+			<xs:element ref="jdf:Comment"/>
+			<xs:choice>
+				<xs:element name="Person" type="jdf:Person_re"/>
+				<xs:element name="PersonRef" type="jdf:ResourceRef"/>
+			</xs:choice>
+		</xs:sequence>
+	</xs:complexType>
+	<!-- Purchase Order -->
+	<xs:complexType name="PurchaseOrder">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:sequence>
+					<xs:element ref="jdf:JDF"/>
+				</xs:sequence>
+				<xs:attribute name="Currency" type="xs:NMTOKEN" use="optional"/>
+				<xs:attribute name="Expires" type="xs:dateTime" use="required"/>
+				<xs:attribute name="ReorderID" type="xs:NMTOKENS" use="optional"/>
+				<xs:attribute name="ReplaceID" type="xs:NMTOKEN" use="optional"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Invoice -->
+	<xs:complexType name="Invoice">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:sequence>
+					<xs:element ref="jdf:JDF"/>
+				</xs:sequence>
+				<xs:attribute name="Currency" type="xs:NMTOKEN" use="optional"/>
+				<xs:attribute name="Expires" type="xs:dateTime" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Confirmation -->
+	<xs:complexType name="Confirmation">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Contact"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Cancellation-->
+	<xs:complexType name="Cancellation">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Contact"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Refusal -->
+	<xs:complexType name="Refusal">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:sequence minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Contact"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<!-- Order Status Request -->
+	<xs:complexType name="OrderStatusRequest">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Contact"/>
+					<xs:element name="StatusRequest" type="pt:StatusRequest"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="StatusRequest">
+		<xs:attribute name="JobIDRef" type="xs:string" use="required"/>
+	</xs:complexType>
+	<!-- Order Status Response -->
+	<xs:complexType name="OrderStatusResponse">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Contact"/>
+					<xs:element name="Status" type="pt:Status"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="Status">
+		<xs:simpleContent>
+			<xs:extension base="jdf:telem">
+				<xs:attribute name="JobIDRef" type="xs:string" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<!-- Proof Approval Request -->
+	<xs:complexType name="ProofApprovalRequest">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Contact"/>
+					<xs:element name="ProofRequest" type="pt:ProofRequest"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProofRequest">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element ref="jdf:Comment"/>
+		</xs:choice>
+		<xs:attribute name="JobIDRef" type="xs:string" use="required"/>
+		<xs:attribute name="ProofLocation" type="xs:anyURI" use="optional"/>
+	</xs:complexType>
+	<!-- Proof Approval Response -->
+	<xs:complexType name="ProofApprovalResponse">
+		<xs:complexContent>
+			<xs:extension base="pt:BusinessObject">
+				<xs:choice minOccurs="0" maxOccurs="unbounded">
+					<xs:element ref="jdf:Contact"/>
+					<xs:element name="ProofResponse" type="pt:ProofResponse"/>
+				</xs:choice>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="ProofResponse">
+		<xs:simpleContent>
+			<xs:extension base="jdf:telem">
+				<xs:attribute name="JobIDRef" type="xs:string" use="required"/>
+				<xs:attribute name="Response" type="pt:Response" use="required"/>
+			</xs:extension>
+		</xs:simpleContent>
+	</xs:complexType>
+	<xs:simpleType name="Response">
+		<xs:restriction base="xs:NMTOKEN">
+			<xs:enumeration value="Approved"/>
+			<xs:enumeration value="ApprovedWithEdits"/>
+			<xs:enumeration value="Rejected"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>
