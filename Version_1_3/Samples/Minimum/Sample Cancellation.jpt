@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema"
+	xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"	
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.printtalk.org/schema file:/D:/Projects/CIP4/PrintTalk/printtalk_1_3.xsd" version="1.3" payloadID="">
+	<Header>
+		<From>
+			<Credential domain="">
+				<Identity></Identity>
+			</Credential>
+		</From>
+		<To>
+			<Credential domain="">
+				<Identity></Identity>
+			</Credential>
+		</To>
+		<Sender>
+			<Credential domain="">
+				<Identity></Identity>
+			</Credential>
+		</Sender>
+	</Header>
+	<Request>
+		<Cancellation AgentID="AgentID" AgentDisplayName="Agent Display Name"
+			BusinessID="BusinessID"/>
+	</Request>
+</PrintTalk>
