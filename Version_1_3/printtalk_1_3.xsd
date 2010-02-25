@@ -144,6 +144,11 @@
 			<xs:extension base="pt:cXML-TextOnly"/>
 		</xs:complexContent>
 	</xs:complexType>
+  <xs:complexType name="cXML-UserAgent">
+    <xs:complexContent>
+      <xs:extension base="pt:cXML-TextOnly"/>
+    </xs:complexContent>
+  </xs:complexType>
 	<!-- End of cXML definitions -->
 
 	<!-- Header Elements -->
@@ -160,6 +165,7 @@
 	<xs:complexType name="Sender">
 		<xs:sequence>
 			<xs:element name="Credential" type="pt:Credential" maxOccurs="unbounded"/>
+		  <xs:element name="UserAgent" type="pt:cXML-UserAgent" maxOccurs="1"/>
 		</xs:sequence>
 	</xs:complexType>
 	<!-- End of Header Elements -->
