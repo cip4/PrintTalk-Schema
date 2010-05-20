@@ -59,7 +59,7 @@
 	
 -->
 <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified"
-	targetNamespace="http://www.printtalk.org/schema" version="V1.3"
+	targetNamespace="http://www.printtalk.org/schema_13" version="V1.3"
 	xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
 	xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_3_Types"
 	xmlns:pt="http://www.printtalk.org/schema"
