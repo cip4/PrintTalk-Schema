@@ -74,7 +74,7 @@
   at the moment that the Buyer accepts and commits to the purchase.  
 -->
 <PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.printtalk.org/schema_13 file:/D:/shiebert/Projects/CIP4/Working%20Groups/Product%20Decscription/SVN-old/Version_1_3/Printtalk.xsd"
+    xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/printtalk.xsd"
     xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" version="1.3"
     payloadID="Product Description Working Example">
     <Header>

@@ -62,7 +62,7 @@
 	targetNamespace="http://www.printtalk.org/schema_13" version="V1.3"
 	xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
 	xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_3_Types"
-	xmlns:pt="http://www.printtalk.org/schema"
+	xmlns:pt="http://www.printtalk.org/schema_13"
 	xmlns:xs="http://www.w3.org/2001/XMLSchema"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<xs:annotation>
