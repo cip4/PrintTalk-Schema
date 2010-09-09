@@ -74,33 +74,35 @@
   at the moment that the Buyer accepts and commits to the purchase.  
 -->
 <PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/printtalk.xsd"
-    xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" version="1.3"
-    payloadID="Product Description Working Example">
-    <Header>
-        <!-- -->
-        <From>
-            <!--	This credential will identify the source of the Purchase Order -->
-            <!--	Here it is the identity of the web portal -->
-            <Credential domain="AribaNetworkUserId">
-                <Identity>admin@acme.com</Identity>
-            </Credential>
-        </From>
-        <To>
-            <!-- The following set of credentials identify the same company in a number of domains -->
-            <!-- The first is the company's identity within the Networkid domain -->
-            <!-- The second is the company's more public identity with a business directory -->
-            <!-- There could be other Credentials (for other domains if they are relevant to this transaction -->
-            <Credential domain="Networkid" type="marketplace">
-                <Identity>AN010000000133</Identity>
-            </Credential>
-            <!-- This example of a Credential uses the Dun & Bradstreet  business directory -->
-            <Credential domain="DUNS">
-                <Identity>942888711</Identity>
-            </Credential>
-        </To>
-        <Sender>
-            <!--  GCM:TBD Is this where the identity of the final Customer is placed? 
+ xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/Printtalk.xsd"
+ xmlns="http://www.printtalk.org/schema_13"
+ xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+ version="1.3"
+ payloadID="Product Description Working Example">
+	<Header>
+	  <!-- -->
+		<From>
+      <!--	This credential will identify the source of the Purchase Order -->
+      <!--	Here it is the identity of the web portal -->
+			<Credential domain="AribaNetworkUserId">
+				<Identity>admin@acme.com</Identity>
+			</Credential>
+		</From>
+		<To>
+		  <!-- The following set of credentials identify the same company in a number of domains -->
+		  <!-- The first is the company's identity within the Networkid domain -->
+		  <!-- The second is the company's more public identity with a business directory -->
+		  <!-- There could be other Credentials (for other domains if they are relevant to this transaction -->
+			<Credential domain="Networkid" type="marketplace">
+				<Identity>AN010000000133</Identity>
+			</Credential>
+		  <!-- This example of a Credential uses the Dun & Bradstreet  business directory -->
+		  <Credential domain="DUNS">
+		    <Identity>942888711</Identity>
+		  </Credential>
+		</To>
+		<Sender>
+<!--  GCM:TBD Is this where the identity of the final Customer is placed? 
       or does this go in the JDF or indeed both?  -->
             <Credential domain="">
                 <Identity/>

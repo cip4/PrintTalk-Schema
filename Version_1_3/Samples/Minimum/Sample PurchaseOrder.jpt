@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/Printtalk_1_3/Printtalk.xsd"
+ xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/Printtalk.xsd"
  xmlns="http://www.printtalk.org/schema_13"
  xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
  version="1.3"
@@ -20,6 +20,7 @@
 			<Credential domain="">
 				<Identity></Identity>
 			</Credential>
+			<UserAgent/>
 		</Sender>
 	</Header>
 	<Request>
