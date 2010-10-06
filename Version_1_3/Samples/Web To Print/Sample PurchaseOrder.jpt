@@ -74,66 +74,82 @@
   at the moment that the Buyer accepts and commits to the purchase.  
 -->
 <PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/Printtalk.xsd"
- xmlns="http://www.printtalk.org/schema_13"
- xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
- version="1.3"
- payloadID="Product Description Working Example">
+	xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/Printtalk.xsd http://www.CIP4.org/JDFSchema_1_1 http://www.cip4.org/Schema/JDFSchema_1_4a/JDF.xsd"
+	xmlns="http://www.printtalk.org/schema_13"
+	xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+	version="1.3"
+	payloadID="Product Description Working Example">
 	<Header>
-	  <!-- -->
+		<!-- -->
 		<From>
-      <!--	This credential will identify the source of the Purchase Order -->
-      <!--	Here it is the identity of the web portal -->
+			<!--	This credential will identify the source of the Purchase Order -->
+			<!--	Here it is the identity of the host of the web portal -->
 			<Credential domain="AribaNetworkUserId">
 				<Identity>admin@acme.com</Identity>
 			</Credential>
 		</From>
 		<To>
-		  <!-- The following set of credentials identify the same company in a number of domains -->
-		  <!-- The first is the company's identity within the Networkid domain -->
-		  <!-- The second is the company's more public identity with a business directory -->
-		  <!-- There could be other Credentials (for other domains if they are relevant to this transaction -->
+			<!-- The following set of credentials identify the same company in a number of domains -->
+			<!-- The first is the company's identity within the Networkid domain -->
+			<!-- The second is the company's more public identity with a business directory -->
+			<!-- There could be other Credentials (for other domains if they are relevant to this transaction -->
 			<Credential domain="Networkid" type="marketplace">
 				<Identity>AN010000000133</Identity>
 			</Credential>
-		  <!-- This example of a Credential uses the Dun & Bradstreet  business directory -->
-		  <Credential domain="DUNS">
-		    <Identity>942888711</Identity>
-		  </Credential>
+			<!-- This example of a Credential uses the Dun & Bradstreet  business directory -->
+			<Credential domain="DUNS">
+				<Identity>942888711</Identity>
+			</Credential>
 		</To>
 		<Sender>
-<!--  GCM:TBD Is this where the identity of the final Customer is placed? 
-      or does this go in the JDF or indeed both?  -->
-            <Credential domain="">
-                <Identity/>
-            </Credential>
-            <UserAgent>Some Text</UserAgent>
-        </Sender>
-    </Header>
-    <Request>
-        <PurchaseOrder Expires="INF" AgentID="AgentID" AgentDisplayName="Agent Display Name" BusinessID="BusinessID">
-            <!-- SPH2010-07-15: Where does the catalog entry id go? -->
-            <!--	GCM:TBD For the purposes of this example is it necessary to supply a 'trivial' JDF? SPH2010-07-15:See below	-->
-            <!--  GCM:TBD Should the example show that the PDF is part of the JDF
+			<!--  The Sender is the identity of the Web Application used to create the order -->
+			<Credential type="Web Application" domain="unknown">
+				<Identity>WebApp:PurchaseAgent</Identity>
+			</Credential>
+			<UserAgent>WebApp:PurchaseAgent Version:0.1a</UserAgent>
+		</Sender>
+	</Header>
+	<Request>
+		<PurchaseOrder Expires="INF" AgentID="AgentID" AgentDisplayName="Agent Display Name" BusinessID="BusinessID">
+			<!-- SPH2010-07-15: Where does the catalog entry id go? -->
+			<!--	GCM:TBD For the purposes of this example is it necessary to supply a 'trivial' JDF? SPH2010-07-15:See below	-->
+			<!--  GCM:TBD Should the example show that the PDF is part of the JDF
       i.e. This is a single 'Fire&Forget PT transaction so when & how else is the PDF sent? -->
-            <!--  The following JDF is used to convey the Customers selections to the Print Company -->
-            <jdf:JDF ID="r2009123456" Status="Ready" Type="Product">
-                <jdf:ResourcePool>
-                    <jdf:ArtDeliveryIntent Class="Intent" ID="ADI" Status="Available">
-                        <jdf:ArtDelivery ArtDeliveryType="DigitalFile">
-                            <jdf:RunListRef rRef="RL"/>
-                        </jdf:ArtDelivery>
-                    </jdf:ArtDeliveryIntent>
-                    <jdf:RunList Class="Parameter" ID="RL" Status="Available">
-                        <jdf:LayoutElement Class="Parameter">
-                            <jdf:FileSpec Class="Parameter" URL="http://somwhere/somePDF.pdf"/>
-                        </jdf:LayoutElement>
-                    </jdf:RunList>
-                </jdf:ResourcePool>
-                <jdf:ResourceLinkPool>
-                    <jdf:ArtDeliveryIntentLink rRef="ADI" Usage="Input"/>
-                </jdf:ResourceLinkPool>
-            </jdf:JDF>
-        </PurchaseOrder>
-    </Request>
+			<!--  The following JDF is used to convey the Customers selections to the Print Company -->
+			<jdf:JDF ID="r2009123456" Status="Ready" Type="Product">
+				<jdf:ResourcePool>
+					<jdf:ArtDeliveryIntent Class="Intent" ID="ADI" Status="Available">
+						<jdf:ArtDelivery ArtDeliveryType="DigitalFile">
+							<jdf:RunListRef rRef="RL"/>
+						</jdf:ArtDelivery>
+					</jdf:ArtDeliveryIntent>
+					<jdf:RunList Class="Parameter" ID="RL" Status="Available">
+						<jdf:LayoutElement Class="Parameter">
+							<!-- Note the use of CID. It is expected the PrintTalk, JDF & PDF     -->
+							<!-- will be supplied in a single MIME package between the two agents -->
+							<jdf:FileSpec Class="Parameter" URL="cid:16Page.pdf"/>
+						</jdf:LayoutElement>
+					</jdf:RunList>
+					<jdf:Component ProductType="xyz:Brouchure" ComponentType="FinalProduct" ID="C_001" Class="Quantity" Status="Unavailable"/>
+					<jdf:DeliveryIntent ID="DI" Status="Available" Class="Intent">
+						<jdf:DropIntent>
+							<jdf:Method Actual="Courier" DataType="NameSpan"/>
+							<jdf:Contact ContactTypes="Customer Delivery">
+								<jdf:Person FirstName="Luke" FamilyName="Skywalker">
+									<jdf:Address PostBox="46" City="Tatooine"/>
+									<jdf:ComChannel ChannelType="Phone" Locator="0666 2511899"/>
+								</jdf:Person>
+							</jdf:Contact>							
+						</jdf:DropIntent>
+					</jdf:DeliveryIntent>
+				</jdf:ResourcePool>
+
+				<jdf:ResourceLinkPool>
+					<jdf:ComponentLink rRef="C_001" Usage="Output" Amount="200"/>
+					<jdf:DeliveryIntentLink rRef="DI" Usage="Input"/> 
+					<jdf:ArtDeliveryIntentLink rRef="ADI" Usage="Input"/>
+				</jdf:ResourceLinkPool>
+			</jdf:JDF>
+		</PurchaseOrder>
+	</Request>
 </PrintTalk>
