@@ -75,16 +75,24 @@
 -->
 <PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/Printtalk.xsd http://www.CIP4.org/JDFSchema_1_1 http://www.cip4.org/Schema/JDFSchema_1_4a/JDF.xsd"
-	xmlns="http://www.printtalk.org/schema_13"
-	xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
-	version="1.3"
-	payloadID="Product Description Working Example">
+	xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+	version="1.3" payloadID="Product Description Working Example">
 	<Header>
 		<!-- -->
 		<From>
+			<!-- 2010-10-07T5 GM: PT Header holds credentials - plain text -->
+			<!-- 2010-10-07T1 JM: From should be the designer or buyer
+			                         GM: don't actually have a designer (fixed by app.)
+			                                some contact details are in DeliveryIntent in the JDF
+			-->
 			<!--	This credential will identify the source of the Purchase Order -->
 			<!--	Here it is the identity of the host of the web portal -->
 			<Credential domain="AribaNetworkUserId">
+				<!-- 2010-10-07T2 GM: No company due to web submission
+					                  JM: isn't there a login to the portal?
+					                         differences between scenarios: defered supplying personal info?
+					                   GM: From has nothing to do with persons (per the spec?)
+				-->
 				<Identity>admin@acme.com</Identity>
 			</Credential>
 		</From>
@@ -98,6 +106,9 @@
 			</Credential>
 			<!-- This example of a Credential uses the Dun & Bradstreet  business directory -->
 			<Credential domain="DUNS">
+				<!-- 2010-10-07T6 JM: Dun's # is a unique ID for every business
+				                             GM: for this "domain"
+				-->
 				<Identity>942888711</Identity>
 			</Credential>
 		</To>
@@ -110,13 +121,17 @@
 		</Sender>
 	</Header>
 	<Request>
-		<PurchaseOrder Expires="INF" AgentID="AgentID" AgentDisplayName="Agent Display Name" BusinessID="BusinessID">
+		<PurchaseOrder Expires="INF" AgentID="AgentID" AgentDisplayName="Agent Display Name"
+			BusinessID="BusinessID">
 			<!-- SPH2010-07-15: Where does the catalog entry id go? -->
 			<!--	GCM:TBD For the purposes of this example is it necessary to supply a 'trivial' JDF? SPH2010-07-15:See below	-->
 			<!--  GCM:TBD Should the example show that the PDF is part of the JDF
       i.e. This is a single 'Fire&Forget PT transaction so when & how else is the PDF sent? -->
 			<!--  The following JDF is used to convey the Customers selections to the Print Company -->
 			<jdf:JDF ID="r2009123456" Status="Ready" Type="Product">
+				<!-- 2010-10-07T8 All: It appears that we need CustomerInfo/@BillingCode to carry the PO#
+				                                 See PrintTalk BusinessInfo - see pp 39-40 for example side by side with paper version
+				-->
 				<jdf:ResourcePool>
 					<jdf:ArtDeliveryIntent Class="Intent" ID="ADI" Status="Available">
 						<jdf:ArtDelivery ArtDeliveryType="DigitalFile">
@@ -127,26 +142,46 @@
 						<jdf:LayoutElement Class="Parameter">
 							<!-- Note the use of CID. It is expected the PrintTalk, JDF & PDF     -->
 							<!-- will be supplied in a single MIME package between the two agents -->
+							<!-- 2010-10-07T7 GM: Note URL, PDF must become part of the PO -->
 							<jdf:FileSpec Class="Parameter" URL="cid:16Page.pdf"/>
 						</jdf:LayoutElement>
 					</jdf:RunList>
-					<jdf:Component ProductType="xyz:Brouchure" ComponentType="FinalProduct" ID="C_001" Class="Quantity" Status="Unavailable"/>
+					<jdf:Component ProductType="xyz:Brouchure" ComponentType="FinalProduct"
+						ID="C_001" Class="Quantity" Status="Unavailable"/>
 					<jdf:DeliveryIntent ID="DI" Status="Available" Class="Intent">
 						<jdf:DropIntent>
 							<jdf:Method Actual="Courier" DataType="NameSpan"/>
-							<jdf:Contact ContactTypes="Customer Delivery">
+							<!-- 2010-10-07T3 GM: here's the personal info
+								                         For simplest w2p, the PO should be drop dead simple - JDF supports detail
+								                         could be more than one jdf:Contact
+								                   JM: please add a second Contact
+							-->
+							<!-- 2010-10-07T4 SH: split into two Contact elements 
+								                  GM: Note the added detail and precision in jdf:Person; not plain text
+								                  JM: are we consistent with cXML in out use of PT header?
+								                  GM: think so - verify ...
+								                  GM: from cXML: From and To don't change; Sender is the immediate sender in the workflow
+						           -->
+							<jdf:Contact ContactTypes="Customer">
 								<jdf:Person FirstName="Luke" FamilyName="Skywalker">
 									<jdf:Address PostBox="46" City="Tatooine"/>
 									<jdf:ComChannel ChannelType="Phone" Locator="0666 2511899"/>
 								</jdf:Person>
-							</jdf:Contact>							
+							</jdf:Contact>
+							<jdf:Contact ContactTypes="Delivery">
+								<jdf:Person FirstName="Luke's mom" FamilyName="Skywalker">
+									<jdf:Comment>Mom's always home</jdf:Comment>
+									<jdf:Address PostBox="48" City="Tatooine"/>
+									<jdf:ComChannel ChannelType="Phone" Locator="0666 2511899"/>
+								</jdf:Person>
+							</jdf:Contact>
 						</jdf:DropIntent>
 					</jdf:DeliveryIntent>
 				</jdf:ResourcePool>
 
 				<jdf:ResourceLinkPool>
 					<jdf:ComponentLink rRef="C_001" Usage="Output" Amount="200"/>
-					<jdf:DeliveryIntentLink rRef="DI" Usage="Input"/> 
+					<jdf:DeliveryIntentLink rRef="DI" Usage="Input"/>
 					<jdf:ArtDeliveryIntentLink rRef="ADI" Usage="Input"/>
 				</jdf:ResourceLinkPool>
 			</jdf:JDF>
