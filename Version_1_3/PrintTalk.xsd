@@ -67,8 +67,6 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<xs:annotation>
 		<xs:documentation>
-		</xs:documentation>
-		<xs:documentation>
 			PrintTalk schema: Version 1.3
 			This schema is intended for use with a single root element, namely: 
 				PrintTalk 
