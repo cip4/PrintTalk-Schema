@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk payloadID="1" version="1.3" xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/PrintTalk.xsd">
+    <Header>
+        <From>
+            <Credential domain="">
+                <Identity/>
+            </Credential>
+        </From>
+        <To>
+            <Credential domain="">
+                <Identity/>
+            </Credential>
+        </To>
+        <Sender>
+            <Credential domain="">
+                <Identity/>
+            </Credential>
+            <UserAgent>a string</UserAgent>
+        </Sender>
+    </Header>
+    <Request>
+        <Quotation AgentDisplayName="Agent Display Name" AgentID="AgentID" BusinessID="BusinessID" Currency="GBP" Estimate="true" Expires="INF">
+            <Quote QuoteID="Quote001"/>
+        </Quotation>
+    </Request>
+</PrintTalk>
