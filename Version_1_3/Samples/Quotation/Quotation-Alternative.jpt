@@ -129,6 +129,14 @@
                                 <ProofingIntentLink Usage="Input" rRef="Proof1"/>
                             </ResourceLinkPool>
                             <ResourcePool>
+                                <ColorIntent Class="Intent" ID="CI" Status="Available" >
+                                    <Coatings DataType="StringSpan">
+                                        <!-- Note, this implies offering UV coating for free -->
+                                        <!-- need a way to suggest addional work for additional price; currently, it's a whole new Quote -->
+                                        <OfferRange>UV Coating</OfferRange>
+                                        <OfferRange>None</OfferRange>
+                                    </Coatings>
+                                </ColorIntent>
                                 <Component Class="Quantity" ComponentType="PartialProduct" DescriptiveName="flyer" ID="Item01flat" Status="Unavailable"/>
                                 <LayoutIntent Class="Intent" ID="Size1" Status="Available">
                                     <Dimensions DataType="XYPairSpan" Actual="1224 792" Priority="Required">
@@ -191,7 +199,22 @@
                         </JDF>
                     </JDF>
                 </jdf:JDF>
-                
+                <!-- for PrintTalk 1.4 we need to make Pricing+ not Pricing? -->
+                <Pricing>
+                    <!-- The units of currency for @Price are in <Quote> -->
+                    <Price Amount="7990" LineID="Base" Price="3995"  DescriptiveName="Base offer">
+                        <!-- additional is per the RFQ -->
+                        <Additional Amount="1000" Price="450"/>
+                    </Price>
+                    <Price Price="399.50" LineIDRefs="Base" DescriptiveName="Tax on the base offer">
+                        <Additional Amount="1000" Price="45" DescriptiveName="Tax per additional 1000"/>
+                    </Price>
+                    <!-- This second Price would go into another Pricing element
+                    <Price Amount="10000" Price="4000" DescriptiveName="10000 is a break point in price">
+                        <Additional Amount="1000" Price="400"/>
+                    </Price>
+                    -->
+                </Pricing>                
             </Quote>
         </Quotation>
     </Request>
