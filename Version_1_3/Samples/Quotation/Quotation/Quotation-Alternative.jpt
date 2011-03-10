@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk payloadID="1" version="1.3" xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/PrintTalk.xsd">
+    <Header>
+        <From>
+            <Credential domain="">
+                <Identity/>
+            </Credential>
+        </From>
+        <To>
+            <Credential domain="">
+                <Identity/>
+            </Credential>
+        </To>
+        <Sender>
+            <Credential domain="">
+                <Identity/>
+            </Credential>
+            <UserAgent>a string</UserAgent>
+        </Sender>
+    </Header>
+    <Request>
+        <Quotation AgentDisplayName="Agent Display Name" AgentID="AgentID" BusinessID="BusinessID" Currency="GBP" Estimate="true" Expires="INF">
+            <Quote QuoteID="Quote001">
+                <jdf:JDF DescriptiveName="Learn to Fly seminar mailer" ID="root" JobID="HDM20002124161007" ProjectID="HDM_Prod20001124161007" Status="Waiting"
+                    Type="Product" Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
+                    <!--A single JDF element is the only element content of an RFQ element.-->
+                    <!--Structure of a JDF node is defined by the JDF specification. However there is a best practice structure as indicated in section 3.3 of this spec. Alternative JDF structures are permitted although not illustrated here.-->
+                    <!--EE DescriptiveName: Courtesy display text.-->
+                    <!--ID: An XML ID-->
+                    <!--JobID: sender's reference to a job.-->
+                    <!--ProjectID: sender's reference to a project.-->
+                    <!--Type: For RFQ, always "Product."-->
+                    <!--SettingsPolicy: indicates what happens, when unsupported settings are present.-->
+                    <!--status: For RFQ, always "waiting."-->
+                    <!--Version: JDF version.-->
+                    <!--xmlns: XML namespace.-->
+                    <AuditPool>
+                        <!--Not required by PrintTalk, may be used at the discretion of the document creator.-->
+                        <Created Author="Christian@heidelberg.com" TimeStamp="2012-07-01T11:27:00+01:00"/>
+                    </AuditPool>
+                    <CustomerInfo CustomerID="cu/4563-02" rRefs="Contact1">
+                        <ContactRef rRef="Contact1"/>
+                    </CustomerInfo>
+                    <ResourceLinkPool>
+                        <!--In the root JDF node only a DeliveryIntentLink for each of the independent alternatives that constitute the request for quote; Usage = "Input."-->
+                        <DeliveryIntentLink Usage="Input" rRef="Deliv1"/>
+                    </ResourceLinkPool>
+                    <ResourcePool>
+                        <!--In the root JDF node any Resources required by the JDF structure rule like resources referenced in the CustomerInfo, but including the required DeliveryIntents and from the ResourceLinkPool.-->
+                        <DeliveryIntent Class="Intent" DescriptiveName="Delivery of samples to buyer, rest to mail house" ID="Deliv1" Status="Available"
+                            rRefs="Item01 Contact1 Contact2">
+                            <!--Status: All intent resources are "Available."-->
+                            <!--Other attribute values determined by JDF structure rules.-->
+                            <Overage DataType="NumberSpan" Actual="5" Priority="Required">
+                                <!--SS Overage: Percentage by which actual count of delivered items may exceed ordered quantity.-->
+                            </Overage>
+                            <Underage DataType="NumberSpan" Actual="0" Priority="Required">
+                                <!--SS Underage: Percentage by which actual count of delivered items may be less than ordered quantity.-->
+                            </Underage>
+                            <Method DataType="NameSpan" Actual="1stClassMail" Priority="Required">
+                                <!--QQ-->
+                            </Method>
+                            <Required DataType="TimeSpan" Actual="2012-07-26T09:30:00-08:00" Priority="Required">
+                                <!--QQ-->
+                            </Required>
+                            <DropIntent>
+                                <ContactRef rRef="Contact1"/>
+                                <DropItemIntent Amount="10">
+                                    <!--Amount: Count of items to be delivered.-->
+                                    <!--Delivery is made to the Contact(Ref) with ContactTypes including "Delivery" found in this element, or its parent, or its parent's parent.-->
+                                    <ComponentRef rRef="Item01"/>
+                                </DropItemIntent>
+                            </DropIntent>
+                            <DropIntent>
+                                <ContactRef rRef="Contact2"/>
+                                <DropItemIntent AdditionalAmount="1000" Amount="7990">
+                                    <!--FF LL-->
+                                    <!--GG AdditionalAmount: A quote returned for this RFQ should include a price for additional quantities of this amount.-->
+                                    <ComponentRef rRef="Item01"/>
+                                </DropItemIntent>
+                            </DropIntent>
+                        </DeliveryIntent>
+                        <Contact Class="Parameter" ContactTypes="Customer Delivery" ID="Contact1" Status="Available">
+                            <Address City="Island Drive" Country="United States" CountryCode="US" PostalCode="90028" Region="CA" Street="1929 Peter Pan Wy."/>
+                            <Person FamilyName="Martin" FirstName="Mary" JobTitle="Print Buyer">
+                                <ComChannel ChannelType="Phone" Locator="1 213 555 1212"/>
+                                <ComChannel ChannelType="Email" Locator="mailto:mmartin@pan-o-ramic.com"/>
+                            </Person>
+                            <Company DescriptiveName="Customer: Pan-O-Ramic" ID="Company1" OrganizationName="Pan-O-Ramic"/>
+                            <!--DD-->
+                        </Contact>
+                        <Contact Class="Parameter" ContactTypes="Delivery" ID="Contact2" Status="Available">
+                            <Address City="Hawthorne" Country="United States" CountryCode="US" PostalCode="90250" Region="CA" Street="1234 Hurry-up Avenue"/>
+                            <Person FirstName="Wendy"/>
+                            <Company DescriptiveName="Mail fulfillment: Tinker Mailing" ID="Company2" OrganizationName="Tinker Mailing">
+                                <!--RR-->
+                            </Company>
+                            <!--LL-->
+                        </Contact>
+                    </ResourcePool>
+                    <JDF DescriptiveName="folded flyer" ID="Link0005" JobPartID="HDM20002124161007-folded" Status="Waiting" Type="Product">
+                        <!--This element describes the folded flyer that is made up by the the flat, printed article; the child JDF element makes the flat, printed article.-->
+                        <ResourceLinkPool>
+                            <ComponentLink Usage="Output" rRef="Item01"/>
+                            <ComponentLink Usage="Input" rRef="Item01flat"/>
+                            <FoldingIntentLink Usage="Input" rRef="Fold1"/>
+                        </ResourceLinkPool>
+                        <ResourcePool>
+                            <Component Class="Quantity" ComponentType="FinalProduct" DescriptiveName="4-page folded flyer" ID="Item01" Status="Unavailable">
+                                <Comment Name="Instruction">NN Check that the weight of the finished piece does not exceed 1oz. (28.3 grams) to qualify for U.S.
+                                    postage rate.</Comment>
+                            </Component>
+                            <FoldingIntent Class="Intent" ID="Fold1" Status="Available">
+                                <FoldingCatalog DataType="NameSpan" Actual="F8-7" Priority="Required">
+                                    <!--KK Preferred: "F8-7" is an item from the folding catalog in the JDF specification.-->
+                                </FoldingCatalog>
+                            </FoldingIntent>
+                        </ResourcePool>
+                        <JDF DescriptiveName="flat flyer" ID="Link0006" JobPartID="HDM20002124161007-flat" Status="Waiting" Type="Product">
+                            <!--This element describes the flat flyer and the intents that are used to describe it.-->
+                            <ResourceLinkPool>
+                                <ComponentLink Usage="Output" rRef="Item01flat"/>
+                                <ArtDeliveryIntentLink Usage="Input" rRef="Art1"/>
+                                <ColorIntentLink Usage="Input" rRef="Color1"/>
+                                <MediaIntentLink Usage="Input" rRef="Media1"/>
+                                <LayoutIntentLink Usage="Input" rRef="Size1"/>
+                                <ProofingIntentLink Usage="Input" rRef="Proof1"/>
+                            </ResourceLinkPool>
+                            <ResourcePool>
+                                <ColorIntent Class="Intent" ID="CI" Status="Available" >
+                                    <Coatings DataType="StringSpan">
+                                        <!-- Note, this implies offering UV coating for free -->
+                                        <!-- need a way to suggest addional work for additional price; currently, it's a whole new Quote -->
+                                        <OfferRange>UV Coating</OfferRange>
+                                        <OfferRange>None</OfferRange>
+                                    </Coatings>
+                                </ColorIntent>
+                                <Component Class="Quantity" ComponentType="PartialProduct" DescriptiveName="flyer" ID="Item01flat" Status="Unavailable"/>
+                                <LayoutIntent Class="Intent" ID="Size1" Status="Available">
+                                    <Dimensions DataType="XYPairSpan" Actual="1224 792" Priority="Required">
+                                        <!--HH This is the size of the flat, printed article.-->
+                                    </Dimensions>
+                                    <Pages DataType="IntegerSpan" Actual="2"/>
+                                </LayoutIntent>
+                                <ArtDeliveryIntent Class="Intent" ID="Art1" Status="Available">
+                                    <ArtDeliveryDate DataType="TimeSpan" Actual="2012-07-23T17:00:00-08:00"/>
+                                    <Transfer DataType="EnumerationSpan" Actual="BuyerToPrinterDeliver"/>
+                                    <ArtDelivery ArtDeliveryType="DigitalMedia" HasBleeds="true" PageList="0 ~ 3">
+                                        <RunList Pages="0 ~ 3">
+                                            <LayoutElement ElementType="Document" HasBleeds="true">
+                                                <FileSpec Application="Quark"/>
+                                            </LayoutElement>
+                                        </RunList>
+                                        <!--OO-->
+                                    </ArtDelivery>
+                                    <ArtDelivery ArtDeliveryType="DigitalMedia" HasBleeds="true">
+                                        <RunList>
+                                            <LayoutElement ElementType="Image" HasBleeds="true">
+                                                <FileSpec Application="Photoshop"/>
+                                                <Comment Attribute="ElementType" Name="Description">Cropped and scaled scans for halftones.</Comment>
+                                            </LayoutElement>
+                                        </RunList>
+                                        <!--OO-->
+                                    </ArtDelivery>
+                                    <Comment Name="Description">Solids and reverses completed and in the files.<!--OO-->
+                                    </Comment>
+                                </ArtDeliveryIntent>
+                                <ColorIntent Class="Intent" ID="Color1" Status="Available">
+                                    <ColorStandard DataType="NameSpan" Actual="MonoChrome"/>
+                                    <ColorsUsed>
+                                        <!--II This is a 2-color job; colors must be listed since they are exactly those implied by ColorStandard = "MonoChrome."-->
+                                        <!--Here "PMSxxx" is used to mean "some unspecified PMS color."-->
+                                        <SeparationSpec Name="Black"/>
+                                        <SeparationSpec Name="PMSxxx"/>
+                                    </ColorsUsed>
+                                </ColorIntent>
+                                <MediaIntent Class="Intent" ID="Media1" Status="Available">
+                                    <!--JJ-->
+                                    <FrontCoatings DataType="EnumerationSpan" Actual="Semigloss"/>
+                                    <StockType DataType="NameSpan" Actual="Offset"/>
+                                    <USWeight DataType="NumberSpan" Actual="70">
+                                        <!--  <USWeight DataType="NumberSpan" Range="60 ~ 70"> -->
+                                        <!--MM-->
+                                    </USWeight>
+                                </MediaIntent>
+                                <ProofingIntent Class="Intent" ID="Proof1" Status="Available">
+                                    <!--PP-->
+                                    <ProofItem ProofTarget="mailto:mmartin@pan-o-ramic.com">
+                                        <ColorType DataType="EnumerationSpan" Actual="BasicColor"/>
+                                        <ProofType DataType="EnumerationSpan" Actual="Page"/>
+                                        <Technology DataType="NameSpan" Actual="SoftProof">
+                                            <Comment Name="Instruction">Send PDF file</Comment>
+                                        </Technology>
+                                    </ProofItem>
+                                </ProofingIntent>
+                            </ResourcePool>
+                        </JDF>
+                    </JDF>
+                </jdf:JDF>
+                <!-- for PrintTalk 1.4 we need to make Pricing+ not Pricing? -->
+                <Pricing>
+                    <!-- The units of currency for @Price are in <Quote> -->
+                    <Price Amount="7990" LineID="Base" Price="3995"  DescriptiveName="Base offer">
+                        <!-- additional is per the RFQ -->
+                        <Additional Amount="1000" Price="450"/>
+                    </Price>
+                    <Price Price="399.50" LineIDRefs="Base" DescriptiveName="Tax on the base offer">
+                        <Additional Amount="1000" Price="45" DescriptiveName="Tax per additional 1000"/>
+                    </Price>
+                    <!-- This second Price would go into another Pricing element
+                    <Price Amount="10000" Price="4000" DescriptiveName="10000 is a break point in price">
+                        <Additional Amount="1000" Price="400"/>
+                    </Price>
+                    -->
+                </Pricing>                
+            </Quote>
+        </Quotation>
+    </Request>
+</PrintTalk>
