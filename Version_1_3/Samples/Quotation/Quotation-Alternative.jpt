@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk payloadID="1" version="1.3" xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+<PrintTalk payloadID="1" version="1.3" xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" 
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.printtalk.org/schema_13 http://www.cip4.org/Schema/PrintTalk_1_3/PrintTalk.xsd">
+    <jdf:Comment>This quote alternative offers UV coating which was not in the original RFQ</jdf:Comment>
     <Header>
         <From>
             <Credential domain="">
@@ -53,16 +54,16 @@
                             rRefs="Item01 Contact1 Contact2">
                             <!--Status: All intent resources are "Available."-->
                             <!--Other attribute values determined by JDF structure rules.-->
-                            <Overage DataType="NumberSpan" Actual="5" Priority="Required">
+                            <Overage Actual="5" DataType="NumberSpan" Priority="Required">
                                 <!--SS Overage: Percentage by which actual count of delivered items may exceed ordered quantity.-->
                             </Overage>
-                            <Underage DataType="NumberSpan" Actual="0" Priority="Required">
+                            <Underage Actual="0" DataType="NumberSpan" Priority="Required">
                                 <!--SS Underage: Percentage by which actual count of delivered items may be less than ordered quantity.-->
                             </Underage>
-                            <Method DataType="NameSpan" Actual="1stClassMail" Priority="Required">
+                            <Method Actual="1stClassMail" DataType="NameSpan" Priority="Required">
                                 <!--QQ-->
                             </Method>
-                            <Required DataType="TimeSpan" Actual="2012-07-26T09:30:00-08:00" Priority="Required">
+                            <Required Actual="2012-07-26T09:30:00-08:00" DataType="TimeSpan" Priority="Required">
                                 <!--QQ-->
                             </Required>
                             <DropIntent>
@@ -113,7 +114,7 @@
                                     postage rate.</Comment>
                             </Component>
                             <FoldingIntent Class="Intent" ID="Fold1" Status="Available">
-                                <FoldingCatalog DataType="NameSpan" Actual="F8-7" Priority="Required">
+                                <FoldingCatalog Actual="F8-7" DataType="NameSpan" Priority="Required">
                                     <!--KK Preferred: "F8-7" is an item from the folding catalog in the JDF specification.-->
                                 </FoldingCatalog>
                             </FoldingIntent>
@@ -129,7 +130,7 @@
                                 <ProofingIntentLink Usage="Input" rRef="Proof1"/>
                             </ResourceLinkPool>
                             <ResourcePool>
-                                <ColorIntent Class="Intent" ID="CI" Status="Available" >
+                                <ColorIntent Class="Intent" ID="CI" Status="Available">
                                     <Coatings DataType="StringSpan">
                                         <!-- Note, this implies offering UV coating for free -->
                                         <!-- need a way to suggest addional work for additional price; currently, it's a whole new Quote -->
@@ -139,14 +140,14 @@
                                 </ColorIntent>
                                 <Component Class="Quantity" ComponentType="PartialProduct" DescriptiveName="flyer" ID="Item01flat" Status="Unavailable"/>
                                 <LayoutIntent Class="Intent" ID="Size1" Status="Available">
-                                    <Dimensions DataType="XYPairSpan" Actual="1224 792" Priority="Required">
+                                    <Dimensions Actual="1224 792" DataType="XYPairSpan" Priority="Required">
                                         <!--HH This is the size of the flat, printed article.-->
                                     </Dimensions>
-                                    <Pages DataType="IntegerSpan" Actual="2"/>
+                                    <Pages Actual="2" DataType="IntegerSpan"/>
                                 </LayoutIntent>
                                 <ArtDeliveryIntent Class="Intent" ID="Art1" Status="Available">
-                                    <ArtDeliveryDate DataType="TimeSpan" Actual="2012-07-23T17:00:00-08:00"/>
-                                    <Transfer DataType="EnumerationSpan" Actual="BuyerToPrinterDeliver"/>
+                                    <ArtDeliveryDate Actual="2012-07-23T17:00:00-08:00" DataType="TimeSpan"/>
+                                    <Transfer Actual="BuyerToPrinterDeliver" DataType="EnumerationSpan"/>
                                     <ArtDelivery ArtDeliveryType="DigitalMedia" HasBleeds="true" PageList="0 ~ 3">
                                         <RunList Pages="0 ~ 3">
                                             <LayoutElement ElementType="Document" HasBleeds="true">
@@ -168,7 +169,7 @@
                                     </Comment>
                                 </ArtDeliveryIntent>
                                 <ColorIntent Class="Intent" ID="Color1" Status="Available">
-                                    <ColorStandard DataType="NameSpan" Actual="MonoChrome"/>
+                                    <ColorStandard Actual="MonoChrome" DataType="NameSpan"/>
                                     <ColorsUsed>
                                         <!--II This is a 2-color job; colors must be listed since they are exactly those implied by ColorStandard = "MonoChrome."-->
                                         <!--Here "PMSxxx" is used to mean "some unspecified PMS color."-->
@@ -178,9 +179,9 @@
                                 </ColorIntent>
                                 <MediaIntent Class="Intent" ID="Media1" Status="Available">
                                     <!--JJ-->
-                                    <FrontCoatings DataType="EnumerationSpan" Actual="Semigloss"/>
-                                    <StockType DataType="NameSpan" Actual="Offset"/>
-                                    <USWeight DataType="NumberSpan" Actual="70">
+                                    <FrontCoatings Actual="Semigloss" DataType="EnumerationSpan"/>
+                                    <StockType Actual="Offset" DataType="NameSpan"/>
+                                    <USWeight Actual="70" DataType="NumberSpan">
                                         <!--  <USWeight DataType="NumberSpan" Range="60 ~ 70"> -->
                                         <!--MM-->
                                     </USWeight>
@@ -188,9 +189,9 @@
                                 <ProofingIntent Class="Intent" ID="Proof1" Status="Available">
                                     <!--PP-->
                                     <ProofItem ProofTarget="mailto:mmartin@pan-o-ramic.com">
-                                        <ColorType DataType="EnumerationSpan" Actual="BasicColor"/>
-                                        <ProofType DataType="EnumerationSpan" Actual="Page"/>
-                                        <Technology DataType="NameSpan" Actual="SoftProof">
+                                        <ColorType Actual="BasicColor" DataType="EnumerationSpan"/>
+                                        <ProofType Actual="Page" DataType="EnumerationSpan"/>
+                                        <Technology Actual="SoftProof" DataType="NameSpan">
                                             <Comment Name="Instruction">Send PDF file</Comment>
                                         </Technology>
                                     </ProofItem>
@@ -202,19 +203,19 @@
                 <!-- for PrintTalk 1.4 we need to make Pricing+ not Pricing? -->
                 <Pricing>
                     <!-- The units of currency for @Price are in <Quote> -->
-                    <Price Amount="7990" LineID="Base" Price="3995"  DescriptiveName="Base offer">
+                    <Price Amount="7990" DescriptiveName="Base offer" LineID="Base" Price="3995">
                         <!-- additional is per the RFQ -->
                         <Additional Amount="1000" Price="450"/>
                     </Price>
-                    <Price Price="399.50" LineIDRefs="Base" DescriptiveName="Tax on the base offer">
-                        <Additional Amount="1000" Price="45" DescriptiveName="Tax per additional 1000"/>
+                    <Price DescriptiveName="Tax on the base offer" LineIDRefs="Base" Price="399.50">
+                        <Additional Amount="1000" DescriptiveName="Tax per additional 1000" Price="45"/>
                     </Price>
                     <!-- This second Price would go into another Pricing element
                     <Price Amount="10000" Price="4000" DescriptiveName="10000 is a break point in price">
                         <Additional Amount="1000" Price="400"/>
                     </Price>
                     -->
-                </Pricing>                
+                </Pricing>
             </Quote>
         </Quotation>
     </Request>
