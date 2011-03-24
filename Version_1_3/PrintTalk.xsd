@@ -387,12 +387,19 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             <xs:extension base="pt:Abstract_pt">
                 <xs:sequence minOccurs="0">
                     <xs:element ref="jdf:JDF"/>
-                    <xs:element maxOccurs="unbounded" name="Pricing" type="pt:Pricing"/>
+                    <xs:element maxOccurs="unbounded" name="Pricing">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="pt:Pricing">                                    
+                                    <xs:attribute name="Options" type="jdftyp:NMTOKENS"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="optional"/>
                 <xs:attribute name="Estimate" type="jdftyp:boolean" use="optional"/>
                 <xs:attribute name="Expires" type="jdftyp:dateTime" use="optional"/>
-                <xs:attribute name="Options" type="jdftyp:NMTOKENS" use="optional"/>
                 <xs:attribute name="QuoteID" type="jdftyp:NMTOKEN" use="required"/>
                 <xs:attribute name="ReorderID" type="jdftyp:NMTOKENS" use="optional"/>
                 <xs:attribute name="ReplaceID" type="jdftyp:NMTOKEN" use="optional"/>
@@ -463,11 +470,18 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             <xs:extension base="pt:BusinessObject">
                 <xs:sequence>
                     <xs:element ref="jdf:JDF"/>
-                    <xs:element minOccurs="0" name="Pricing" type="pt:Pricing"/>
+                    <xs:element minOccurs="0" name="Pricing">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="pt:Pricing">
+                                    <xs:attribute name="Option" type="jdftyp:NMTOKEN"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="optional"/>
                 <xs:attribute name="Expires" type="jdftyp:dateTime" use="required"/>
-                <xs:attribute name="Option" type="jdftyp:NMTOKEN" use="optional"/>
                 <xs:attribute name="QuoteID" type="jdftyp:NMTOKEN" use="optional"/>
                 <xs:attribute name="ReorderID" type="jdftyp:NMTOKENS" use="optional"/>
                 <xs:attribute name="ReplaceID" type="jdftyp:NMTOKEN" use="optional"/>
@@ -623,11 +637,18 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             <xs:extension base="pt:BusinessObject">
                 <xs:sequence>
                     <xs:element minOccurs="0" ref="jdf:JDF"/>
-                    <xs:element name="Pricing" type="pt:Pricing"/>
+                    <xs:element name="Pricing">
+                        <xs:complexType>
+                            <xs:complexContent>
+                                <xs:extension base="pt:Pricing">
+                                    <xs:attribute name="Option" type="jdftyp:NMTOKEN"/>
+                                </xs:extension>
+                            </xs:complexContent>
+                        </xs:complexType>
+                    </xs:element>
                 </xs:sequence>
                 <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="required"/>
                 <xs:attribute name="Expires" type="jdftyp:dateTime" use="required"/>
-                <xs:attribute name="Option" type="jdftyp:NMTOKEN" use="optional"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
