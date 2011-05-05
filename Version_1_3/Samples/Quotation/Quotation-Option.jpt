@@ -128,11 +128,15 @@
                                 <ProofingIntentLink Usage="Input" rRef="Proof1"/>
                             </ResourceLinkPool>
                             <ResourcePool>
-                                <ColorIntent Class="Intent" ID="CI" PartIDKeys="Option" PartUsage="Implicit" Status="Available">
+                                <ColorIntent Class="Intent" ID="CI" PartIDKeys="Option Side" PartUsage="Implicit" Status="Available">
                                     <ColorIntent Option="UVCoating">
-                                        <Coatings DataType="StringSpan">
-                                            <OfferRange>UV Coating</OfferRange>
-                                        </Coatings>
+                                        <GeneralID IDUsage="LineID" IDValue="UVCoating"/>
+                                        <!-- UV coating on the front available for an additional price - see Pricing -->
+                                        <ColorIntent Side="Front">
+                                            <Coatings DataType="StringSpan">
+                                                <OfferRange>UV Coating</OfferRange>
+                                            </Coatings>
+                                        </ColorIntent>
                                     </ColorIntent>
                                 </ColorIntent>
                                 <Component Class="Quantity" ComponentType="PartialProduct" DescriptiveName="flyer" ID="Item01flat" Status="Unavailable"/>
@@ -204,22 +208,9 @@
                         <!-- additional is per the RFQ -->
                         <Additional Amount="1000" Price="450"/>
                     </Price>
+                    <!-- sph 2011-05-05: how to indicate that the Price below is for an option? -->
+                    <Price DescriptiveName="UVCoating" LineID="UVCoating" Price="100"/>                        
                     <Price DescriptiveName="Tax on the base offer" LineIDRefs="Base" Price="399.50">
-                        <Additional Amount="1000" DescriptiveName="Tax per additional 1000" Price="45"/>
-                    </Price>
-                    <!-- This second Price would go into another Pricing element
-                        <Price Amount="10000" Price="4000" DescriptiveName="10000 is a break point in price">
-                        <Additional Amount="1000" Price="400"/>
-                        </Price>
-                    -->
-                </Pricing>
-                <Pricing Options="UVCoating">
-                    <!-- The units of currency for @Price are in <Quote> -->
-                    <Price Amount="7990" DescriptiveName="Base offer" LineID="OptionBase" Price="3995">
-                        <!-- additional is per the RFQ -->
-                        <Additional Amount="1000" Price="450"/>
-                    </Price>
-                    <Price DescriptiveName="Tax on the base offer" LineIDRefs="OptionBase" Price="399.50">
                         <Additional Amount="1000" DescriptiveName="Tax per additional 1000" Price="45"/>
                     </Price>
                     <!-- This second Price would go into another Pricing element
