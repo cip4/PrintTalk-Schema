@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk payloadID="1" version="1.3" xmlns="http://www.printtalk.org/schema_13" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.printtalk.org/schema_13 ../../PrintTalk.xsd">
+<PrintTalk payloadID="1" version="1.3" xmlns="http://www.printtalk.org/schema_13" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.printtalk.org/schema_13 ../../PrintTalk.xsd">
     <!-- This quote  offers UV coating which, was not in the original RFQ, as an added option - See Pricing/@Options="UVCoating" -->
     <Header>
         <From>
@@ -23,8 +23,9 @@
     <Request>
         <Quotation AgentDisplayName="Agent Display Name" AgentID="AgentID" BusinessID="BusinessID" Currency="GBP" Estimate="true" Expires="INF">
             <Quote QuoteID="Quote001">
-                <jdf:JDF DescriptiveName="Learn to Fly seminar mailer" ID="root" JobID="HDM20002124161007" ProjectID="HDM_Prod20001124161007" Status="Waiting"
-                    Type="Product" Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">                    <!--A single JDF element is the only element content of an RFQ element.-->
+                <JDF DescriptiveName="Learn to Fly seminar mailer" ID="root" JobID="HDM20002124161007" ProjectID="HDM_Prod20001124161007" Status="Waiting"
+                    Type="Product" Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
+                    <!--A single JDF element is the only element content of an RFQ element.-->
                     <!--Structure of a JDF node is defined by the JDF specification. However there is a best practice structure as indicated in section 3.3 of this spec. Alternative JDF structures are permitted although not illustrated here.-->
                     <!--EE DescriptiveName: Courtesy display text.-->
                     <!--ID: An XML ID-->
@@ -108,7 +109,8 @@
                         </ResourceLinkPool>
                         <ResourcePool>
                             <Component Class="Quantity" ComponentType="FinalProduct" DescriptiveName="4-page folded flyer" ID="Item01" Status="Unavailable">
-                                <Comment Name="Instruction">NN Check that the weight of the finished piece does not exceed 1oz. (28.3 grams) to qualify for U.S.
+                                <Comment Name="Instruction"
+                                    >NN Check that the weight of the finished piece does not exceed 1oz. (28.3 grams) to qualify for U.S.
                                     postage rate.</Comment>
                             </Component>
                             <FoldingIntent Class="Intent" ID="Fold1" Status="Available">
@@ -128,12 +130,18 @@
                                 <ProofingIntentLink Usage="Input" rRef="Proof1"/>
                             </ResourceLinkPool>
                             <ResourcePool>
-                                <ColorIntent Class="Intent" ID="CI" PartIDKeys="Option Side" PartUsage="Implicit" Status="Available">
+                                <ColorIntent Class="Intent" ID="CI" PartIDKeys="Option Side" PartUsage="Implicit" Status="Available"
+                                    xmlns="http://www.CIP4.org/JDFSchema_1_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                                    xsi:schemaLocation="http://www.CIP4.org/JDFSchema_1_1 http://www.cip4.org/Schema/JDFSchema_1_4a/JDF.xsd">
                                     <ColorIntent Option="UVCoating">
+                                        <!-- note that there may be multiple GeneralIDs if this option affects multiple line items -->
                                         <GeneralID IDUsage="LineID" IDValue="UVCoating"/>
                                         <!-- UV coating on the front available for an additional price - see Pricing -->
                                         <ColorIntent Side="Front">
                                             <Coatings DataType="StringSpan">
+                                                <!-- sph: 2011-06-16 note that the following line will fail in Version 1.3 -->
+                                                <!-- sph: 2011-06-16 also note that adding a 1.4 namespace declaration on ColorIntent, as above, changes nothing -->
+                                                <!-- <GeneralID IDUsage="LineID" IDValue="UVCoating"/> -->
                                                 <OfferRange>UV Coating</OfferRange>
                                             </Coatings>
                                         </ColorIntent>
@@ -200,7 +208,7 @@
                             </ResourcePool>
                         </JDF>
                     </JDF>
-                </jdf:JDF>
+                </JDF>
                 <!-- for PrintTalk 1.4 we need to make Pricing+ not Pricing? -->
                 <Pricing>
                     <!-- The units of currency for @Price are in <Quote> -->
@@ -208,8 +216,8 @@
                         <!-- additional is per the RFQ -->
                         <Additional Amount="1000" Price="450"/>
                     </Price>
-                    <!-- sph 2011-05-05: how to indicate that the Price below is for an option? -->
-                    <Price DescriptiveName="UVCoating" LineID="UVCoating" Price="100"/>                        
+                    <!-- LineID is referenced by a GeneralID in each Option partition of resources to which this Price applies -->
+                    <Price DescriptiveName="UVCoating" LineID="UVCoating" Price="100"/>
                     <Price DescriptiveName="Tax on the base offer" LineIDRefs="Base" Price="399.50">
                         <Additional Amount="1000" DescriptiveName="Tax per additional 1000" Price="45"/>
                     </Price>
