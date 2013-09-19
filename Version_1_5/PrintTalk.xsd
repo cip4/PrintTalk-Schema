@@ -567,7 +567,6 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                     <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Contact"/>
                     <xs:element minOccurs="0" ref="jdf:DeliveryParams"/>
                     <xs:element minOccurs="0" maxOccurs="unbounded" ref="jdf:Notification"/>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" name="Notification" type="jdf:NotificationAudit"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="Status" type="pt:Status"/>
                 </xs:sequence>
             </xs:extension>
@@ -621,7 +620,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             <xs:extension base="pt:Abstract_pt">
                 <xs:sequence>
                     <xs:element ref="jdf:ApprovalSuccess"/>
-                    <xs:element name="ProofItem" type="jdf:ProofingIntent_ProofItem_lr"/>
+                    <xs:element ref="jdf:ProofItem"/>
                 </xs:sequence>
                 <xs:attribute name="JobIDRef" type="jdftyp:string" use="required"/>
                 <xs:attribute name="JobPartIDRef" type="jdftyp:string" use="optional"/>
