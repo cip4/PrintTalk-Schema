@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.printtalk.org/schema" 
-			xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" 
-			xsi:schemaLocation="http://www.printtalk.org/schema PrintTalk_1_1.xsd" version="1.1" payloadID="187655" 
-			timestamp="2013-09-20T1030-0800">
+<PrintTalk version="1.5" payloadID="187655" Timestamp="2013-09-20T10:30:00-08:00" xmlns="http://www.printtalk.org/schema_15"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+    xsi:schemaLocation="http://www.printtalk.org/schema_15    http://www.cip4.org/Schema/PrintTalk_1_5/PrintTalk.xsd
+                      http://www.CIP4.org/JDFSchema_1_1     http://www.cip4.org/Schema/JDFSchema_1_5/JDF.xsd">
 	<Header>
 		<From>
 			<Credential domain="DNS">
@@ -29,9 +29,9 @@
 		</Sender>
 	</Header>
 	<Request>
-		<OrderStatusResponse AgentID="Dealer" AgentDisplayName="Dealer User" RequestDate="2013-09-20T1030-0800" 
+		<OrderStatusResponse AgentID="Dealer" AgentDisplayName="Dealer User" RequestDate="2013-09-20T10:30:00-08:00" 
 						BusinessID="1222" BusinessRefID="Conf_12345">
-			<jdf:Notification JobID = "0901-1243" Type = "Milestone"> 
+			<jdf:Notification JobID="0901-1243" Class="Information" TimeStamp="2013-10-12T10:30:00-08:00" Type="Milestone"> 
                  <Milestone MilestoneType = "ShippingCompleted"/>
         </jdf:Notification>	
 		</OrderStatusResponse>

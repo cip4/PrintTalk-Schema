@@ -1,127 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.printtalk.org/schema" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xsi:schemaLocation="http://www.printtalk.org/schema PrintTalk_1_1.xsd" version="1.1" payloadID="13474875" timestamp="2013-09-06T1000-0800">
-	<Header>
-		<From>
-			<Credential domain="DNS">
-				<Identity>Print Dealer</Identity>
-			</Credential>
-			<Credential domain="DUNS">
-				<Identity>063589998</Identity>
-			</Credential>
-		</From>
-		<To>
-			<Credential domain="AvalonPrinting.com">
-				<Identity>Avalon Printing</Identity>
-			</Credential>
-			<Credential domain="DUNS">
-				<Identity>012737459</Identity>
-			</Credential>
-		</To>
-		<Sender>
-			<Credential domain="DNS">
-				<Identity>PrintORama.com</Identity>
-				<SharedSecret>catsndogs</SharedSecret>
-			</Credential>
-			<UserAgent>PrintORama v.1.0</UserAgent>
-		</Sender>
-	</Header>
-	<Request>
-		<PurchaseOrder AgentID="MLow" AgentDisplayName="Margaret Low" RequestDate="2013-09-06T1000-0800" 
-							BusinessID="1111" Currency="USD" Expires="2013-09-10T1700-0800">
-			<jdf:JDF DescriptiveName="Flyers" ID="JDF000-Root" JobID="0901-1299" Type="Product" Status="Waiting" 
-							Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
-				<ResourcePool>
-					<CustomerInfo ID="Customer01" CustomerID="752354" >
-						<ContactRef rRef="Contact01"/>
-					</CustomerInfo>
-					<Contact ID="Contact01" Class="Parameter" Status="Available" ContactTypes="Billing Customer">
-						<Address Street="123 5th Street" City="New York" Region="NY" PostalCode="10024"/>
-						<Person JobTitle="Sales Manager" FirstName="Bill" FamilyName="Mayers"/>
-						<Company ID="Dealer01" Class="Parameter" Status="Available" OrganizationName="Print Dealer"/>
-					</Contact>
-					<Contact ID="Contact02" Class="Parameter" Status="Available" ContactTypes="Delivery">
-						<Address Street="1745 First Street" City="Dublin" Region="OH" PostalCode="43202"/>
-						<Person JobTitle="Sales Administrator" FirstName="June" FamilyName="Jones"/>
-						<Company ID="Company01" Class="Parameter" Status="Available" OrganizationName="Fred’s Fine Rugs"/>
-					</Contact>
-					<Contact ID="Contact03" Class="Parameter" Status="Available" ContactTypes="Delivery">
-						<Address Street="42425 Maple Street" City="San Antonio" Region="TX" PostalCode="78294"/>
-						<Person JobTitle="Marketing Officer" FirstName="John" FamilyName="Stockton"/>
-						<Company ID="Company02" Class="Parameter" Status="Available" 
-											OrganizationName="Texas Cabinet Company"/>
-					</Contact>
-					<DeliveryIntent ID="Delivery001" Class="Intent" Status="Available">
-						<Method DataType="NameSpan" Preferred="UPS"/>
-						<DropIntent>
-							<Required DataType="TimeSpan" Preferred="2013-09-22T09:30-8:00"/>
-							<ContactRef rRef="Contact02"/>
-							<DropItemIntent Amount="1" Unit="500">
-								<ComponentRef rRef="Item001"/>
-							</DropItemIntent>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI1_1"/>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI1_2"/>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI1_3"/>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI1_4"/>
-						</DropIntent>
-						<DropIntent>
-							<Required DataType="TimeSpan" Preferred="2013-09-30T12:00-8:00"/>
-							<ContactRef rRef="Contact03"/>
-							<DropItemIntent Amount="100" Unit="1">
-								<ComponentRef rRef="Item002"/>
-							</DropItemIntent>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI2_1"/>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI2_2"/>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI2_3"/>
-							<jdf:GeneralID IDUsage="LineID" IDValue=" DI2_4"/>
-						</DropIntent>
-					</DeliveryIntent>
-				</ResourcePool>
-				<ResourceLinkPool>
-					<DeliveryIntentLink rRef="Delivery001" Usage="Input"/>
-					<CustomerLink rRef="Customer01" Usage="Input"/>
-				</ResourceLinkPool>
-				<JDF DescriptiveName="Winter Sales Promo" ID="JDF001" JobPartID="0901-1243" 
-											Type="Product" Status="Waiting">
-					<ResourcePool>
-						<CustomerInfo ID="Customer02" CustomerJobName="0901-1243" CustomerOrderID="12345">
-							<ContactRef rRef="Contact02"/>
-						</CustomerInfo>
-					</ResourcePool>
-					<ResourceLinkPool>
-						<CustomerInfoLink rRef="Customer02" Usage="Input"/>
-					</ResourceLinkPool>
-					<JDF>
-						<!--Sub-JDF-node only added as placeholder-->
-					</JDF>
-				</JDF>
-				<JDF DescriptiveName=" New Years Clearance sale" ID="JDF002" JobPartID="0901-1266" Type="Product" 
-								Status="Waiting">
-					<ResourcePool>
-						<CustomerInfo ID="Customer03" CustomerJobName="0901-1266" CustomerOrderID="6789">
-							<ContactRef rRef="Contact03"/>
-						</CustomerInfo>
-					</ResourcePool>
-					<ResourceLinkPool>
-						<CustomerInfoLink rRef="Customer03" Usage="Input"/>
-					</ResourceLinkPool>
-					<JDF>
-						<!--Sub-JDF-node only added as placeholder-->
-					</JDF>
-				</JDF>
-			</jdf:JDF>
-			<Pricing >
-					<Price LineID="DI1_1" DescriptiveName="Total" Price="871.10"/>
-					<Price LineID="DI1_2" DescriptiveName="Shipping and Handling" Price="12.00"/>
-					<Price LineID="DI1_3" DescriptiveName="Tax" />
-					<Price LineID="DI1_4" DescriptiveName="Discount" />
-					<Price LineID="DI2_1" DescriptiveName="Total" Price="612.80"/>
-					<Price LineID="DI2_2" DescriptiveName="Shipping and Handling" Price="34.00"/>
-					<Price LineID="DI2_3" DescriptiveName="Tax" HasPrice="false"/>
-					<Price LineID="DI2_4" DescriptiveName="Discount" HasPrice="false"/>
-					<Payment>
-							<PayTerm>2% 10, Net 30</PayTerm>
-					</Payment>
-				</Pricing>
-		</PurchaseOrder>
-	</Request>
+<PrintTalk version="1.5" payloadID="13474875" Timestamp="2013-09-06T10:00:00-08:00" xmlns="http://www.printtalk.org/schema_15"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+    xsi:schemaLocation="http://www.printtalk.org/schema_15    http://www.cip4.org/Schema/PrintTalk_1_5/PrintTalk.xsd
+                      http://www.CIP4.org/JDFSchema_1_1     http://www.cip4.org/Schema/JDFSchema_1_5/JDF.xsd">
+    <Header>
+        <From>
+            <Credential domain="DNS">
+                <Identity>Print Dealer</Identity>
+            </Credential>
+            <Credential domain="DUNS">
+                <Identity>063589998</Identity>
+            </Credential>
+        </From>
+        <To>
+            <Credential domain="AvalonPrinting.com">
+                <Identity>Avalon Printing</Identity>
+            </Credential>
+            <Credential domain="DUNS">
+                <Identity>012737459</Identity>
+            </Credential>
+        </To>
+        <Sender>
+            <Credential domain="DNS">
+                <Identity>PrintORama.com</Identity>
+                <SharedSecret>catsndogs</SharedSecret>
+            </Credential>
+            <UserAgent>PrintORama v.1.0</UserAgent>
+        </Sender>
+    </Header>
+    <Request>
+        <PurchaseOrder AgentID="MLow" AgentDisplayName="Margaret Low" RequestDate="2013-09-06T10:00:00-08:00"
+            BusinessID="1111" Currency="USD" Expires="2013-09-10T17:00:00-08:00">
+            <jdf:JDF DescriptiveName="Flyers" ID="JDF000-Root" JobID="0901-1299" Type="Product" Status="Waiting"
+                Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
+                <ResourcePool>
+                    <CustomerInfo ID="Customer01" Class="Parameter" Status="Available" CustomerID="752354">
+                        <ContactRef rRef="Contact01"/>
+                    </CustomerInfo>
+                    <Component ID="Item001" Class="Quantity" Status="Unavailable" ComponentType="FinalProduct"/>
+                    <Component ID="Item002" Class="Quantity" Status="Unavailable" ComponentType="FinalProduct"/>
+                    <Contact ID="Contact01" Class="Parameter" Status="Available" ContactTypes="Billing Customer">
+                        <Address Street="123 5th Street" City="New York" Region="NY" PostalCode="10024"/>
+                        <Person JobTitle="Sales Manager" FirstName="Bill" FamilyName="Mayers"/>
+                        <Company ID="Dealer01" OrganizationName="Print Dealer"/>
+                    </Contact>
+                    <Contact ID="Contact02" Class="Parameter" Status="Available" ContactTypes="Delivery">
+                        <Address Street="1745 First Street" City="Dublin" Region="OH" PostalCode="43202"/>
+                        <Person JobTitle="Sales Administrator" FirstName="June" FamilyName="Jones"/>
+                        <Company ID="Company01" OrganizationName="Fred’s Fine Rugs"/>
+                    </Contact>
+                    <Contact ID="Contact03" Class="Parameter" Status="Available" ContactTypes="Delivery">
+                        <Address Street="42425 Maple Street" City="San Antonio" Region="TX" PostalCode="78294"/>
+                        <Person JobTitle="Marketing Officer" FirstName="John" FamilyName="Stockton"/>
+                        <Company ID="Company02" OrganizationName="Texas Cabinet Company"/>
+                    </Contact>
+                    <DeliveryIntent ID="Delivery001" Class="Intent" Status="Available">
+                        <Method DataType="NameSpan" Preferred="UPS"/>
+                        <DropIntent>
+                            <Required DataType="TimeSpan" Preferred="2013-09-22T09:30:00-08:00"/>
+                            <ContactRef rRef="Contact02"/>
+                            <DropItemIntent Amount="1" Unit="500">
+                                <ComponentRef rRef="Item001"/>
+                            </DropItemIntent>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI1_1"/>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI1_2"/>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI1_3"/>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI1_4"/>
+                        </DropIntent>
+                        <DropIntent>
+                            <Required DataType="TimeSpan" Preferred="2013-09-30T12:00:00-08:00"/>
+                            <ContactRef rRef="Contact03"/>
+                            <DropItemIntent Amount="100" Unit="1">
+                                <ComponentRef rRef="Item002"/>
+                            </DropItemIntent>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI2_1"/>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI2_2"/>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI2_3"/>
+                            <jdf:GeneralID IDUsage="LineID" IDValue=" DI2_4"/>
+                        </DropIntent>
+                    </DeliveryIntent>
+                </ResourcePool>
+                <ResourceLinkPool>
+                    <DeliveryIntentLink rRef="Delivery001" Usage="Input"/>
+                    <CustomerInfoLink rRef="Customer01" Usage="Input"/>
+                </ResourceLinkPool>
+                <JDF DescriptiveName="Winter Sales Promo" ID="JDF001" JobPartID="0901-1243" Type="Product" Status="Waiting">
+                    <ResourcePool>
+                        <CustomerInfo ID="Customer02" Class="Parameter" Status="Available" CustomerJobName="0901-1243"
+                            CustomerOrderID="12345">
+                            <ContactRef rRef="Contact02"/>
+                        </CustomerInfo>
+                    </ResourcePool>
+                    <ResourceLinkPool>
+                        <CustomerInfoLink rRef="Customer02" Usage="Input"/>
+                    </ResourceLinkPool>
+                    <JDF ID="PH_001" Status="Setup" Type="Product">
+                        <!--Sub-JDF-node only added as placeholder -->
+                    </JDF>
+                </JDF>
+                <JDF DescriptiveName=" New Years Clearance sale" ID="JDF002" JobPartID="0901-1266" Type="Product"
+                    Status="Waiting">
+                    <ResourcePool>
+                        <CustomerInfo ID="Customer03" Class="Parameter" Status="Available" CustomerJobName="0901-1266"
+                            CustomerOrderID="6789">
+                            <ContactRef rRef="Contact03"/>
+                        </CustomerInfo>
+                    </ResourcePool>
+                    <ResourceLinkPool>
+                        <CustomerInfoLink rRef="Customer03" Usage="Input"/>
+                    </ResourceLinkPool>
+                    <JDF ID="PH_002" Status="Setup" Type="Product">
+                        <!--Sub-JDF-node only added as placeholder -->
+                    </JDF>
+                </JDF>
+            </jdf:JDF>
+            <Pricing>
+                <Payment>
+                    <PayTerm>2% 10, Net 30</PayTerm>
+                </Payment>
+                <Price LineID="LID_001" LineIDRefs="Item001" DescriptiveName="Item 1 Product price" PriceType="Product" Price="871.10"/>
+                <Price LineID="LID_100" LineIDRefs="LID_001" DescriptiveName="Volume Discount" PriceType="Discount"/>
+                <Price LineID="LID_002" DescriptiveName="Shipping and Handling" PriceType="Product" Price="12.00"/>
+                <Price LineID="LID_300" LineIDRefs="LID_001 LID_100 LID_002" DescriptiveName="Net of tax" PriceType="Subtotal"/>
+                <Price LineID="LID_444" LineIDRefs="LID_300" DescriptiveName="Sales tax" PriceType="Tax"/>
+                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Total" PriceType="Total" Price="871.10"/>
+
+                <Price LineID="LID_601" LineIDRefs="Item002" DescriptiveName="Item 2 Product price" PriceType="Product" Price="612.80"/>
+                <Price LineID="LID_700" LineIDRefs="LID_601" DescriptiveName="Volume Discount" PriceType="Discount"/>
+                <Price LineID="LID_602" DescriptiveName="Shipping and Handling" PriceType="Product" Price="34.00"/>
+                <Price LineID="LID_800" LineIDRefs="LID_601 LID_700 LID_602" DescriptiveName="Net of tax" PriceType="Subtotal"/>
+                <Price LineID="LID_944" LineIDRefs="LID_800" DescriptiveName="Sales tax" PriceType="Tax"/>
+                <Price LineID="LID_950" LineIDRefs="LID_800 LID_944" DescriptiveName="Total" PriceType="Total" Price="871.10"/>
+            </Pricing>
+        </PurchaseOrder>
+    </Request>
 </PrintTalk>

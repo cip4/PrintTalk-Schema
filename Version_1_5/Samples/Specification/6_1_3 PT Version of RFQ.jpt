@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.printtalk.org/schema_15" 
-			xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" 
-			xsi:schemaLocation="http://www.printtalk.org/schema PrintTalk_1_1.xsd" version="1.1" payloadID="Christian 01 Jul 2013" 
-			timestamp="2013-07-01T22:39-08:00" >
+<PrintTalk version="1.5" payloadID="Christian 01 Jul 2013" Timestamp="2013-07-01T22:39:00"
+  xmlns="http://www.printtalk.org/schema_15" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+  xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+  xsi:schemaLocation="http://www.printtalk.org/schema_15    http://www.cip4.org/Schema/PrintTalk_1_5/PrintTalk.xsd
+                      http://www.CIP4.org/JDFSchema_1_1     http://www.cip4.org/Schema/JDFSchema_1_5/JDF.xsd" >
 	<!--version: This is the PrintTalk version; borrowed from cXML.-->
 	<!--payloadID: This is transport unique ID of the message; borrowed from cXML.-->
 	<!--AA timestamp: PrintTalk date/time taken from ISO 8601; the preferred representation is "complete (full date and time)" 
@@ -55,9 +57,9 @@
 	</Header>
 	<Request>
 		<!--The Request element contains a single PrintTalk business document; borrowed from cXML.-->
-		<RFQ AgentID="Lara" AgentDisplayName="Lara Garcia-Daniels" BusinessID="RFQ 8884" Currency="USD" 
-						DescriptiveName="RFQ for simple job" Estimate="false" Expires="2013-07-05T17:00-08:00" 
-						RequestDate="2013-07-01T22:39-08:00">
+		<RFQ AgentID="Lara" AgentDisplayName="Lara Garcia-Daniels" BusinessID="RFQ_8884" Currency="USD" 
+						DescriptiveName="RFQ for simple job" Estimate="false" Expires="2013-07-05T17:00:00-08:00" 
+						RequestDate="2013-07-01T22:39:00-08:00">
 			<!--A PrintTalk Request for Quote document;  the content of this element is independent of cXML-->
 			<!--AgentID: The unique identity of the commerce system user that "pushed the button" to send this document.-->
 			<!--AgentDisplayName: The dispaly name of the user.-->
@@ -84,7 +86,7 @@
 				<!--xmlns: XML namespace.-->
 				<AuditPool>
 					<!--Not required by PrintTalk, may be used at the discretion of the document creator.-->
-					<Created Author="Christian@heidelberg.com" TimeStamp="2013-07-01T1127+0100"/>
+					<Created Author="Christian@heidelberg.com" TimeStamp="2013-07-01T11:27:00+01:00"/>
 				</AuditPool>
 				<ResourceLinkPool>
 					<!--In the root JDF node only a DeliveryIntentLink for each of the independent alternatives that constitute the request 
@@ -93,7 +95,7 @@
 					<CustomerInfoLink rRef="Customer1" Usage="Input"/>
 				</ResourceLinkPool>
 				<ResourcePool>
-					<CustomerInfo ID="Customer1" CustomerID="cu/4563-02" >
+					<CustomerInfo Class="Parameter" Status="Available" ID="Customer1" CustomerID="cu/4563-02" >
 						<ContactRef rRef="Contact1"/>
 					</CustomerInfo>
 					<!--In the root JDF node any Resources required by the JDF structure rule like resources referenced in the 
@@ -111,7 +113,7 @@
 						<Method DataType="NameSpan" Priority="Required" Preferred="1stClassMail">
 							<!--QQ-->
 						</Method>
-						<Required DataType="TimeSpan" Priority="Required" Preferred="2013-07-26T09:30-08:00">
+						<Required DataType="TimeSpan" Priority="Required" Preferred="2013-07-26T09:30:00-08:00">
 							<!--QQ-->
 						</Required>
 						<DropIntent>
@@ -140,7 +142,7 @@
 							<ComChannel ChannelType="Phone" Locator="1 213 555 1212"/>
 							<ComChannel ChannelType="Email" Locator="mailto:mmartin@pan-o-ramic.com"/>
 						</Person>
-						<Company DescriptiveName="Customer: Pan-O-Ramic" ID="Company1" Class="Parameter" Status="Available" 
+						<Company DescriptiveName="Customer: Pan-O-Ramic" ID="Company1" 
 									OrganizationName="Pan-O-Ramic"/>
 						<!--DD-->
 					</Contact>
@@ -148,8 +150,8 @@
 						<Address Street="1234 Hurry-up Avenue" City="Hawthorne" Region="CA" PostalCode="90250" Country="United 
 									States" CountryCode="US"/>
 						<Person FirstName="Wendy"/>
-						<Company DescriptiveName="Mail fulfillment: Tinker Mailing" ID="Company2" Class="Parameter" 
-											Status="Available" OrganizationName="Tinker Mailing">
+						<Company DescriptiveName="Mail fulfillment: Tinker Mailing" ID="Company2" 
+											OrganizationName="Tinker Mailing">
 							<!--RR-->
 						</Company>
 						<!--LL-->
@@ -199,10 +201,10 @@
 								<Pages DataType="IntegerSpan" Preferred="2"/>
 							</LayoutIntent>
 							<ArtDeliveryIntent ID="Art1" Class="Intent" Status="Available">
-								<ArtDeliveryDate DataType="TimeSpan" Preferred="2013-07-23T17:00-08:00"/>
+								<ArtDeliveryDate DataType="TimeSpan" Preferred="2013-07-23T17:00:00-08:00"/>
 								<Transfer DataType="EnumerationSpan" Preferred="BuyerToPrinterDeliver"/>
-								<ArtDelivery HasBleeds="true" PageList="0~3" ArtDeliveryType="DigitalMedia">
-									<RunList Pages="0~3">
+								<ArtDelivery HasBleeds="true" PageList="0 ~ 3" ArtDeliveryType="DigitalMedia">
+									<RunList Pages="0 ~ 3">
 										<LayoutElement HasBleeds="true" ElementType="Document">
 											<FileSpec Application="Quark"/>
 										</LayoutElement>
@@ -237,7 +239,7 @@
 								<!--JJ-->
 								<FrontCoatings DataType="EnumerationSpan" Preferred="Semigloss"/>
 								<StockType DataType="NameSpan" Preferred="Offset"/>
-								<USWeight DataType="NumberSpan" Range="60~70">
+								<USWeight DataType="NumberSpan" Range="60 ~ 70">
 									<!--MM-->
 								</USWeight>
 							</MediaIntent>
@@ -245,7 +247,7 @@
 								<!--PP-->
 								<ProofItem ProofTarget="mailto:mmartin@pan-o-ramic.com">
 									<ColorType DataType="EnumerationSpan" Preferred="BasicColor"/>
-									<ProofType DataType="EnumerationSpan" preferred="Page"/>
+									<ProofType DataType="EnumerationSpan" Preferred="Page"/>
 									<Technology DataType="NameSpan" Preferred="SoftProof">
 										<Comment Name="Instruction">Send PDF file</Comment>
 									</Technology>

@@ -1,81 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.printtalk.org/schema" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xsi:schemaLocation="http://www.printtalk.org/schema PrintTalk_1_1.xsd" version="1.1" payloadID="107448" timestamp="2013-09-05T1000-0800">
-	<Header>
-		<From>
-			<Credential domain="DNS">
-				<Identity>www.fredsfinerugs.com</Identity>
-			</Credential>
-			<Credential domain="DUNS">
-				<Identity>063333745</Identity>
-			</Credential>
-		</From>
-		<To>
-			<Credential domain="ECompany.com">
-				<Identity>Print Dealer</Identity>
-			</Credential>
-			<Credential domain="DUNS">
-				<Identity>063566668</Identity>
-			</Credential>
-		</To>
-		<Sender>
-			<Credential domain="DNS">
-				<Identity>PrintORama.com</Identity>
-				<SharedSecret>firehose</SharedSecret>
-			</Credential>
-			<UserAgent>PrintORama v.1.0</UserAgent>
-		</Sender>
-	</Header>
-	<Request>
-		<PurchaseOrder AgentID="LisaL" AgentDisplayName="Lisa Luft" RequestDate="2013-09-05T1000-0800" 
-							BusinessID="12345" Currency="USD" Expires="2013-09-10T1700-0800">
-			<jdf:JDF DescriptiveName="Winter Sales Promo" ID="JDF000-Root" JobID="0901-1243" Type="Product" 
-							Status="Waiting" Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
-				
-				<ResourcePool>
-					<CustomerInfo ID="Customer01" CustomerID="952425" >
-						<ContactRef rRef="Contact01"/>
-					</CustomerInfo>
-					<Contact ID="Contact01" Class="Parameter" Status="Available" ContactTypes="Billing Delivery Customer">
-						<Address Street="1745 First Street" City="Dublin" Region="OH" PostalCode="43202"/>
-						<Person JobTitle="Sales Administrator" FirstName="June" FamilyName="Jones"/>
-						<Company ID="Company01" Class="Parameter" Status="Available" OrganizationName="Fred’s fine Rugs"/>
-					</Contact>
-					<DeliveryIntent ID="Delivery001" Class="Intent" Status="Available">
-						<Method DataType="NameSpan" Preferred="UPS"/>
-						<DropIntent>
-							<Required DataType="TimeSpan" Preferred="2013-09-22T09:30-8:00"/>
-							<ContactRef rRef="Contact01"/>
-							<DropItemIntent Amount="1" Unit="500">
-								<ComponentRef rRef="Item001"/>
-							</DropItemIntent>
-						</DropIntent>
-					</DeliveryIntent>
-				</ResourcePool>
-				<ResourceLinkPool>
-					<DeliveryIntentLink rRef="Delivery001" Usage="Input"/>
-					<CustomerInfoLink rRef="Customer01" Usage="Input"/>
-				</ResourceLinkPool>
-				<JDF DescriptiveName="Ordered Product" ID="JDF001" Type="Product" Status="Waiting">
-					<ResourcePool>
-						<!--ResourcePool only added as placeholder-->
-					</ResourcePool>
-					<ResourceLinkPool>
-						<!--ResourceLinkPool only added as placeholder-->
-					</ResourceLinkPool>
-					<JDF>
-						<!--Sub-JDF-node only added as placeholder-->
-					</JDF>
-				</JDF>
-			</jdf:JDF>
-			<Pricing >
-				<Price DescriptiveName="Total" Price="1531.00"/>
-				<Price DescriptiveName ="Shipping and Handling" Price="42.00"/>
-				<Price DescriptiveName ="Tax" />
-				<Price DescriptiveName ="Discount" />
-				<Payment>
-					<PayTerm>2% 10, Net 30</PayTerm>
-				</Payment>
-			</Pricing>
-		</PurchaseOrder>
-	</Request>
+<PrintTalk version="1.5" payloadID="107778" Timestamp="2013-09-05T10:00:00-08:00" xmlns="http://www.printtalk.org/schema_15"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+    xsi:schemaLocation="http://www.printtalk.org/schema_15    http://www.cip4.org/Schema/PrintTalk_1_5/PrintTalk.xsd
+                      http://www.CIP4.org/JDFSchema_1_1     http://www.cip4.org/Schema/JDFSchema_1_5/JDF.xsd">
+    <Header>
+        <From>
+            <Credential domain="DNS">
+                <Identity>www.fredsfinerugs.com</Identity>
+            </Credential>
+            <Credential domain="DUNS">
+                <Identity>063333745</Identity>
+            </Credential>
+        </From>
+        <To>
+            <Credential domain="ECompany.com">
+                <Identity>Print Dealer</Identity>
+            </Credential>
+            <Credential domain="DUNS">
+                <Identity>063566668</Identity>
+            </Credential>
+        </To>
+        <Sender>
+            <Credential domain="DNS">
+                <Identity>PrintORama.com</Identity>
+                <SharedSecret>firehose</SharedSecret>
+            </Credential>
+            <UserAgent>PrintORama v.1.0</UserAgent>
+        </Sender>
+    </Header>
+    <Request>
+        <PurchaseOrder AgentID="LisaL" AgentDisplayName="Lisa Luft" RequestDate="2013-09-05T10:00:00-08:00"
+            BusinessID="12345" Currency="USD" Expires="2013-09-10T17:00:00-08:00">
+            <jdf:JDF DescriptiveName="Winter Sales Promo" ID="JDF000-Root" JobID="0901-1243" Type="Product"
+                Status="Waiting" Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
+
+                <ResourcePool>
+                    <CustomerInfo ID="Customer01" Class="Parameter" Status="Available" CustomerID="952425">
+                        <ContactRef rRef="Contact01"/>
+                    </CustomerInfo>
+                    <Component ID="ProductItem001" Class="Quantity" Status="Unavailable" ComponentType="FinalProduct"/>
+                    <Contact ID="Contact01" Class="Parameter" Status="Available" ContactTypes="Billing Delivery Customer">
+                        <Address Street="1745 First Street" City="Dublin" Region="OH" PostalCode="43202"/>
+                        <Person JobTitle="Sales Administrator" FirstName="June" FamilyName="Jones"/>
+                        <Company ID="Company01" OrganizationName="Fred’s fine Rugs"/>
+                    </Contact>
+                    <DeliveryIntent ID="Delivery001" Class="Intent" Status="Available">
+                        <Method DataType="NameSpan" Preferred="UPS"/>
+                        <DropIntent>
+                            <Required DataType="TimeSpan" Preferred="2013-09-22T09:30:00-08:00"/>
+                            <ContactRef rRef="Contact01"/>
+                            <DropItemIntent Amount="1" Unit="500">
+                                <ComponentRef rRef="ProductItem001"/>
+                            </DropItemIntent>
+                        </DropIntent>
+                    </DeliveryIntent>
+                </ResourcePool>
+                <ResourceLinkPool>
+                    <DeliveryIntentLink rRef="Delivery001" Usage="Input"/>
+                    <CustomerInfoLink rRef="Customer01" Usage="Input"/>
+                </ResourceLinkPool>
+                <JDF DescriptiveName="Ordered Product" ID="JDF001" Type="Product" Status="Waiting">
+                    <ResourcePool>
+                        <!--ResourcePool only added as placeholder -->
+                    </ResourcePool>
+                    <ResourceLinkPool>
+                        <!--ResourceLinkPool only added as placeholder -->
+                    </ResourceLinkPool>
+                    <JDF ID="PH_001" Status="Setup" Type="Product">
+                        <!--Sub-JDF-node only added as placeholder -->
+                    </JDF>
+                </JDF>
+            </jdf:JDF>
+            <Pricing>
+                <Payment>
+                    <PayTerm>2% 10, Net 30</PayTerm>
+                </Payment>
+                <Price LineID="LID_001" LineIDRefs="ProductItem001" DescriptiveName="Product price" PriceType="Product"
+                    Price="1531.00"/>
+                <Price LineID="LID_100" LineIDRefs="LID_001" DescriptiveName="Volume Discount" PriceType="Discount"/>
+                <Price LineID="LID_002" DescriptiveName="Shipping and Handling" PriceType="Product" Price="42.00"/>
+                <Price LineID="LID_300" LineIDRefs="LID_001 LID_100 LID_002" DescriptiveName="Net of tax"
+                    PriceType="Subtotal"/>
+                <Price LineID="LID_444" LineIDRefs="LID_300" DescriptiveName="Any sales tax due" PriceType="Tax"/>
+                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Total" PriceType="Total"/>
+            </Pricing>
+        </PurchaseOrder>
+    </Request>
 </PrintTalk>

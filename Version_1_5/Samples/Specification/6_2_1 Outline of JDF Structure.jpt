@@ -1,27 +1,28 @@
-<JDF DescriptiveName="Hard & Soft Cover Book">
+<JDF DescriptiveName="Hard &amp; Soft Cover Book">
 	<ResourcePool>
-		<CustomerInfo>
-		<DeliveryIntent>
+		<CustomerInfo />
+		<DeliveryIntent />
 	</ResourcePool>
 	<JDF DescriptiveName="Hard Cover Bound Book">
 		<ResourcePool>
-			<BindingIntent>
-			<ComponentLink DescriptiveName="Text for both">
+			<BindingIntent />
+			<ComponentLink DescriptiveName="Text for both" />
 		</ResourcePool>
-		<JDF> DescriptiveName="Hard Cover">
-			<MediaIntent>
+		<JDF DescriptiveName="Hard Cover">
+			<MediaIntent/>
 		</JDF>
-		<JDF> DescriptiveName="Dust Jacket">
-			<MediaIntent>
+		<JDF DescriptiveName="Dust Jacket">
+			<MediaIntent/>
 		</JDF>
 	</JDF>
 	<JDF DescriptiveName="Soft Cover Bound Book">
-		<BindingIntent>
-		<ComponentLink DescriptiveName="Text for both">
-		<JDF> DescriptiveName="Soft Cover">
-			<MediaIntent>
+		<BindingIntent/>
+		<ComponentLink DescriptiveName="Text for both"/>
+		<JDF DescriptiveName="Soft Cover">
+			<MediaIntent/>
 		</JDF>
 	</JDF>
 	<JDF DescriptiveName="Text for both">
-		<MediaIntent>
+		<MediaIntent/>
 	</JDF>
+  </JDF>

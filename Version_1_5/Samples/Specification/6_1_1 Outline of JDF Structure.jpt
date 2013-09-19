@@ -1,19 +1,19 @@
- <Component DescriptiveName="4 Page folded Flyer" ID="Item01" >
- <Company OrganizationName="Pan-O-Ramic" ID="Company1">
- <Company OrganizationName="Tinker Mailing" ID="Company2">
+ <Component DescriptiveName="4 Page folded Flyer" ID="Item01"/>
+ <Company OrganizationName="Pan-O-Ramic" ID="Company1"/>
+ <Company OrganizationName="Tinker Mailing" ID="Company2"/>
  <DeliveryIntent>
 	<DropIntent> 
-		<Required Actual="2013-07-26" …>
-		<CompanyRef rRef="Company1">
-		<DropItemIntent> Amount=10
-			<ComponentRef> rRef="Item01">
+		<Required Actual="2013-07-26" />
+		<CompanyRef rRef="Company1"/>
+		<DropItemIntent Amount="10">
+			<ComponentRef rRef="Item01"/>
 		</DropItemIntent>
 	</DropIntent>
 	<DropIntent> 
-		<Required Actual="2013-07-26" …>
-		<CompanyRef> rRef="Company2">
-		<DropItemIntent> Amount=7990
-			<ComponentRef> rRef="Item01">
+		<Required Actual="2013-07-26" />
+		<CompanyRef rRef="Company2"/>
+		<DropItemIntent Amount="7990">
+			<ComponentRef rRef="Item01"/>
 		</DropItemIntent>
 	</DropIntent>
-<DeliveryIntent>
+</DeliveryIntent>
