@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.printtalk.org/schema" 
+			xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" 
+			xsi:schemaLocation="http://www.printtalk.org/schema PrintTalk_1_1.xsd" version="1.1" payloadID="187655" 
+			timestamp="2013-09-20T1030-0800">
+	<Header>
+		<From>
+			<Credential domain="DNS">
+				<Identity>Print Dealer</Identity>
+			</Credential>
+			<Credential domain="DUNS">
+				<Identity>063589998</Identity>
+			</Credential>
+		</From>
+		<To>
+			<Credential domain="DNS">
+				<Identity>www.fredsfinerugs.com</Identity>
+			</Credential>
+			<Credential domain="DUNS">
+				<Identity>063887745</Identity>
+			</Credential>
+		</To>
+		<Sender>
+			<Credential domain="DNS">
+				<Identity>PrintORama.com</Identity>
+				<SharedSecret>catsndogs</SharedSecret>
+			</Credential>
+			<UserAgent>PrintORama v.1.0</UserAgent>
+		</Sender>
+	</Header>
+	<Request>
+		<OrderStatusResponse AgentID="Dealer" AgentDisplayName="Dealer User" RequestDate="2013-09-20T1030-0800" 
+						BusinessID="1222" BusinessRefID="Conf_12345">
+			<jdf:Notification JobID = "0901-1243" Type = "Milestone"> 
+                 <Milestone MilestoneType = "ShippingCompleted"/>
+        </jdf:Notification>	
+		</OrderStatusResponse>
+	</Request>
+</PrintTalk>

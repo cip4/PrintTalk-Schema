@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.printtalk.org/schema" 
+			xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" 
+			xsi:schemaLocation="http://www.printtalk.org/schema PrintTalk_1_1.xsd" version="1.1" payloadID="107448" 
+			timestamp="2013-07-10T22:39Z">
+	<Header>
+		<From>
+			<Credential domain="DNS">
+				<Identity>www.megacorp.com</Identity>
+			</Credential>
+			<Credential domain="ECompany.com">
+				<Identity>Mega Corp</Identity>
+			</Credential>
+			<Credential domain="DUNS">
+				<Identity>063887745</Identity>
+			</Credential>
+		</From>
+		<To>
+			<Credential domain="ECompany.com">
+				<Identity>Sunrise Printing</Identity>
+			</Credential>
+			<Credential domain="DUNS">
+				<Identity>063589998</Identity>
+			</Credential>
+		</To>
+		<Sender>
+			<Credential domain="DNS">
+				<Identity>PrintORama.com</Identity>
+				<SharedSecret>firehose</SharedSecret>
+			</Credential>
+			<UserAgent>Print Buyer v.54.9</UserAgent>
+		</Sender>
+	</Header>
+	<Request>
+		<PurchaseOrder AgentID="Patb" AgentDisplayName="Pat Butler" RequestDate="2013-07-10T1000-0800" 
+					BusinessID="24022" Currency="USD" Expires="2013-08-10T1700-0800">
+			<Pricing>
+					<Price LineID="DI1_1" DescriptiveName="Total" Price="62.50"/>
+					<Price LineID="DI1_2" DescriptiveName="Discount"Unit=”Percent”/>
+					<Price LineID="DI2_1" DescriptiveName="Total" Price="54.00"/>
+					<Price LineID="DI2_2" DescriptiveName="Discount"  Price="5.40"/>
+					<Price LineID="DI3_1" DescriptiveName="Total" Price="760.00"/>
+					<Price LineID="DI4_1" DescriptiveName="Total" Price="871.10"/>
+					<Price LineID="DI4_2" DescriptiveName=" Shipping and Handling" Price="12.00" />
+					<Price LineID="DI4_3" DescriptiveName="Tax " />
+					<Price LineID="DI4_4" DescriptiveName="Discount" />
+					<Payment> 
+						<PayTerm > 2% 10, Net 30</PayTerm>
+					</Payment>
+			</Pricing>
+			<jdf:JDF DescriptiveName="Purchase Order 24022" ID="JDF000-Root" JobID="0901-1243" Type="Product" 
+							Status="Waiting" Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
+				<ResourcePool>
+					<CustomerInfo CustomerID="423163" >
+						<ContactRef rRef="Contact02"/>
+					</CustomerInfo>
+					<Contact ID="Contact01" Class="Parameter" Status="Available" ContactTypes="Delivery">
+						<Address Street="24 Madison Avenue" City="New York" Region="NY" PostalCode="10022">
+							<ExtendedAddress>Suite 1</ExtendedAddress>
+						</Address>
+						<Person JobTitle="Sales Manager, East Coast" FirstName="Phil" FamilyName="Chavez"/>
+						<Company ID="Company01" Class="Parameter" Status="Available" OrganizationName="Reylon Division"/>
+					</Contact>
+					<Contact ID="Contact02" Class="Parameter" Status="Available" ContactTypes="Billing Customer">
+						<Address Street="4100 State Street" City="Little Rock" Region="AR " PostalCode="72201 "/>
+						<Company ID="Company02" Class="Parameter" Status="Available" OrganizationName="Mega Corporation"/>
+					</Contact>
+					<DeliveryIntent ID="Delivery001" Class="Intent" Status="Available">
+						<Method DataType="NameSpan" Preferred="UPS"/>
+						<DropIntent>
+							<Required DataType="TimeSpan" Preferred="2013-08-22T09:30-8:00"/>
+							<ContactRef rRef="Contact01"/>
+							<DropItemIntent Amount="1" Unit="500">
+								<ComponentRef rRef="Item001"/>
+							<jdf:GeneralID IDUsage="LineID" IDValue=" DI1_1"/>
+							<jdf:GeneralID IDUsage="LineID" IDValue=" DI1_2"/>
+							</DropItemIntent>
+							<DropItemIntent Amount="1" Unit="500">
+								<ComponentRef rRef="Item002"/>
+							<jdf:GeneralID IDUsage="LineID" IDValue=" DI2_1"/>
+							<jdf:GeneralID IDUsage="LineID" IDValue=" DI2_2"/>
+							</DropItemIntent>
+							<DropItemIntent Amount="250" Unit="1">
+								<ComponentRef rRef="Item003"/>								
+							<jdf:GeneralID IDUsage="LineID" IDValue=" DI3_1"/>
+							</DropItemIntent>
+						</DropIntent>
+					<jdf:GeneralID IDUsage="LineID" IDValue=" DI4_1"/>
+					<jdf:GeneralID IDUsage="LineID" IDValue=" DI4_2"/>
+					<jdf:GeneralID IDUsage="LineID" IDValue=" DI4_3"/>
+					<jdf:GeneralID IDUsage="LineID" IDValue=" DI4_4"/>
+					</DeliveryIntent>
+					<Component ID="Item001" Class="Quantity" Status="Available" DescriptiveName="Business Cards - Phil Chavez" 
+								ComponentType="FinalProduct" CatalogID="BC-Phil Chavez" ProductID="Reylon-123" 
+								CatalogDetails="Business Cards - Phil Chavez"/>
+					<Component ID="Item002" Class="Quantity" Status="Available" DescriptiveName="Notepad - Phil Chavez" 
+								ComponentType="FinalProduct" CatalogID="NP-Phil Chavez" ProductID="Reylon-124" 
+								CatalogDetails="Notepad - Phil Chavez"/>
+					<Component ID="Item003" Class="Quantity" Status="Available" DescriptiveName="Reylon Mailer" 
+									ComponentType="FinalProduct" CatalogID="RM 25.5" ProductID="Reylon-125" 
+									CatalogDetails="Reylon Mailer"/>
+				</ResourcePool>
+				<ResourceLinkPool>
+					<DeliveryIntentLink rRef="Delivery001" Usage="Input"/>
+					<CustomerLink rRef="423163" Usage="Input"/>
+				</ResourceLinkPool>
+			</jdf:JDF>
+		</PurchaseOrder>
+	</Request>
+</PrintTalk>

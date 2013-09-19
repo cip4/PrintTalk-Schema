@@ -1,0 +1,31 @@
+<Header>
+		<From>
+			<Credential domain="DNS">
+				<Identity>AnExcellentPrinter.com</Identity>
+			</Credential>
+			<Credential domain="ECompany.com">
+				<Identity>Polkadot</Identity>
+			</Credential>
+			<Credential domain="DUNS">
+				<Identity>3040392</Identity>
+			</Credential>
+		</From>
+		<To>
+			<Credential domain="DNS">
+				<Identity>pan-o-ramic.com</Identity>
+			</Credential>
+			<Credential domain="ECompany.com">
+				<Identity>PeterPan</Identity>
+			</Credential>
+			<Credential domain="DUNS">
+				<Identity>93009388</Identity>
+			</Credential>
+		</To>
+		<Sender>
+			<Credential domain="DNS">
+				<Identity>ECompany.com</Identity>
+				<SharedSecret>rosebud</SharedSecret>
+			</Credential>
+			<UserAgent>Print Buyer v.54.9</UserAgent>
+		</Sender>
+</Header>
