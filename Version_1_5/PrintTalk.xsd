@@ -58,15 +58,15 @@ For more information on The International Cooperation for the Integration of
 Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/&gt;.
 
 -->
-<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.printtalk.org/schema_14" version="V1.3"
-    xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_3_Types" xmlns:pt="http://www.printtalk.org/schema_14"
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.printtalk.org/schema_15" version="V1.3"
+    xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_5_Types" xmlns:pt="http://www.printtalk.org/schema_15"
     xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <xs:annotation>
         <xs:documentation> PrintTalk schema: Version 1.4 This schema is intended for use with a single root element, namely: PrintTalk </xs:documentation>
     </xs:annotation>
     <!-- Import JDF and JDF Types -->
-    <xs:import namespace="http://www.CIP4.org/JDFSchema_1_1" schemaLocation="http://www.cip4.org/Schema/JDFSchema_1_4/JDF.xsd"/>
-    <xs:import namespace="http://www.CIP4.org/JDFSchema_1_3_Types" schemaLocation="http://www.cip4.org/Schema/JDFSchema_1_4/JDFTypes.xsd"/>
+    <xs:import namespace="http://www.CIP4.org/JDFSchema_1_1" schemaLocation="http://www.cip4.org/Schema/JDFSchema_1_5/JDF.xsd"/>
+    <xs:import namespace="http://www.CIP4.org/JDFSchema_1_5_Types" schemaLocation="http://www.cip4.org/Schema/JDFSchema_1_5/JDFTypes.xsd"/>
 
     <!-- PrintTalk - the root element -->
     <xs:element name="PrintTalk" type="pt:PrintTalk">
@@ -77,7 +77,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
     </xs:element>
     <xs:simpleType final="#all" name="Version">
         <xs:restriction base="xs:string">
-            <xs:pattern value="1.4"/>
+            <xs:pattern value="1.5"/>
         </xs:restriction>
     </xs:simpleType>
     <xs:complexType name="PrintTalk">
@@ -87,7 +87,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         </xs:sequence>
         <xs:attribute name="version" type="pt:Version" use="required"/>
         <xs:attribute name="payloadID" type="xs:string" use="required"/>
-        <xs:attribute name="timeStamp" type="jdftyp:dateTime" use="optional"/>
+        <xs:attribute name="Timestamp" type="jdftyp:dateTime" use="required"/>
     </xs:complexType>
     <!-- the PrintTalk header -->
     <xs:complexType name="Header">
@@ -157,8 +157,8 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         </xs:annotation>
         <xs:sequence>
             <xs:element name="Identity" type="jdf:telem"/>
-            <xs:element minOccurs="0" name="SharedSecret" type="pt:cXML-SharedSecret"/>
             <xs:element minOccurs="0" name="CredentialMac" type="pt:cXML-CredentialMac"/>
+            <xs:element minOccurs="0" name="SharedSecret" type="pt:cXML-SharedSecret"/>
         </xs:sequence>
         <xs:attribute name="domain" type="jdftyp:string" use="required"/>
         <xs:attribute name="type" type="jdftyp:string" use="optional"/>
@@ -175,8 +175,8 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             </xs:appinfo>
         </xs:annotation>
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Comment"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:GeneralID"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Comment"/>
         </xs:sequence>
         <xs:attribute name="DescriptiveName" type="jdftyp:string" use="optional"/>
     </xs:complexType>
@@ -187,8 +187,8 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:restriction base="pt:Abstract_pt">
                 <xs:sequence>
-                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Comment"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:GeneralID"/>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Comment"/>
                 </xs:sequence>
                 <xs:attribute name="DescriptiveName" type="jdftyp:string" use="required"/>
             </xs:restriction>
@@ -199,8 +199,8 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             <xs:documentation> This is a special version of the Abstract pt Element It permits the derived type to contain mixed content </xs:documentation>
         </xs:annotation>
         <xs:sequence>
-            <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Comment"/>
             <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:GeneralID"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Comment"/>
         </xs:sequence>
         <xs:attribute name="DescriptiveName" type="jdftyp:string" use="optional"/>
     </xs:complexType>
@@ -210,7 +210,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             <xs:extension base="pt:Abstract_pt">
                 <xs:attribute name="AgentID" type="jdftyp:NMTOKEN" use="required"/>
                 <xs:attribute name="AgentDisplayName" type="jdftyp:string" use="required"/>
-                <xs:attribute name="AuxID" type="jdftyp:NMTOKEN" use="optional"/>
+                <xs:attribute name="AuxID" type="jdftyp:string" use="optional"/>
                 <xs:attribute name="BusinessID" type="jdftyp:NMTOKEN" use="required"/>
                 <xs:attribute name="BusinessRefID" type="jdftyp:NMTOKEN" use="optional"/>
                 <xs:attribute name="RequestDate" type="jdftyp:dateTime" use="optional"/>
@@ -356,7 +356,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:extension base="pt:BusinessObject">
                 <xs:sequence>
-                    <xs:element ref="jdf:JDF"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="jdf:JDF"/>
                 </xs:sequence>
                 <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="required"/>
                 <xs:attribute name="Estimate" type="jdftyp:boolean" use="optional"/>
@@ -386,10 +386,19 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:extension base="pt:Abstract_pt">
                 <xs:sequence minOccurs="0">
-                    <xs:element ref="jdf:JDF"/>
-                    <xs:element name="Pricing" type="pt:Pricing"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="jdf:JDF"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Pricing" type="pt:Pricing"/>
                 </xs:sequence>
                 <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="optional"/>
+                <xs:attribute name="DeviationFactor" default="None">
+                    <xs:simpleType>
+                        <xs:restriction base="jdftyp:EnumerationBaseType">
+                            <xs:enumeration value="None"/>
+                            <xs:enumeration value="Slight"/>
+                            <xs:enumeration value="Significant"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
                 <xs:attribute name="Estimate" type="jdftyp:boolean" use="optional"/>
                 <xs:attribute name="Expires" type="jdftyp:dateTime" use="optional"/>
                 <xs:attribute name="QuoteID" type="jdftyp:NMTOKEN" use="required"/>
@@ -403,8 +412,8 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:extension base="pt:Abstract_pt">
                 <xs:sequence>
-                    <xs:element minOccurs="0" name="Payment" type="pt:Payment"/>
-                    <xs:element maxOccurs="unbounded" name="Price" type="pt:Price"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Payment" type="pt:Payment"/>
+                    <xs:element minOccurs="1" maxOccurs="unbounded" name="Price" type="pt:Price"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -420,7 +429,21 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                 <xs:attribute name="ItemRefs" type="jdftyp:NMTOKENS" use="optional"/>
                 <xs:attribute name="LineID" type="jdftyp:ID" use="optional"/>
                 <xs:attribute name="LineIDRefs" type="jdftyp:NMTOKENS" use="optional"/>
-                <xs:attribute name="Price" type="jdftyp:double" use="optional"/>
+                <xs:attribute name="Option" type="jdftyp:NMTOKEN" use="required"/>                
+                <xs:attribute name="Price" type="jdftyp:double" use="optional"/>               
+                <xs:attribute name="PriceType" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="jdftyp:EnumerationBaseType">
+                            <xs:enumeration value="Tax"/>
+                            <xs:enumeration value="Rebate"/>
+                            <xs:enumeration value="Discount"/>
+                            <xs:enumeration value="Markup"/>
+                            <xs:enumeration value="Product"/>
+                            <xs:enumeration value="Total"/>
+                            <xs:enumeration value="SubTotal"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
                 <xs:attribute name="Unit" type="jdftyp:string" use="optional"/>
                 <xs:attribute name="UnitPrice" type="jdftyp:double" use="optional"/>
             </xs:extension>
@@ -437,9 +460,9 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
     <xs:complexType name="Payment">
         <xs:complexContent>
             <xs:extension base="pt:Abstract_pt">
-                <xs:sequence maxOccurs="unbounded" minOccurs="0">
-                    <xs:element minOccurs="0" name="PayTerm" type="jdf:telem"/>
-                    <xs:element minOccurs="0" name="CreditCard" type="pt:CreditCard"/>
+                <xs:sequence minOccurs="0" maxOccurs="1">
+                    <xs:element minOccurs="0" maxOccurs="1" name="CreditCard" type="pt:CreditCard"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="PayTerm" type="jdf:telem"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
@@ -461,11 +484,11 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:extension base="pt:BusinessObject">
                 <xs:sequence>
-                    <xs:element ref="jdf:JDF"/>
-                    <xs:element minOccurs="0" name="Pricing" type="pt:Pricing"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="jdf:JDF"/>
+                    <xs:element minOccurs="0" maxOccurs="1" name="Pricing" type="pt:Pricing"/>
                 </xs:sequence>
-                <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="optional"/>
-                <xs:attribute name="Expires" type="jdftyp:dateTime" use="required"/>
+                <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="required"/>
+                <xs:attribute name="Expires" type="jdftyp:dateTime" use="optional"/>
                 <xs:attribute name="QuoteID" type="jdftyp:NMTOKEN" use="optional"/>
                 <xs:attribute name="ReorderID" type="jdftyp:NMTOKENS" use="optional"/>
                 <xs:attribute name="ReplaceID" type="jdftyp:NMTOKEN" use="optional"/>
@@ -543,6 +566,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                 <xs:sequence>
                     <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Contact"/>
                     <xs:element minOccurs="0" ref="jdf:DeliveryParams"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="jdf:Notification"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="Notification" type="jdf:NotificationAudit"/>
                     <xs:element maxOccurs="unbounded" minOccurs="0" name="Status" type="pt:Status"/>
                 </xs:sequence>
@@ -572,7 +596,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:extension base="pt:Abstract_pt">
                 <xs:sequence>
-                    <xs:element name="ProofItem" type="jdf:ProofingIntent_ProofItem_lr"/>
+                    <xs:element minOccurs="0" ref="jdf:ProofItem"/>
                 </xs:sequence>
                 <xs:attribute name="JobIDRef" type="jdftyp:string" use="optional"/>
                 <xs:attribute name="JobPartIDRef" type="jdftyp:string" use="optional"/>
@@ -599,7 +623,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                     <xs:element ref="jdf:ApprovalSuccess"/>
                     <xs:element name="ProofItem" type="jdf:ProofingIntent_ProofItem_lr"/>
                 </xs:sequence>
-                <xs:attribute name="JobIDRef" type="jdftyp:string" use="optional"/>
+                <xs:attribute name="JobIDRef" type="jdftyp:string" use="required"/>
                 <xs:attribute name="JobPartIDRef" type="jdftyp:string" use="optional"/>
                 <xs:attribute name="PageIndex" type="jdftyp:IntegerRangeList" use="optional"/>
                 <xs:attribute name="Response" use="optional">
@@ -620,8 +644,8 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:extension base="pt:BusinessObject">
                 <xs:sequence>
-                    <xs:element minOccurs="0" ref="jdf:JDF"/>
-                    <xs:element name="Pricing" type="pt:Pricing"/>
+                    <xs:element minOccurs="0" maxOccurs="1" ref="jdf:JDF"/>
+                    <xs:element minOccurs="1" maxOccurs="1" name="Pricing" type="pt:Pricing"/>
                 </xs:sequence>
                 <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="required"/>
                 <xs:attribute name="Expires" type="jdftyp:dateTime" use="required"/>
@@ -634,7 +658,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
         <xs:complexContent>
             <xs:extension base="pt:BusinessObject">
                 <xs:sequence>
-                    <xs:element ref="jdf:JDF"/>
+                    <xs:element minOccurs="0" maxOccurs="unbounded" ref="jdf:JDF"/>
                 </xs:sequence>
             </xs:extension>
         </xs:complexContent>
