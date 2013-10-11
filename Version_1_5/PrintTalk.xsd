@@ -429,7 +429,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                 <xs:attribute name="ItemRefs" type="jdftyp:NMTOKENS" use="optional"/>
                 <xs:attribute name="LineID" type="jdftyp:ID" use="optional"/>
                 <xs:attribute name="LineIDRefs" type="jdftyp:NMTOKENS" use="optional"/>
-                <xs:attribute name="Option" type="jdftyp:NMTOKEN" use="required"/>                
+                <xs:attribute name="Option" type="jdftyp:NMTOKEN" use="optional"/>                
                 <xs:attribute name="Price" type="jdftyp:double" use="optional"/>               
                 <xs:attribute name="PriceType" use="required">
                     <xs:simpleType>
@@ -440,7 +440,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                             <xs:enumeration value="Markup"/>
                             <xs:enumeration value="Product"/>
                             <xs:enumeration value="Total"/>
-                            <xs:enumeration value="SubTotal"/>
+                            <xs:enumeration value="Subtotal"/>
                         </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>

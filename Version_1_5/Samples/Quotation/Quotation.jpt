@@ -25,8 +25,10 @@
             <Quote QuoteID="Quote001">
                 <jdf:JDF DescriptiveName="Learn to Fly seminar mailer" ID="root" JobID="HDM20002124161007" ProjectID="HDM_Prod20001124161007" Status="Waiting"
                     Type="Product" Version="1.1" xmlns="http://www.CIP4.org/JDFSchema_1_1">
-                    <!--A single JDF element is the only element content of an RFQ element.-->
-                    <!--Structure of a JDF node is defined by the JDF specification. However there is a best practice structure as indicated in section 3.3 of this spec. Alternative JDF structures are permitted although not illustrated here.-->
+                    <!--Multiple JDF Elements (i.e JDF*) are permitted as the content of an RFQ element. -->
+                    <!--Structure of a JDF node is defined by the JDF specification. -->
+					<!--However there is a best practice structure as indicated in section 3.3 of this spec. -->
+					<!--Alternative JDF structures are permitted although not illustrated here.-->
                     <!--EE DescriptiveName: Courtesy display text.-->
                     <!--ID: An XML ID-->
                     <!--JobID: sender's reference to a job.-->
