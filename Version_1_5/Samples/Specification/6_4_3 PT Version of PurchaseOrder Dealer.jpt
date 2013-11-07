@@ -121,16 +121,18 @@
                 <Price LineID="LID_001" LineIDRefs="Item001" DescriptiveName="Item 1 Product price" PriceType="Product" Price="871.10"/>
                 <Price LineID="LID_100" LineIDRefs="LID_001" DescriptiveName="Volume Discount" PriceType="Discount"/>
                 <Price LineID="LID_002" DescriptiveName="Shipping and Handling" PriceType="Product" Price="12.00"/>
-                <Price LineID="LID_300" LineIDRefs="LID_001 LID_100 LID_002" DescriptiveName="Net of tax" PriceType="Subtotal"/>
+                <Price LineID="LID_300" LineIDRefs="LID_001 LID_100 LID_002" DescriptiveName="Net of tax" PriceType="Subtotal" Price="883.10"/>
                 <Price LineID="LID_444" LineIDRefs="LID_300" DescriptiveName="Sales tax" PriceType="Tax"/>
-                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Total" PriceType="Total" Price="871.10"/>
+                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Sub Total for item 1" PriceType="Subtotal" Price="883.10"/>
 
                 <Price LineID="LID_601" LineIDRefs="Item002" DescriptiveName="Item 2 Product price" PriceType="Product" Price="612.80"/>
                 <Price LineID="LID_700" LineIDRefs="LID_601" DescriptiveName="Volume Discount" PriceType="Discount"/>
                 <Price LineID="LID_602" DescriptiveName="Shipping and Handling" PriceType="Product" Price="34.00"/>
-                <Price LineID="LID_800" LineIDRefs="LID_601 LID_700 LID_602" DescriptiveName="Net of tax" PriceType="Subtotal"/>
+                <Price LineID="LID_800" LineIDRefs="LID_601 LID_700 LID_602" DescriptiveName="Net of tax" PriceType="Subtotal" Price="646.80"/>
                 <Price LineID="LID_944" LineIDRefs="LID_800" DescriptiveName="Sales tax" PriceType="Tax"/>
-                <Price LineID="LID_950" LineIDRefs="LID_800 LID_944" DescriptiveName="Total" PriceType="Total" Price="871.10"/>
+                <Price LineID="LID_950" LineIDRefs="LID_800 LID_944" DescriptiveName="Sub Total for item 2" PriceType="Subtotal" Price="646.80"/>
+                
+                <Price LineID="LID_999" LineIDRefs="LID_500 LID_950" DescriptiveName="Total Price for both items" PriceType="TotalGross" Price="1529.90"/>
             </Pricing>
         </PurchaseOrder>
     </Request>

@@ -102,7 +102,7 @@
                     Price="68.25"/>
                 <Price LineID="DI4_3" LineIDRefs="" DescriptiveName="Sales Tax" PriceType="Tax" Unit="Percentage"
                     UnitPrice="20" Price="13.65"/>
-                <Price LineID="DI5_1" LineIDRefs="DI4_1 DI4_3" DescriptiveName="Final Total" PriceType="Total"
+                <Price LineID="DI5_1" LineIDRefs="DI4_1 DI4_3" DescriptiveName="Final Total" PriceType="TotalGross"
                     Price="81.90"/>
             </Pricing>
         </PurchaseOrder>

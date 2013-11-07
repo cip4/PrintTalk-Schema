@@ -73,9 +73,10 @@ This is offered to the Buyer via a web portal.
 The PrintTalk PO is produced as the transaction from the web portal to the Print Company
 at the moment that the Buyer accepts and commits to the purchase.  
 -->
-<PrintTalk payloadID="Product Description Working Example" version="1.4" xmlns="http://www.printtalk.org/schema_14"
+<PrintTalk payloadID="Product Description Working Example" version="1.5" Timestamp="2013-09-20T10:30:00-08:00" xmlns="http://www.printtalk.org/schema_15"
     xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.printtalk.org/schema_14 http://www.cip4.org/Schema/PrintTalk_1_4/PrintTalk.xsd http://www.CIP4.org/JDFSchema_1_1 http://www.cip4.org/Schema/JDFSchema_1_4a/JDF.xsd">
+    xsi:schemaLocation="http://www.printtalk.org/schema_15    http://www.cip4.org/Schema/PrintTalk_1_5/PrintTalk.xsd
+                      http://www.CIP4.org/JDFSchema_1_1     http://www.cip4.org/Schema/JDFSchema_1_5/JDF.xsd">
     <Header>
         <!-- -->
         <From>
@@ -120,7 +121,7 @@ at the moment that the Buyer accepts and commits to the purchase.
         </Sender>
     </Header>
     <Request>
-        <PurchaseOrder AgentDisplayName="Agent Display Name" AgentID="AgentID" BusinessID="BusinessID" Expires="INF">
+        <PurchaseOrder AgentDisplayName="Agent Display Name" AgentID="AgentID" BusinessID="BusinessID" Currency="GBP" Expires="INF">
             <!--	SPH2010-07-15: Where does the catalog entry id go? -->
             <!--	GCM:TBD For the purposes of this example is it necessary to supply a 'trivial' JDF? SPH2010-07-15:See below	-->
             <!--	GCM:TBD Should the example show that the PDF is part of the JDF
@@ -157,11 +158,11 @@ at the moment that the Buyer accepts and commits to the purchase.
                         </jdf:ArtDelivery>
                     </jdf:ArtDeliveryIntent>
                     <jdf:RunList Class="Parameter" ID="RL" Status="Available">
-                        <jdf:LayoutElement Class="Parameter">
+                        <jdf:LayoutElement>
                             <!-- Note the use of CID. It is expected the PrintTalk, JDF & PDF     -->
                             <!-- will be supplied in a single MIME package between the two agents -->
                             <!-- 2010-10-07T7 GM: Note URL, PDF must become part of the PO -->
-                            <jdf:FileSpec Class="Parameter" URL="cid:16Page.pdf"/>
+                            <jdf:FileSpec URL="cid:16Page.pdf"/>
                         </jdf:LayoutElement>
                     </jdf:RunList>
                     <jdf:Component Class="Quantity" ComponentType="FinalProduct" ID="C_001" ProductType="xyz:Brouchure_Style_A" Status="Unavailable"/>

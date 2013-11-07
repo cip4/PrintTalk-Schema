@@ -82,7 +82,7 @@
                 <Price LineID="LID_300" LineIDRefs="LID_001 LID_100 LID_002" DescriptiveName="Net of tax"
                     PriceType="Subtotal"/>
                 <Price LineID="LID_444" LineIDRefs="LID_300" DescriptiveName="Any sales tax due" PriceType="Tax"/>
-                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Total" PriceType="Total"/>
+                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Total" PriceType="TotalGross"/>
             </Pricing>
         </PurchaseOrder>
     </Request>

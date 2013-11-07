@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk version="1.5" payloadID="187455" Timestamp="2013-09-20T10:00:00-08:00" xmlns="http://www.printtalk.org/schema_15"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1"
+    xsi:schemaLocation="http://www.printtalk.org/schema_15    http://www.cip4.org/Schema/PrintTalk_1_5/PrintTalk.xsd
+                      http://www.CIP4.org/JDFSchema_1_1     http://www.cip4.org/Schema/JDFSchema_1_5/JDF.xsd">
+    <Header>
+        <From>
+            <Credential domain="AvalonPrinting.com">
+                <Identity>Avalon Printing</Identity>
+            </Credential>
+            <Credential domain="DUNS">
+                <Identity>012737459</Identity>
+            </Credential>
+        </From>
+        <To>
+            <Credential domain="DNS">
+                <Identity>Print Dealer</Identity>
+            </Credential>
+            <Credential domain="DUNS">
+                <Identity>063589998</Identity>
+            </Credential>
+        </To>
+        <Sender>
+            <Credential domain="DNS">
+                <Identity>PrintORama.com</Identity>
+                <SharedSecret>newyork</SharedSecret>
+            </Credential>
+            <UserAgent>PrintORama v.1.0</UserAgent>
+        </Sender>
+    </Header>
+    <Request>
+        <StockLevelResponse AgentID="PrintORama" AgentDisplayName="PrintORama Auto Generated"
+            RequestDate="2013-09-20T10:00:00-08:00" BusinessID="234" Currency="USD">
+            <StockLevel Amount="INF" ProductID="First_42"/>
+            <StockLevel ProductionDuration="P42M" Amount="10000" ProductID="Second_42" Lot="A"/>
+            <StockLevel ProductionDuration="PT59H" Amount="99999" ProductID="Second_42" Lot="B"/>
+            <StockLevel Amount="9" ProductID="Last_42" Lot="2B">
+                <jdf:Location LocationName="Kings Cross Station" LocID="KCS">
+                    <jdf:Address City="London" Country="England"/>
+                </jdf:Location>
+                <Price DescriptiveName="Cost per item" PriceType="Product" Price="143.12"/>
+            </StockLevel>
+        
+        
+        </StockLevelResponse>
+    </Request>
+</PrintTalk>

@@ -179,7 +179,7 @@
                                         <!--MM-->
                                     </USWeight>
                                 </MediaIntent>
-                                <ProofingIntent Class="Intent" ID="Proof1" Status="Available">
+                                <ProofingIntent fred="32" Class="Intent" ID="Proof1" Status="Available">
                                     <!--PP-->
                                     <ProofItem ProofTarget="mailto:mmartin@pan-o-ramic.com">
                                         <ColorType DataType="EnumerationSpan" Actual="BasicColor"/>

@@ -350,6 +350,20 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             </xs:appinfo>
         </xs:annotation>
     </xs:element>
+    <xs:element name="StockLevelRequest" substitutionGroup="pt:BusinessObject" type="pt:StockLevelRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <Version First="1.5" Path="."/>
+            </xs:appinfo>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="StockLevelResponse" substitutionGroup="pt:BusinessObject" type="pt:StockLevelResponse">
+        <xs:annotation>
+            <xs:appinfo>
+                <Version First="1.5" Path="."/>
+            </xs:appinfo>
+        </xs:annotation>
+    </xs:element>
 
     <!-- RFQ (Request for Quote) -->
     <xs:complexType name="RFQ">
@@ -435,11 +449,12 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                     <xs:simpleType>
                         <xs:restriction base="jdftyp:EnumerationBaseType">
                             <xs:enumeration value="Tax"/>
-                            <xs:enumeration value="Rebate"/>
                             <xs:enumeration value="Discount"/>
                             <xs:enumeration value="Markup"/>
                             <xs:enumeration value="Product"/>
-                            <xs:enumeration value="Total"/>
+                            <xs:enumeration value="TotalNet"/>
+                            <xs:enumeration value="TotalGross"/>
+                            <xs:enumeration value="TotalTax"/>
                             <xs:enumeration value="Subtotal"/>
                         </xs:restriction>
                     </xs:simpleType>
@@ -515,6 +530,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
                 <xs:sequence>
                     <xs:element maxOccurs="unbounded" minOccurs="0" ref="jdf:Contact"/>
                 </xs:sequence>
+                <xs:attribute name="JobIDRef" type="jdftyp:string" use="optional"/>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -579,7 +595,54 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
+    
+    <!-- Stock Level Request -->
+    <xs:complexType name="StockLevelRequest">
+        <xs:complexContent>
+            <xs:extension base="pt:BusinessObject">
+                <xs:attribute name="ProductID" type="jdftyp:regExp" use="optional" />
+                <xs:attribute name="DisplayPrice" type="jdftyp:boolean" use="optional" />
+                <xs:attribute name="Availability" use="optional" >
+                    <xs:simpleType>
+                        <xs:restriction base="jdftyp:EnumerationBaseType">
+                            <xs:enumeration value="Any"/>
+                            <xs:enumeration value="Available"/>
+                            <xs:enumeration value="Deliverable"/>
+                        </xs:restriction>
+                    </xs:simpleType>                
+                </xs:attribute>
+                <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="optional" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
 
+    <!-- Stock Level  Response -->
+    <xs:complexType name="StockLevelResponse">
+        <xs:complexContent>
+            <xs:extension base="pt:BusinessObject">
+                <xs:sequence>
+                    <xs:element maxOccurs="unbounded" minOccurs="0" name="StockLevel" type="pt:StockLevel"/>
+                </xs:sequence>
+                <xs:attribute name="Currency" type="jdftyp:NMTOKEN" use="required" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType mixed="true" name="StockLevel">
+        <xs:complexContent>
+            <xs:extension base="pt:Abstract_pt_B">
+                <xs:sequence>
+                    <xs:element ref="jdf:Location" minOccurs="0" maxOccurs="1"/>
+                    <xs:element name="Price" type="pt:Price" minOccurs="0" maxOccurs="1"/>
+                </xs:sequence>
+                <xs:attribute name="ProductID" type="jdftyp:string" use="required"/>
+                <xs:attribute name="Amount" type="jdftyp:Integer" use="required"/>
+                <xs:attribute name="ProductionDuration" type="jdftyp:duration" use="optional"/>
+                <xs:attribute name="Lot" type="jdftyp:string" use="optional"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
     <!-- Proof Approval Request -->
     <xs:complexType name="ProofApprovalRequest">
         <xs:complexContent>

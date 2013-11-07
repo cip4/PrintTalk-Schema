@@ -79,7 +79,7 @@
                 <Price LineID="LID_002" DescriptiveName="Shipping and Handling" PriceType="Product" Price="34.00"/>
                 <Price LineID="LID_300" LineIDRefs="LID_001 LID_100 LID_002" DescriptiveName="Net of tax" PriceType="Subtotal"/>
                 <Price LineID="LID_444" LineIDRefs="LID_300" DescriptiveName="Sales tax" PriceType="Tax"/>
-                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Total" PriceType="Total" Price="1012.80"/>
+                <Price LineID="LID_500" LineIDRefs="LID_300 LID_444" DescriptiveName="Total" PriceType="TotalGross" Price="1012.80"/>
             </Pricing>
         </PurchaseOrder>
     </Request>
