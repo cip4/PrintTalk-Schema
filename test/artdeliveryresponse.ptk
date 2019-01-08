@@ -10,16 +10,11 @@
 		</From>
 		<To>
 			<Credential domain="none" >
-				<Identity/>
+				<Identity>https://Customer.com</Identity>
 			</Credential>
 		</To>
 	</Header>
-	<Request BusinessID="r123" DescriptiveName="Prototype Sample">
-		<ArtDeliveryRequest>
-			<ArtDelivery UpdateMethod="Add">
-				<xjdf:XJDF JobID="TestArt_1" Types="Product" />
-			</ArtDelivery>
-		</ArtDeliveryRequest>
-		<xjdf:XJDF JobID="Job_123" Types="Product" />
+	<Request BusinessID="r1245" DescriptiveName="Response to the request">
+		<ArtDeliveryResponse Result="AcceptedWaiting"/>
 	</Request>
 </PrintTalk>
