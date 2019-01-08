@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+			xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
+			Timestamp="2018-12-10T15:51:23+01:00" payloadID="P_000164">
+	<Header>
+		<From>
+			<Credential domain="xjdf:URL" >
+				<Identity>https://Printer.com</Identity>
+			</Credential>
+		</From>
+		<To>
+			<Credential domain="none" >
+				<Identity />
+			</Credential>
+		</To>
+	</Header>
+	<Request BusinessID="r123" DescriptiveName="Prototype Sample">
+		<ArtDeliveryRequest>
+			<ArtDelivery UpdateMethod="Add">
+				<xjdf:XJDF JobID="TestArt_1" Types="Product" />
+			</ArtDelivery>
+		</ArtDeliveryRequest>
+		<xjdf:XJDF JobID="Job_123" Types="Product" />
+	</Request>
+</PrintTalk>
