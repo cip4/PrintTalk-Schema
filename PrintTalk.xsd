@@ -469,6 +469,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
     	<xs:sequence maxOccurs="1" minOccurs="1">
     		<xs:element name="Payment" type="ptk:Payment" maxOccurs="unbounded" minOccurs="0"/>
     		<xs:element name="Price" type="ptk:Price" maxOccurs="unbounded" minOccurs="1"/>
+    		<xs:element ref="xjdf:Contact" maxOccurs="1" minOccurs="0"/>
     	</xs:sequence>
     </xs:complexType>
 
