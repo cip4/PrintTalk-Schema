@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+			xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
+			xmlns:junk="rubbish.com"
+			Timestamp="2018-12-10T15:51:23+01:00" payloadID="P_000164" junk:test="123">
+	<Header xjdf:test="something">
+		<From xjdf:test="something">
+			<Credential domain="xjdf:URL" xjdf:test="something">
+				<Identity xjdf:test="something">https://Printer.com</Identity>
+			</Credential>
+			<UserAgent xjdf:ID="An Id">Bond, James Bond 042</UserAgent>
+		</From>
+		<To xjdf:test="something">
+			<Credential domain="none" xjdf:test="something">
+				<Identity xjdf:test="something"/>
+			</Credential>
+		</To>
+	</Header>
+	<Request junk:fred="Aardvark" BusinessID="r123" DescriptiveName="Prototype Sample">
+		<ArtDeliveryRequest xjdf:Fred="123">
+			<ArtDelivery UpdateMethod="Add" xjdf:test="something">
+				<xjdf:XJDF JobID="TestArt_1" Types="Product" />
+			</ArtDelivery>
+		</ArtDeliveryRequest>
+		<xjdf:XJDF JobID="Job_123" Types="Product"/>
+	</Request>
+</PrintTalk>

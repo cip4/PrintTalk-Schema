@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+			xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
+			Timestamp="2018-12-10T15:51:23+01:00" payloadID="P_000164">
+	<Header>
+		<From>
+			<Credential domain="xjdf:URL" >
+				<Identity>https://Printer.com</Identity>
+			</Credential>
+		</From>
+		<To>
+			<Credential domain="none" >
+				<Identity/>
+			</Credential>
+		</To>
+	</Header>
+	<Request BusinessID="r123" DescriptiveName="Prototype Sample">
+		<Invoice Expires="2019-04-01T17:00:00" >
+			<Pricing Currency="EUR">
+				<Payment PaymentType="BankTransfer" xjdf:test="something"/>
+				<Price TaxType="Gross" Price="142.99" DescriptiveName="Just an example" PriceType="Total" />
+			</Pricing>
+		</Invoice>
+	</Request>
+</PrintTalk>
