@@ -639,8 +639,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
     <xs:simpleType name="Currency">
     	<xs:restriction base="xs:NMTOKEN">
     		<xs:pattern value="[A-Z][A-Z][A-Z]"/>
-    		<xs:pattern value="[0-9][0-9][0-9]"/>
-    	</xs:restriction>
+     	</xs:restriction>
     </xs:simpleType>
 
 
