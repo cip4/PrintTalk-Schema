@@ -64,7 +64,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
 		elementFormDefault="qualified" attributeFormDefault="unqualified" version="V2.0" >
     <xs:annotation>
         <xs:documentation>
-        	PrintTalk schema: Version 1.4 This schema is intended for use with a single root element, namely: PrintTalk
+        	PrintTalk schema: Version 2.0 This schema is intended for use with a single root element, namely: PrintTalk
         </xs:documentation>
     </xs:annotation>
     
@@ -308,9 +308,11 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
 						<xs:restriction base="xs:NMTOKEN">
 							<xs:enumeration value="Brief" />
 							<xs:enumeration value="CompletedMilestones" />
+							<xs:enumeration value="Full" />
 						</xs:restriction>
 					</xs:simpleType>
 				</xs:attribute>
+				<xs:attribute name="ReturnAudits" type="xs:NMTOKENS" use="optional" />
 				<xs:attribute name="Subscribed" type="xs:boolean" use="required" />
 			</xs:extension>
 		</xs:complexContent>
@@ -321,11 +323,12 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
 	<xs:complexType name="OrderStatusResponse">
 		<xs:complexContent>
 			<xs:extension base="ptk:BaseElement">
-				<xs:sequence maxOccurs="1" minOccurs="1">
-					<xs:element ref="xjdf:Notification" maxOccurs="unbounded" minOccurs="0" />
+				<xs:sequence>
+					<xs:element ref="xjdf:AuditPool" />
 				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
+		<xs:attribute name="JobIDRef" type="xs:NMTOKEN" use="required" />
 	</xs:complexType>
 
 	<!-- ProofApprovalRequest -->
@@ -441,18 +444,6 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
 					</xs:simpleType>
 				</xs:attribute>
 				<xs:attribute name="ReasonDetails" type="xs:NMTOKENS" use="optional" />
-			</xs:extension>
-		</xs:complexContent>
-	</xs:complexType>
-
-	<!-- ReturnJob -->
-	<xs:element name="ReturnJob" substitutionGroup="ptk:BusinessObject" type="ptk:ReturnJob" />
-	<xs:complexType name="ReturnJob">
-		<xs:complexContent>
-			<xs:extension base="ptk:BaseElement">
-				<xs:sequence maxOccurs="1" minOccurs="1">
-					<xs:element ref="xjdf:XJDF" maxOccurs="unbounded" minOccurs="1" />
-				</xs:sequence>
 			</xs:extension>
 		</xs:complexContent>
 	</xs:complexType>
