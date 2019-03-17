@@ -326,8 +326,8 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
 				<xs:sequence>
 					<xs:element ref="xjdf:AuditPool" />
 				</xs:sequence>
+			    <xs:attribute name="JobIDRef" type="xs:NMTOKEN" use="required" />
 			</xs:extension>
-			<xs:attribute name="JobIDRef" type="xs:NMTOKEN" use="required" />
 		</xs:complexContent>
 	</xs:complexType>
 
