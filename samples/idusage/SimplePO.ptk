@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+  Timestamp="2019-01-30T21:38:44+01:00" payloadID="P_000012">
+  <!-- START SNIPPET -->
+  <!-- END SNIPPET -->
+  <Header>
+    <From>
+      <Credential domain="URL">
+        <Identity>https://customer.com</Identity>
+      </Credential>
+    </From>
+    <To>
+      <Credential domain="URL">
+        <Identity>https://printer.com</Identity>
+      </Credential>
+    </To>
+  </Header>
+  <Request BusinessID="Quotation_1" BusinessRefID="Quotation_1">
+    <PurchaseOrder QuoteID="Quote_1"/>
+  </Request>
+</PrintTalk>
