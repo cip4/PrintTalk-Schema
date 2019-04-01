@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+  Timestamp="2019-01-30T21:29:10+01:00" payloadID="P_000000">
+  <Header>
+    <From>
+      <Credential domain="URL">
+        <Identity>https://customer.com</Identity>
+      </Credential>
+    </From>
+    <To>
+      <Credential domain="URL">
+        <Identity>https://printer.com</Identity>
+      </Credential>
+    </To>
+  </Header>
+  <Request BusinessID="invoice1">
+    <Invoice Expires="2019-03-04T12:00:00+01:00">
+      <!-- START SNIPPET -->
+      <Pricing Currency="CAD">
+        <Price DescriptiveName="Item #1" LineID="L_1" Price="42"
+          PriceType="Product" TaxType="Gross"/>
+        <Price DescriptiveName="Item #2" LineID="L_2" Price="21"
+          PriceType="Product" TaxType="Gross"/>
+        <Price DescriptiveName="Total" LineIDRefs="L_1 L_2" Price="63"
+          PriceType="Total" TaxType="Gross"/>
+        <Price DescriptiveName="Included tax" LineIDRefs="L_1 L_2"
+          Price="12.6" PriceType="Total" TaxType="Tax"/>
+      </Pricing>
+      <!-- END SNIPPET -->
+    </Invoice>
+  </Request>
+</PrintTalk>

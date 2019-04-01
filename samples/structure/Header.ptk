@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+  Timestamp="2019-01-31T22:19:54+01:00" payloadID="P_000002">
+  <!-- START SNIPPET -->
+  <Header>
+    <From>
+      <Credential domain="URL">
+        <Identity>https://customer.com</Identity>
+      </Credential>
+      <Credential domain="DUNS">
+        <Identity>123456789</Identity>
+      </Credential>
+      <Credential domain="DescriptiveName">
+        <Identity>Polkadot Printers</Identity>
+      </Credential>
+    </From>
+    <To>
+      <Credential domain="URL">
+        <Identity>https://printer.com</Identity>
+      </Credential>
+      <Credential domain="DescriptiveName">
+        <Identity>PeterPan</Identity>
+      </Credential>
+      <Credential domain="DUNS">
+        <Identity>93009388</Identity>
+      </Credential>
+    </To>
+  </Header>
+  <!-- END SNIPPET -->
+  <Request BusinessID="PurchaseOrder_000003">
+    <PurchaseOrder/>
+  </Request>
+</PrintTalk>
