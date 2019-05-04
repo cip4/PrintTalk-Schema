@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+  Timestamp="2019-04-27T21:22:50+02:00" payloadID="P_000000">
+  <Header>
+    <From>
+      <Credential domain="URL">
+        <Identity>https://printer.com</Identity>
+      </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
+    </From>
+    <To>
+      <Credential domain="URL">
+        <Identity>https://customer.com</Identity>
+      </Credential>
+    </To>
+  </Header>
+  <Request BusinessID="Staus_1" BusinessRefID="PO_1">
+    <!-- START SNIPPET -->
+    <OrderStatusResponse JobIDRef="j1">
+      <AuditPool xmlns="http://www.CIP4.org/JDFSchema_2_0">
+        <AuditNotification>
+          <Header AgentName="CIP4 JDF Writer Java"
+            AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
+            ID="l_000002" Time="2019-04-27T21:22:50+02:00"/>
+          <Notification Class="Event" JobID="j1">
+            <Milestone MilestoneType="ShippingInProgress"/>
+          </Notification>
+        </AuditNotification>
+        <AuditResource>
+          <Header AgentName="CIP4 JDF Writer Java"
+            AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
+            ID="l_000003" Time="2019-04-27T21:22:50+02:00"/>
+          <ResourceInfo>
+            <ResourceSet Name="DeliveryParams">
+              <Resource ID="r_000004">
+                <DeliveryParams TrackingID="T123"/>
+              </Resource>
+            </ResourceSet>
+          </ResourceInfo>
+        </AuditResource>
+      </AuditPool>
+    </OrderStatusResponse>
+    <!-- END SNIPPET -->
+  </Request>
+</PrintTalk>

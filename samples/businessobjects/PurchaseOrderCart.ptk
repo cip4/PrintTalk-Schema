@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-01-30T21:29:11+01:00" payloadID="P_000004">
+  Timestamp="2019-04-27T21:22:52+02:00" payloadID="P_000016">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -21,8 +22,8 @@
         <AuditPool>
           <AuditCreated>
             <Header AgentName="CIP4 JDF Writer Java"
-              AgentVersion="1.6 BLD 006" DeviceID="CIP4_JDF_Writer_Java"
-              ID="l_000006" Time="2019-01-30T21:29:11+01:00"/>
+              AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
+              ID="l_000018" Time="2019-04-27T21:22:52+02:00"/>
           </AuditCreated>
         </AuditPool>
         <ResourceSet Name="NodeInfo" Usage="Input">
@@ -36,8 +37,8 @@
         <AuditPool>
           <AuditCreated>
             <Header AgentName="CIP4 JDF Writer Java"
-              AgentVersion="1.6 BLD 006" DeviceID="CIP4_JDF_Writer_Java"
-              ID="l_000008" Time="2019-01-30T21:29:11+01:00"/>
+              AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
+              ID="l_000020" Time="2019-04-27T21:22:52+02:00"/>
           </AuditCreated>
         </AuditPool>
         <ResourceSet Name="NodeInfo" Usage="Input">

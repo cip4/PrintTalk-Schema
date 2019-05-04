@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-01-30T21:38:45+01:00" payloadID="P_000018">
-  <!-- START SNIPPET -->
-  <!-- END SNIPPET -->
+  Timestamp="2019-04-27T21:22:53+02:00" payloadID="P_000050">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -15,8 +14,9 @@
       </Credential>
     </To>
   </Header>
+  <!-- START SNIPPET -->
   <Request BusinessID="Quotation_1" BusinessRefID="RFQ_1">
-    <Quotation Estimate="false" Expires="2019-02-21T12:00:00+01:00">
+    <Quotation Estimate="false" Expires="2019-05-19T12:00:00+02:00">
       <Quote QuoteID="Quote_1">
         <Pricing Currency="CHF">
           <Price DescriptiveName="all of 1" Price="333.22"
@@ -31,4 +31,5 @@
       </Quote>
     </Quotation>
   </Request>
+  <!-- END SNIPPET -->
 </PrintTalk>

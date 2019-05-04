@@ -1,26 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- START SNIPPET -->
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-04-27T19:34:00+02:00" payloadID="P_000303">
-  <!-- END SNIPPET -->
+  Timestamp="2019-04-27T19:34:00+02:00" payloadID="P_000307">
+  <!-- START SNIPPET -->
   <Header>
     <From>
       <Credential domain="URL">
-        <Identity>https://customer.com</Identity>
+        <Identity>https://printer.com</Identity>
       </Credential>
       <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
-        <Identity>https://printer.com</Identity>
+        <Identity>https://customer.com</Identity>
       </Credential>
     </To>
   </Header>
-  <!-- START SNIPPET -->
   <!-- END SNIPPET -->
-  <Request BusinessID="Confirmation_000304">
+  <Request BusinessID="Confirmation_000308">
     <Confirmation/>
   </Request>
-  <!-- START SNIPPET -->
 </PrintTalk>
-<!-- END SNIPPET -->

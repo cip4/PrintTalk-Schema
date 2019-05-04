@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-01-30T21:38:44+01:00" payloadID="P_000014">
+  Timestamp="2019-04-27T21:22:53+02:00" payloadID="P_000031">
   <Header>
     <From>
       <Credential domain="URL">
-        <Identity>https://customer.com</Identity>
+        <Identity>https://printer.com</Identity>
       </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
-        <Identity>https://printer.com</Identity>
+        <Identity>https://customer.com</Identity>
       </Credential>
     </To>
   </Header>

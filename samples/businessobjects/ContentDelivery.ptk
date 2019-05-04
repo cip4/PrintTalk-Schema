@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PrintTalk xmlns="http://www.printtalk.org/schema_20"
+  Timestamp="2019-04-27T21:22:53+02:00" payloadID="P_000035">
+  <Header>
+    <From>
+      <Credential domain="URL">
+        <Identity>https://printer.com</Identity>
+      </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
+    </From>
+    <To>
+      <Credential domain="URL">
+        <Identity>https://customer.com</Identity>
+      </Credential>
+    </To>
+  </Header>
+  <Request BusinessID="CDR_1" BusinessRefID="CD_1">
+    <!-- START SNIPPET -->
+    <ContentDeliveryResponse Result="Accepted">
+      <AuditPool xmlns="http://www.CIP4.org/JDFSchema_2_0">
+        <AuditResource>
+          <Header AgentName="CIP4 JDF Writer Java"
+            AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
+            ID="l_000037" Time="2019-04-27T21:22:53+02:00"/>
+          <ResourceInfo>
+            <ResourceSet Name="PreflightReport"/>
+          </ResourceInfo>
+        </AuditResource>
+      </AuditPool>
+    </ContentDeliveryResponse>
+    <!-- END SNIPPET -->
+  </Request>
+</PrintTalk>

@@ -1,26 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-01-30T21:37:13+01:00" payloadID="P_000000">
+  Timestamp="2019-04-27T21:22:53+02:00" payloadID="P_000033">
   <Header>
     <From>
       <Credential domain="URL">
-        <Identity>https://customer.com</Identity>
+        <Identity>https://printer.com</Identity>
       </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
-        <Identity>https://printer.com</Identity>
+        <Identity>https://customer.com</Identity>
       </Credential>
     </To>
   </Header>
-  <Request BusinessID="q1">
-    <Quotation Estimate="false" Expires="2019-02-13T18:00:00+01:00">
+  <Request BusinessID="q1" BusinessRefID="RFQ_Amount">
+    <!-- START SNIPPET -->
+    <Quotation Estimate="false" Expires="2019-05-11T18:00:00+02:00">
       <Quote QuoteID="q1">
         <Pricing Currency="GBP">
-          <Price DescriptiveName="100 business cards" Price="420000"
-            PriceType="Total" TaxType="Net"/>
+          <Price Amount="1000" DescriptiveName="1000 business cards"
+            Price="500" PriceType="Total" TaxType="Net">
+            <Additional Amount="100" Price="40"/>
+            <Additional Amount="1000" Price="200"/>
+          </Price>
+        </Pricing>
+      </Quote>
+      <Quote QuoteID="q2">
+        <Pricing Currency="GBP">
+          <Price DescriptiveName="5000 business cards" Price="1500"
+            PriceType="Total" TaxType="Net">
+            <Additional Amount="1000" Price="250"/>
+          </Price>
         </Pricing>
       </Quote>
     </Quotation>
+    <!-- END SNIPPET -->
   </Request>
 </PrintTalk>

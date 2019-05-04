@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-01-31T22:19:54+01:00" payloadID="P_000002">
+  Timestamp="2019-04-27T19:34:00+02:00" payloadID="P_000305">
   <!-- START SNIPPET -->
   <Header>
     <From>
@@ -13,6 +13,7 @@
       <Credential domain="DescriptiveName">
         <Identity>Polkadot Printers</Identity>
       </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -27,7 +28,7 @@
     </To>
   </Header>
   <!-- END SNIPPET -->
-  <Request BusinessID="PurchaseOrder_000003">
-    <PurchaseOrder/>
+  <Request BusinessID="Confirmation_000306">
+    <Confirmation/>
   </Request>
 </PrintTalk>

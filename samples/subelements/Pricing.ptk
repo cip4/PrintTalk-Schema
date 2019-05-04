@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-01-30T21:29:10+01:00" payloadID="P_000000">
+  Timestamp="2019-04-27T19:33:56+02:00" payloadID="P_000002">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -14,7 +15,7 @@
     </To>
   </Header>
   <Request BusinessID="invoice1">
-    <Invoice Expires="2019-03-04T12:00:00+01:00">
+    <Invoice Expires="2019-05-30T12:00:00+02:00">
       <!-- START SNIPPET -->
       <Pricing Currency="CAD">
         <Price DescriptiveName="Item #1" LineID="L_1" Price="42"

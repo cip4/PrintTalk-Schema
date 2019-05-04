@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-01-30T21:38:43+01:00" payloadID="P_000000">
+  Timestamp="2019-04-27T21:22:52+02:00" payloadID="P_000011">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -15,7 +16,22 @@
   </Header>
   <!-- START SNIPPET -->
   <Request BusinessID="RFQ_1">
-    <RFQ Expires="2019-02-04T12:00:00+01:00"/>
+    <RFQ Estimate="false" Expires="2019-05-02T12:00:00+02:00">
+      <XJDF xmlns="http://www.CIP4.org/JDFSchema_2_0" JobID="MyJob" Types="Product">
+        <AuditPool>
+          <AuditCreated>
+            <Header AgentName="CIP4 JDF Writer Java"
+              AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
+              ID="l_000013" Time="2019-04-27T21:22:52+02:00"/>
+          </AuditCreated>
+        </AuditPool>
+        <ResourceSet Name="NodeInfo" Usage="Input">
+          <Resource>
+            <NodeInfo/>
+          </Resource>
+        </ResourceSet>
+      </XJDF>
+    </RFQ>
   </Request>
   <!-- END SNIPPET -->
 </PrintTalk>
