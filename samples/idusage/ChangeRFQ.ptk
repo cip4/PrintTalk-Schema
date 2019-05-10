@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-04-27T21:22:53+02:00" payloadID="P_000038">
+  payloadID="P_000274" timestamp="2019-05-10T21:19:39+02:00">
   <Header>
     <From>
       <Credential domain="URL">
@@ -16,14 +16,14 @@
   </Header>
   <!-- START SNIPPET -->
   <Request BusinessID="Change_RFQ_1" BusinessRefID="PO_1">
-    <RFQ Estimate="false" Expires="2019-04-28T12:00:00+02:00">
+    <RFQ Estimate="false" Expires="2019-05-11T12:00:00+02:00">
       <Comment xmlns="http://www.CIP4.org/JDFSchema_2_0">Please call me asap!</Comment>
       <XJDF xmlns="http://www.CIP4.org/JDFSchema_2_0" JobID="MyJob" Types="Product">
         <AuditPool>
           <AuditCreated>
             <Header AgentName="CIP4 JDF Writer Java"
               AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
-              ID="l_000040" Time="2019-04-27T21:22:53+02:00"/>
+              ID="l_000276" Time="2019-05-10T21:19:39+02:00"/>
           </AuditCreated>
         </AuditPool>
         <ResourceSet Name="NodeInfo" Usage="Input">

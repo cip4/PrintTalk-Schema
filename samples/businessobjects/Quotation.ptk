@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-04-27T21:22:53+02:00" payloadID="P_000033">
+  payloadID="P_000269" timestamp="2019-05-10T21:19:39+02:00">
   <Header>
     <From>
       <Credential domain="URL">
@@ -16,7 +16,7 @@
   </Header>
   <Request BusinessID="q1" BusinessRefID="RFQ_Amount">
     <!-- START SNIPPET -->
-    <Quotation Estimate="false" Expires="2019-05-11T18:00:00+02:00">
+    <Quotation Estimate="false" Expires="2019-05-24T18:00:00+02:00">
       <Quote QuoteID="q1">
         <Pricing Currency="GBP">
           <Price Amount="1000" DescriptiveName="1000 business cards"

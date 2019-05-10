@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  Timestamp="2019-04-27T19:33:56+02:00" payloadID="P_000002">
+  payloadID="P_000002" timestamp="2019-05-10T21:19:35+02:00">
   <Header>
     <From>
       <Credential domain="URL">
@@ -15,7 +15,7 @@
     </To>
   </Header>
   <Request BusinessID="invoice1">
-    <Invoice Expires="2019-05-30T12:00:00+02:00">
+    <Invoice Expires="2019-06-12T12:00:00+02:00">
       <!-- START SNIPPET -->
       <Pricing Currency="CAD">
         <Price DescriptiveName="Item #1" LineID="L_1" Price="42"
