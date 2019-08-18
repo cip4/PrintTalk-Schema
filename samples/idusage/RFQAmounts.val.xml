@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<SchemaValidationOutput
-  SchemaLocation="http://www.CIP4.org/JDFSchema_2_0 file:/gitreps/PrinttalkJ/target/test-classes/data/schema/Version_2_0/xjdf.xsd http://www.printtalk.org/schema_20 file:/gitreps/PrinttalkJ/target/test-classes/data/schema/Version_2_0/PrintTalk.xsd" ValidationResult="Error">
-  <Error Message="cvc-complex-type.2.4.a: Invalid content was found starting with element 'Request'. One of '{&quot;http://www.printtalk.org/schema_20&quot;:Header}' is expected. src=/gitreps/PrinttalkJ/target/test-classes/data/temp/printtalkexamples/idusage/RFQAmounts.ptk"/>
-</SchemaValidationOutput>

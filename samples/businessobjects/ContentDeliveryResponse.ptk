@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000000" timestamp="2019-08-18T16:15:09+02:00">
+  payloadID="P_000040" timestamp="2019-08-18T16:15:12+02:00">
   <Header>
     <From>
       <Credential domain="URL">
@@ -14,31 +14,24 @@
       </Credential>
     </To>
   </Header>
-  <Request BusinessID="Staus_1" BusinessRefID="PO_1">
+  <Request BusinessID="CDR_1" BusinessRefID="CD_1">
     <!-- START SNIPPET -->
-    <OrderStatusResponse JobIDRef="j1">
+    <ContentDeliveryResponse Result="Accepted">
       <xjdf:AuditPool xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
-        <xjdf:AuditNotification>
-          <xjdf:Header AgentName="CIP4 JDF Writer Java"
-            AgentVersion="1.6 BLD 012" DeviceID="CIP4_JDF_Writer_Java" Time="2019-08-18T16:15:09+02:00"/>
-          <xjdf:Notification Class="Event" JobID="j1">
-            <xjdf:Milestone MilestoneType="ShippingInProgress"/>
-          </xjdf:Notification>
-        </xjdf:AuditNotification>
         <xjdf:AuditResource>
           <xjdf:Header AgentName="CIP4 JDF Writer Java"
             AgentVersion="1.6 BLD 012" DeviceID="CIP4_JDF_Writer_Java"
-            ID="l_000004" Time="2019-08-18T16:15:09+02:00"/>
+            ID="l_000042" Time="2019-08-18T16:15:12+02:00"/>
           <xjdf:ResourceInfo>
-            <xjdf:ResourceSet Name="DeliveryParams">
+            <xjdf:ResourceSet Name="PreflightReport">
               <xjdf:Resource>
-                <xjdf:DeliveryParams TrackingID="T123"/>
+                <xjdf:PreflightReport ErrorCount="0"/>
               </xjdf:Resource>
             </xjdf:ResourceSet>
           </xjdf:ResourceInfo>
         </xjdf:AuditResource>
       </xjdf:AuditPool>
-    </OrderStatusResponse>
+    </ContentDeliveryResponse>
     <!-- END SNIPPET -->
   </Request>
 </PrintTalk>

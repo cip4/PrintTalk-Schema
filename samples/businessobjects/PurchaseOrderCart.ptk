@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000252" timestamp="2019-05-10T21:19:38+02:00">
+  payloadID="P_000018" timestamp="2019-08-18T16:15:11+02:00">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
-      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
+      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 012</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -16,37 +16,19 @@
   </Header>
   <Request BusinessID="cart1">
     <!-- START SNIPPET -->
-    <PurchaseOrder>
-      <XJDF xmlns="http://www.CIP4.org/JDFSchema_2_0"
+    <PurchaseOrder Expires="2019-08-18T16:15:11+02:00">
+      <xjdf:XJDF xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
         JobID="cart1.item1" Types="Product">
-        <AuditPool>
-          <AuditCreated>
-            <Header AgentName="CIP4 JDF Writer Java"
-              AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
-              ID="l_000254" Time="2019-05-10T21:19:38+02:00"/>
-          </AuditCreated>
-        </AuditPool>
-        <ResourceSet Name="NodeInfo" Usage="Input">
-          <Resource>
-            <NodeInfo/>
-          </Resource>
-        </ResourceSet>
-      </XJDF>
-      <XJDF xmlns="http://www.CIP4.org/JDFSchema_2_0"
+        <xjdf:ProductList>
+          <xjdf:Product Amount="100" DescriptiveName="BusinessCards" IsRoot="true"/>
+        </xjdf:ProductList>
+      </xjdf:XJDF>
+      <xjdf:XJDF xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
         JobID="cart1.item2" Types="Product">
-        <AuditPool>
-          <AuditCreated>
-            <Header AgentName="CIP4 JDF Writer Java"
-              AgentVersion="1.6 BLD 010" DeviceID="CIP4_JDF_Writer_Java"
-              ID="l_000256" Time="2019-05-10T21:19:38+02:00"/>
-          </AuditCreated>
-        </AuditPool>
-        <ResourceSet Name="NodeInfo" Usage="Input">
-          <Resource>
-            <NodeInfo/>
-          </Resource>
-        </ResourceSet>
-      </XJDF>
+        <xjdf:ProductList>
+          <xjdf:Product Amount="500" DescriptiveName="Brochures" IsRoot="true"/>
+        </xjdf:ProductList>
+      </xjdf:XJDF>
     </PurchaseOrder>
     <!-- END SNIPPET -->
   </Request>
