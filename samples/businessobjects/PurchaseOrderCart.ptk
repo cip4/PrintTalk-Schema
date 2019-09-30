@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000018" timestamp="2019-08-18T16:15:11+02:00">
+  payloadID="P_000326" timestamp="2019-09-30T09:43:20+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
-      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 012</UserAgent>
+      <UserAgent>MIS 2.0</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -16,15 +16,13 @@
   </Header>
   <Request BusinessID="cart1">
     <!-- START SNIPPET -->
-    <PurchaseOrder Expires="2019-08-18T16:15:11+02:00">
-      <xjdf:XJDF xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
-        JobID="cart1.item1" Types="Product">
+    <PurchaseOrder Expires="2019-09-30T09:43:20+02:00">
+      <xjdf:XJDF JobID="cart1.item1" Types="Product">
         <xjdf:ProductList>
           <xjdf:Product Amount="100" DescriptiveName="BusinessCards" IsRoot="true"/>
         </xjdf:ProductList>
       </xjdf:XJDF>
-      <xjdf:XJDF xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
-        JobID="cart1.item2" Types="Product">
+      <xjdf:XJDF JobID="cart1.item2" Types="Product">
         <xjdf:ProductList>
           <xjdf:Product Amount="500" DescriptiveName="Brochures" IsRoot="true"/>
         </xjdf:ProductList>

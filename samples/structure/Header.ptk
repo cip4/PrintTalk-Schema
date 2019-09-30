@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000324" timestamp="2019-05-10T21:19:40+02:00">
+  payloadID="P_000421" timestamp="2019-09-30T09:43:21+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <!-- START SNIPPET -->
   <Header>
     <From>
@@ -11,16 +11,16 @@
         <Identity>123456789</Identity>
       </Credential>
       <Credential domain="DescriptiveName">
-        <Identity>Polkadot Printers</Identity>
+        <Identity>Peter Pan</Identity>
       </Credential>
-      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
+      <UserAgent>MIS 2.0</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
         <Identity>https://printer.com</Identity>
       </Credential>
       <Credential domain="DescriptiveName">
-        <Identity>PeterPan</Identity>
+        <Identity>Polkadot Printers</Identity>
       </Credential>
       <Credential domain="DUNS">
         <Identity>93009388</Identity>
@@ -28,7 +28,7 @@
     </To>
   </Header>
   <!-- END SNIPPET -->
-  <Request BusinessID="Confirmation_000325">
+  <Request BusinessID="Confirmation_000422">
     <Confirmation/>
   </Request>
 </PrintTalk>

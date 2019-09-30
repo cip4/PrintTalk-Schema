@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000000" timestamp="2019-08-18T16:15:09+02:00">
+  payloadID="P_000306" timestamp="2019-09-30T09:42:39+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://printer.com</Identity>
       </Credential>
-      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 012</UserAgent>
+      <UserAgent>MIS 2.0</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -17,18 +17,15 @@
   <Request BusinessID="Staus_1" BusinessRefID="PO_1">
     <!-- START SNIPPET -->
     <OrderStatusResponse JobIDRef="j1">
-      <xjdf:AuditPool xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+      <xjdf:AuditPool>
         <xjdf:AuditNotification>
-          <xjdf:Header AgentName="CIP4 JDF Writer Java"
-            AgentVersion="1.6 BLD 012" DeviceID="CIP4_JDF_Writer_Java" Time="2019-08-18T16:15:09+02:00"/>
+          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T09:42:39+02:00"/>
           <xjdf:Notification Class="Event" JobID="j1">
             <xjdf:Milestone MilestoneType="ShippingInProgress"/>
           </xjdf:Notification>
         </xjdf:AuditNotification>
         <xjdf:AuditResource>
-          <xjdf:Header AgentName="CIP4 JDF Writer Java"
-            AgentVersion="1.6 BLD 012" DeviceID="CIP4_JDF_Writer_Java"
-            ID="l_000004" Time="2019-08-18T16:15:09+02:00"/>
+          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T09:42:39+02:00"/>
           <xjdf:ResourceInfo>
             <xjdf:ResourceSet Name="DeliveryParams">
               <xjdf:Resource>

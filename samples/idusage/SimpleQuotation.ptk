@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000286" timestamp="2019-05-10T21:19:39+02:00">
+  payloadID="P_000365" timestamp="2019-09-30T09:43:20+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
-      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
+      <UserAgent>MIS 2.0</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -16,7 +16,7 @@
   </Header>
   <!-- START SNIPPET -->
   <Request BusinessID="Quotation_1" BusinessRefID="RFQ_1">
-    <Quotation Estimate="false" Expires="2019-06-01T12:00:00+02:00">
+    <Quotation Estimate="false" Expires="2019-10-22T12:00:00+02:00">
       <Quote QuoteID="Quote_1">
         <Pricing Currency="CHF">
           <Price DescriptiveName="all of 1" Price="333.22"

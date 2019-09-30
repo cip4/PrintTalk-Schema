@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000000" timestamp="2019-09-16T22:01:30+02:00">
+  payloadID="P_000313" timestamp="2019-09-30T09:43:19+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
-      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 015</UserAgent>
+      <UserAgent>MIS 2.0</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -17,13 +17,12 @@
   <Request BusinessID="CD_1" BusinessRefID="PO_1">
     <!-- START SNIPPET -->
     <ContentDelivery UpdateMethod="Add">
-      <xjdf:XJDF xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
-        JobID="cart1.item1" Types="DigitalDelivery">
+      <xjdf:XJDF JobID="cart1.item1" Types="Product Delivery">
         <!-- END SNIPPET -->
         <xjdf:AuditPool>
           <xjdf:AuditCreated>
-            <xjdf:Header AgentName="CIP4 JDF Writer Java"
-              AgentVersion="1.6 BLD 015" DeviceID="CIP4_JDF_Writer_Java" Time="2019-09-16T22:01:31+02:00"/>
+            <xjdf:Header AgentName="MIS" AgentVersion="2.0"
+              DeviceID="MIS" Time="2019-09-30T09:43:19+02:00"/>
           </xjdf:AuditCreated>
         </xjdf:AuditPool>
         <!-- START SNIPPET -->

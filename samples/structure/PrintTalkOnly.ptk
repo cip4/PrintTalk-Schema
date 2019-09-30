@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- START SNIPPET -->
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000322" timestamp="2019-05-10T21:19:40+02:00">
+  payloadID="P_000419" timestamp="2019-09-30T09:43:21+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <!-- END SNIPPET -->
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
-      <UserAgent>CIP4 JDF Writer Java 1.6 BLD 010</UserAgent>
+      <UserAgent>MIS 2.0</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -18,7 +18,7 @@
   </Header>
   <!-- START SNIPPET -->
   <!-- END SNIPPET -->
-  <Request BusinessID="Confirmation_000323">
+  <Request BusinessID="Confirmation_000420">
     <Confirmation/>
   </Request>
   <!-- START SNIPPET -->
