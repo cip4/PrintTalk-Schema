@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000344" timestamp="2019-09-30T09:43:20+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+  payloadID="P_000352" timestamp="2019-09-30T13:42:14+02:00">
   <Header>
     <From>
       <Credential domain="URL">

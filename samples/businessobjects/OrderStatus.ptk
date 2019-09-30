@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000306" timestamp="2019-09-30T09:42:39+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+  payloadID="P_000314" timestamp="2019-09-30T13:42:14+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
@@ -19,13 +19,13 @@
     <OrderStatusResponse JobIDRef="j1">
       <xjdf:AuditPool>
         <xjdf:AuditNotification>
-          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T09:42:39+02:00"/>
+          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T13:42:14+02:00"/>
           <xjdf:Notification Class="Event" JobID="j1">
             <xjdf:Milestone MilestoneType="ShippingInProgress"/>
           </xjdf:Notification>
         </xjdf:AuditNotification>
         <xjdf:AuditResource>
-          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T09:42:39+02:00"/>
+          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T13:42:14+02:00"/>
           <xjdf:ResourceInfo>
             <xjdf:ResourceSet Name="DeliveryParams">
               <xjdf:Resource>

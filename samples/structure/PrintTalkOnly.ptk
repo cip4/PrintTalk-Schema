@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- START SNIPPET -->
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000419" timestamp="2019-09-30T09:43:21+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+  payloadID="P_000427" timestamp="2019-09-30T13:42:14+02:00">
   <!-- END SNIPPET -->
   <Header>
     <From>
@@ -18,7 +18,7 @@
   </Header>
   <!-- START SNIPPET -->
   <!-- END SNIPPET -->
-  <Request BusinessID="Confirmation_000420">
+  <Request BusinessID="Confirmation_000428">
     <Confirmation/>
   </Request>
   <!-- START SNIPPET -->

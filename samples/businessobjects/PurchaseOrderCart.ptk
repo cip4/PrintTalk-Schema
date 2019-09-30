@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000326" timestamp="2019-09-30T09:43:20+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+  payloadID="P_000334" timestamp="2019-09-30T13:42:14+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
@@ -16,7 +16,7 @@
   </Header>
   <Request BusinessID="cart1">
     <!-- START SNIPPET -->
-    <PurchaseOrder Expires="2019-09-30T09:43:20+02:00">
+    <PurchaseOrder Expires="2019-09-30T13:42:14+02:00">
       <xjdf:XJDF JobID="cart1.item1" Types="Product">
         <xjdf:ProductList>
           <xjdf:Product Amount="100" DescriptiveName="BusinessCards" IsRoot="true"/>
