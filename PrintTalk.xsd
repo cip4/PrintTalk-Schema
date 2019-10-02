@@ -540,7 +540,6 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
 				<xs:attribute name="AuthorizationExpires" type="xs:dateTime" use="optional" />
 				<xs:attribute name="Expires" type="xs:dateTime" use="optional" />
 				<xs:attribute name="IsPaid" type="xs:boolean" use="optional" />
-				<xs:attribute name="Number" type="xs:NMTOKEN" use="optional" />
 				<xs:attribute name="PaymentType" use="required">
 					<xs:simpleType>
 						<xs:restriction base="xs:NMTOKEN">
