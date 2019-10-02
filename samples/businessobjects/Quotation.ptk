@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000354" timestamp="2019-09-30T13:42:14+02:00">
+  payloadID="P_000000" timestamp="2019-10-02T18:30:28+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
@@ -16,23 +16,47 @@
   </Header>
   <Request BusinessID="q1" BusinessRefID="RFQ_Amount">
     <!-- START SNIPPET -->
-    <Quotation Estimate="false" Expires="2019-10-14T18:00:00+02:00">
+    <Quotation Estimate="false" Expires="2019-10-16T18:00:00+02:00">
       <Quote QuoteID="q1">
         <Pricing Currency="GBP">
-          <Price Amount="1000" DescriptiveName="1000 business cards"
-            Price="500" PriceType="Total" TaxType="Net">
+          <Price Amount="500"
+            DescriptiveName="500 simple business cards" Price="250"
+            PriceType="Total" TaxType="Net">
             <Additional Amount="100" BaseAmount="500" BasePrice="250" Price="40"/>
-            <Additional Amount="1000" BaseAmount="1000" BasePrice="200" Price="200"/>
+            <Additional Amount="500" BaseAmount="1000" BasePrice="400" Price="150"/>
           </Price>
         </Pricing>
+        <xjdf:XJDF DescriptiveName="simple business cards" JobID="jobid" Types="Product">
+          <!-- END SNIPPET -->
+          <xjdf:AuditPool>
+            <xjdf:AuditCreated>
+              <xjdf:Header AgentName="MIS" AgentVersion="2.0"
+                DeviceID="MIS" Time="2019-10-02T18:30:28+02:00"/>
+            </xjdf:AuditCreated>
+          </xjdf:AuditPool>
+          <!-- START SNIPPET -->
+        </xjdf:XJDF>
       </Quote>
       <Quote QuoteID="q2">
         <Pricing Currency="GBP">
-          <Price Amount="5000" DescriptiveName="5000 business cards"
-            Price="1500" PriceType="Total" TaxType="Net">
-            <Additional Amount="1000" BaseAmount="5000" BasePrice="1500" Price="250"/>
+          <Price Amount="500"
+            DescriptiveName="500 varnished business cards" Price="350"
+            PriceType="Total" TaxType="Net">
+            <Additional Amount="100" BaseAmount="500" BasePrice="350" Price="50"/>
+            <Additional Amount="500" BaseAmount="1000" BasePrice="500" Price="200"/>
           </Price>
         </Pricing>
+        <xjdf:XJDF DescriptiveName="varnished business cards"
+          JobID="jobid" Types="Product">
+          <!-- END SNIPPET -->
+          <xjdf:AuditPool>
+            <xjdf:AuditCreated>
+              <xjdf:Header AgentName="MIS" AgentVersion="2.0"
+                DeviceID="MIS" Time="2019-10-02T18:30:28+02:00"/>
+            </xjdf:AuditCreated>
+          </xjdf:AuditPool>
+          <!-- START SNIPPET -->
+        </xjdf:XJDF>
       </Quote>
     </Quotation>
     <!-- END SNIPPET -->
