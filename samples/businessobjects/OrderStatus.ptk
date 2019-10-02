@@ -19,13 +19,15 @@
     <OrderStatusResponse JobIDRef="j1">
       <xjdf:AuditPool>
         <xjdf:AuditNotification>
-          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T13:42:14+02:00"/>
+          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" 
+            Time="2019-09-30T13:42:14+02:00"/>
           <xjdf:Notification Class="Event" JobID="j1">
             <xjdf:Milestone MilestoneType="ShippingInProgress"/>
           </xjdf:Notification>
         </xjdf:AuditNotification>
         <xjdf:AuditResource>
-          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" Time="2019-09-30T13:42:14+02:00"/>
+          <xjdf:Header AgentName="MIS" AgentVersion="2.0" DeviceID="MIS" 
+            Time="2019-09-30T13:42:14+02:00"/>
           <xjdf:ResourceInfo>
             <xjdf:ResourceSet Name="DeliveryParams">
               <xjdf:Resource>
