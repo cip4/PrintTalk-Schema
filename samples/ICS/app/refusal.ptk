@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- START SNIPPET -->
 <PrintTalk timestamp="2019-10-23T09:28:00.000+02:00" xmlns="http://www.printtalk.org/schema_20" 
     ICSVersions="Cus-APP_L1-2.0">
 	<Header>
@@ -17,3 +18,4 @@
 		<Refusal Reason="InvalidPrice" ReasonDetails="WrongPrice"/>
 	</Request>
 </PrintTalk>
+<!-- END SNIPPET -->
