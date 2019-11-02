@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- START SNIPPET -->
 <PrintTalk timestamp="2019-10-23T09:28:00.000+02:00" xmlns="http://www.printtalk.org/schema_20" 
-    xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0" ICSVersions="CusEP_L1-2.0">
+    xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0" ICSVersions="Cus-APP_L1-2.0">
 	<Header>
 		<From>
 			<Credential domain="URL">
