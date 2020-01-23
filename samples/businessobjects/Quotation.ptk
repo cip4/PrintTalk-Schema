@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000000" timestamp="2020-01-19T19:46:26+01:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+  payloadID="P_000000" timestamp="2020-01-23T21:56:49+01:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
@@ -16,14 +16,14 @@
   </Header>
   <Request BusinessID="q1" BusinessRefID="RFQ_Amount">
     <!-- START SNIPPET -->
-    <Quotation Estimate="false" Expires="2020-02-02T18:00:00+01:00">
+    <Quotation Estimate="false" Expires="2020-02-06T18:00:00+01:00">
       <Quote QuoteID="q1">
         <Pricing Currency="GBP">
           <Price Amount="500"
             DescriptiveName="500 simple business cards" Price="250"
             PriceType="Total" TaxType="Net">
             <Additional Amount="100" BaseAmount="500" BasePrice="250" Price="40"/>
-            <Additional Amount="500" BaseAmount="1000" BasePrice="450" Price="150"/>
+            <Additional Amount="500" BaseAmount="1000" BasePrice="425" Price="150"/>
           </Price>
         </Pricing>
         <xjdf:XJDF DescriptiveName="simple business cards" JobID="jobid" Types="Product">
@@ -31,7 +31,7 @@
           <xjdf:AuditPool>
             <xjdf:AuditCreated>
               <xjdf:Header AgentName="MIS" AgentVersion="2.0"
-                DeviceID="MIS" Time="2020-01-19T19:46:26+01:00"/>
+                DeviceID="MIS" Time="2020-01-23T21:56:49+01:00"/>
             </xjdf:AuditCreated>
           </xjdf:AuditPool>
           <!-- START SNIPPET -->
@@ -43,7 +43,7 @@
             DescriptiveName="500 varnished business cards" Price="350"
             PriceType="Total" TaxType="Net">
             <Additional Amount="100" BaseAmount="500" BasePrice="350" Price="50"/>
-            <Additional Amount="500" BaseAmount="1000" BasePrice="600" Price="200"/>
+            <Additional Amount="500" BaseAmount="1000" BasePrice="575" Price="200"/>
           </Price>
         </Pricing>
         <xjdf:XJDF DescriptiveName="varnished business cards"
@@ -52,7 +52,7 @@
           <xjdf:AuditPool>
             <xjdf:AuditCreated>
               <xjdf:Header AgentName="MIS" AgentVersion="2.0"
-                DeviceID="MIS" Time="2020-01-19T19:46:26+01:00"/>
+                DeviceID="MIS" Time="2020-01-23T21:56:49+01:00"/>
             </xjdf:AuditCreated>
           </xjdf:AuditPool>
           <!-- START SNIPPET -->
