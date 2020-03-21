@@ -460,6 +460,7 @@ Processes in Prepress, Press and Postpress , please see &lt;http://www.cip4.org/
 				<xs:attribute name="Currency" type="ptk:Currency" use="optional" />
 				<xs:attribute name="Estimate" type="xs:boolean" use="optional" />
 				<xs:attribute name="Expires" type="xs:dateTime" use="required" />
+				<xs:attribute name="QuoteIDs" type="xs:NMTOKENS" use="optional" />
 				<xs:attribute name="ReorderID" type="xs:NMTOKENS" use="optional" />
 			</xs:extension>
 		</xs:complexContent>
