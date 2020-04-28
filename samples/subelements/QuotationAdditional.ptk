@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.0"
-  payloadID="P_000000" timestamp="2020-03-22T15:02:45+01:00">
+<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.1"
+  payloadID="P_000000" timestamp="2020-04-28T18:11:54+02:00">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://printer.com</Identity>
       </Credential>
-      <UserAgent>MIS 2.0</UserAgent>
+      <UserAgent>MIS 2.1</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -16,18 +16,20 @@
   </Header>
   <Request BusinessID="q1">
     <!-- START SNIPPET -->
-    <Quotation Estimate="false" Expires="2020-04-05T18:00:00+01:00">
+    <Quotation Estimate="false" Expires="2020-05-12T18:00:00+02:00">
       <Quote QuoteID="q1">
         <Pricing Currency="GBP">
           <Price Amount="500"
-            DescriptiveName="500 simple business cards" Price="250"
-            PriceType="Product" TaxType="Net">
+            DescriptiveName="500 simple business cards" LineID="L_1"
+            Price="250" PriceType="Product" TaxType="Net">
             <Additional Amount="100" BaseAmount="500" BasePrice="250" Price="40"/>
           </Price>
-          <Price DescriptiveName="shipping and handling" Price="2"
-            PriceType="Shipping" TaxType="Net">
+          <Price DescriptiveName="shipping and handling" LineID="L_2"
+            Price="2" PriceType="Shipping" TaxType="Net">
             <Additional Amount="500" BaseAmount="1000" BasePrice="2" Price="1"/>
           </Price>
+          <Price DescriptiveName="entire order" LineIDRefs="L_1 L_2"
+            Price="252" PriceType="Total" TaxType="Net"/>
         </Pricing>
       </Quote>
     </Quotation>
