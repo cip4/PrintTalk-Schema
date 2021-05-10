@@ -36,20 +36,20 @@ jobs:
 
       - name: Copy files to GCloud Bucket
         run: |
-          gsutil cp ./*.xsd  gs://schema.cip4.org/ptk_schema_2_x/
+          gsutil cp ./*.xsd gs://schema.cip4.org/ptk_schema_2_x/
           gsutil cp ./version.json gs://schema.cip4.org/ptk_schema_2_x/
 
       - name: Create ZIP Archive
         run: zip ptk_schema_2_x.zip *.xsd version.json LICENSE.md
 
       - name: Copy ZIP Archive to GCloud Bucket
-        run: gsutil cp ./*.zip  gs://schema.cip4.org/
+        run: gsutil cp ./*.zip gs://schema.cip4.org/
 
       - name: Createa tar.gz Archive
         run: tar -czvf ptk_schema_2_x.tar.gz *.xsd version.json LICENSE.md
 
       - name: Copy tar.gz Archive to GCloud Bucket
-        run: gsutil cp ./*.tar.gz  gs://schema.cip4.org/
+        run: gsutil cp ./*.tar.gz gs://schema.cip4.org/
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
