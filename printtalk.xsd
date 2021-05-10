@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema targetNamespace="http://www.printtalk.org/schema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:pt="http://www.printtalk.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_1_Types">
+<!--
+    PrintTalk Schema @@version@@ (@@buildTime@@)
+
+    CIP4 Organization
+    https://www.cip4.org
+    
+    Published on: https://schema.cip4.org
+    Issue Tracking: https://jira.cip4.org/projects/PTK
+    
+    Copyright (c) 2001-@@year@@. All rights reserved.
+    License: https://github.com/cip4/PrintTalk-Schema/blob/@@branch@@/LICENSE.md
+-->
+<xs:schema targetNamespace="http://www.printtalk.org/schema" elementFormDefault="qualified" attributeFormDefault="unqualified" xmlns:pt="http://www.printtalk.org/schema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:jdf="http://www.CIP4.org/JDFSchema_1_1" xmlns:jdftyp="http://www.CIP4.org/JDFSchema_1_1_Types" version="@@version@@">
 	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1" schemaLocation="http://www.cip4.org/Schema/JDFSchema_1_1/JDF.xsd"/>
 	<xs:import namespace="http://www.CIP4.org/JDFSchema_1_1_Types" schemaLocation="http://www.cip4.org/Schema/JDFSchema_1_1/JDFTypes.xsd"/>
 	<!-- the top level element -->
