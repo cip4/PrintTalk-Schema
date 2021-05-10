@@ -59,6 +59,7 @@ jobs:
 
       - name: Invalidate CDN Cache
         run: | 
+          gcloud compute url-maps invalidate-cdn-cache cip4-public-balancer --path "/ptk_schema_2_${GITHUB_REF##*PrintTalk_2.}/*"
           gcloud compute url-maps invalidate-cdn-cache cip4-public-balancer --path "/ptk_schema_2_${GITHUB_REF##*PrintTalk_2.}.zip" 
           gcloud compute url-maps invalidate-cdn-cache cip4-public-balancer --path "/ptk_schema_2_${GITHUB_REF##*PrintTalk_2.}.tar.gz"
-          gcloud compute url-maps invalidate-cdn-cache cip4-public-balancer --path "/ptk_schema_2_${GITHUB_REF##*PrintTalk_2.}/*"
+          
