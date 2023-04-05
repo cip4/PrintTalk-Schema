@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- START SNIPPET -->
 <PrintTalk ICSVersions="Cus-APP_L1-2.0"
-  timestamp="2019-10-23T09:28:00.000+02:00"
+  timestamp="2023-10-23T09:28:00.000+02:00"
   xmlns="http://www.printtalk.org/schema_20" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
@@ -19,7 +19,7 @@
     </To>
   </Header>
   <Request BusinessID="B-42">
-    <PurchaseOrder Expires="2019-10-24T10:00:00.000+02:00">
+    <PurchaseOrder Expires="2023-10-24T10:00:00.000+02:00">
       <Pricing Currency="EUR">
         <Price DescriptiveName="1000 Flyer DIN A6" LineID="L-1"
           Price="100.00" PriceType="Product" TaxType="Net"/>
@@ -72,12 +72,12 @@
         </xjdf:ResourceSet>
         <xjdf:ResourceSet Name="DeliveryParams" Usage="Input">
           <xjdf:Resource>
-            <xjdf:DeliveryParams Method="StandardShipping" Required="2019-10-28T16:00:00.000+02:00"/>
+            <xjdf:DeliveryParams Method="StandardShipping" Required="2023-10-28T16:00:00.000+02:00"/>
           </xjdf:Resource>
         </xjdf:ResourceSet>
         <xjdf:ResourceSet Name="NodeInfo" Usage="Input">
           <xjdf:Resource>
-            <xjdf:NodeInfo NaturalLang="German"/>
+            <xjdf:NodeInfo NaturalLang="de-DE"/>
           </xjdf:Resource>
         </xjdf:ResourceSet>
         <xjdf:ResourceSet Name="RunList" Usage="Input">
