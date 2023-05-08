@@ -1,6 +1,5 @@
 # PrintTalk Schema
 All PrintTalk Schema Versions are available at https://schema.cip4.org  
-  
 
 
 ## Development Notes
