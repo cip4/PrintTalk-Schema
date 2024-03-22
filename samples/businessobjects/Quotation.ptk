@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.1"
-  payloadID="P_000000" timestamp="2020-04-28T18:20:25+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.2"
+  payloadID="P_000048" timestamp="2024-03-22T15:16:39+01:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://printer.com</Identity>
       </Credential>
-      <UserAgent>MIS 2.1</UserAgent>
+      <UserAgent>MIS Agent 22</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -16,7 +16,7 @@
   </Header>
   <Request BusinessID="q1" BusinessRefID="RFQ_Amount">
     <!-- START SNIPPET -->
-    <Quotation Estimate="false" Expires="2020-05-12T18:00:00+02:00">
+    <Quotation Estimate="false" Expires="2024-04-05T18:00:00+01:00">
       <Quote QuoteID="q1">
         <Pricing Currency="GBP">
           <Price Amount="500"
@@ -32,8 +32,8 @@
           <!-- END SNIPPET -->
           <xjdf:AuditPool>
             <xjdf:AuditCreated>
-              <xjdf:Header AgentName="MIS" AgentVersion="2.1"
-                DeviceID="MIS" Time="2020-04-28T18:20:25+02:00"/>
+              <xjdf:Header AgentName="MIS" AgentVersion="Agent 22"
+                DeviceID="MIS" Time="2024-03-22T15:16:39+01:00"/>
             </xjdf:AuditCreated>
           </xjdf:AuditPool>
           <!-- START SNIPPET -->
@@ -55,8 +55,8 @@
           <!-- END SNIPPET -->
           <xjdf:AuditPool>
             <xjdf:AuditCreated>
-              <xjdf:Header AgentName="MIS" AgentVersion="2.1"
-                DeviceID="MIS" Time="2020-04-28T18:20:25+02:00"/>
+              <xjdf:Header AgentName="MIS" AgentVersion="Agent 22"
+                DeviceID="MIS" Time="2024-03-22T15:16:39+01:00"/>
             </xjdf:AuditCreated>
           </xjdf:AuditPool>
           <!-- START SNIPPET -->

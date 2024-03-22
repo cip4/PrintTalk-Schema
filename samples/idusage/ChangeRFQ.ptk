@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<PrintTalk xmlns="http://www.printtalk.org/schema_20"
-  payloadID="P_000359" timestamp="2019-09-30T13:42:14+02:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.2"
+  payloadID="P_000057" timestamp="2024-03-22T15:16:39+01:00" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
   <Header>
     <From>
       <Credential domain="URL">
         <Identity>https://customer.com</Identity>
       </Credential>
-      <UserAgent>MIS 2.0</UserAgent>
+      <UserAgent>MIS Agent 22</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
@@ -16,13 +16,13 @@
   </Header>
   <!-- START SNIPPET -->
   <Request BusinessID="Change_RFQ_1" BusinessRefID="PO_1">
-    <RFQ Expires="2019-10-01T12:00:00+02:00">
+    <RFQ Expires="2024-03-23T12:00:00+01:00">
       <xjdf:Comment>Please call me asap!</xjdf:Comment>
-      <xjdf:XJDF JobID="MyJob" Types="Product">
+      <xjdf:XJDF JobID="MyJob" Types="Product" Version="2.1">
         <xjdf:AuditPool>
           <xjdf:AuditCreated>
-            <xjdf:Header AgentName="MIS" AgentVersion="2.0"
-              DeviceID="MIS" Time="2019-09-30T13:42:14+02:00"/>
+            <xjdf:Header AgentName="MIS" AgentVersion="Agent 22"
+              DeviceID="MIS" Time="2024-03-22T15:16:39+01:00"/>
           </xjdf:AuditCreated>
         </xjdf:AuditPool>
         <xjdf:ResourceSet Name="NodeInfo" Usage="Input">
