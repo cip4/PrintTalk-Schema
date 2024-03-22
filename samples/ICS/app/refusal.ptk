@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- START SNIPPET -->
-<PrintTalk ICSVersions="Cus-APP_L1-2.1"
-  timestamp="2023-10-23T09:28:00.000+02:00" xmlns="http://www.printtalk.org/schema_20">
+<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.2"
+  payloadID="P_000009" timestamp="2024-03-22T16:30:12+01:00">
   <Header>
     <From>
       <Credential domain="URL">
@@ -14,7 +14,7 @@
       </Credential>
     </To>
   </Header>
-  <Request BusinessID="B-43" BusinessRefID="B-42">
+  <Request BusinessID="Refusal_000010" BusinessRefID="PO_ID">
     <Refusal Reason="InvalidPrice" ReasonDetails="WrongPrice"/>
   </Request>
 </PrintTalk>

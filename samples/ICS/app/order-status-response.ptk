@@ -1,25 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- START SNIPPET -->
-<PrintTalk ICSVersions="Cus-APP_L1-2.1"
-  timestamp="2023-10-23T09:28:00.000+02:00"
-  xmlns="http://www.printtalk.org/schema_20" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.2"
+  payloadID="P_000000" timestamp="2024-03-22T16:30:12+01:00">
   <Header>
     <From>
-      <Credential domain="URL">
-        <Identity>https://worker.example.org/XJDF</Identity>
+      <Credential domain="CustomerID">
+        <Identity>CID-123</Identity>
       </Credential>
-    </From>
-    <To>
       <Credential domain="URL">
         <Identity>https://manager.example.org/XJDF</Identity>
       </Credential>
+      <UserAgent>MIS Agent 22</UserAgent>
+    </From>
+    <To>
+      <Credential domain="URL">
+        <Identity>https://worker.example.org/XJDF</Identity>
+      </Credential>
     </To>
   </Header>
-  <Request BusinessID="B-49" BusinessRefID="B-42">
+  <Request BusinessID="OrderStatusResponse_000001" BusinessRefID="PO_ID">
     <OrderStatusResponse JobIDRef="JOB-22">
-      <xjdf:AuditPool>
+      <xjdf:AuditPool xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
         <xjdf:AuditNotification>
-          <xjdf:Header DeviceID="Example-Worker-1" Time="2023-10-23T09:28:00.000+02:00"/>
+          <xjdf:Header AgentName="MIS" AgentVersion="Agent 22"
+            DeviceID="Example-Worker-1" Time="2019-10-23T09:28:00.000+02:00"/>
           <xjdf:Notification Class="Event" JobID="B-52">
             <xjdf:Milestone MilestoneType="PrePressCompleted"/>
           </xjdf:Notification>

@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- START SNIPPET -->
-<PrintTalk ICSVersions="Cus-APP_L1-2.1"
-  timestamp="2023-10-23T09:28:00.000+02:00"
-  xmlns="http://www.printtalk.org/schema_20" xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0">
+<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.2"
+  payloadID="P_000005" timestamp="2024-03-22T16:30:12+01:00">
   <Header>
     <From>
       <Credential domain="CustomerID">
         <Identity>CID-123</Identity>
       </Credential>
       <Credential domain="URL">
-        <Identity>https://manager.example.org/XJDF</Identity>
+        <Identity>https://worker.example.org/XJDF</Identity>
       </Credential>
+      <UserAgent>MIS Agent 22</UserAgent>
     </From>
     <To>
       <Credential domain="URL">
-        <Identity>https://worker.example.org/XJDF</Identity>
+        <Identity>https://manager.example.org/XJDF</Identity>
       </Credential>
     </To>
   </Header>
-  <Request BusinessID="B-42">
-    <PurchaseOrder Expires="2023-10-24T10:00:00.000+02:00">
+  <Request BusinessID="PO_ID">
+    <PurchaseOrder Expires="2024-04-05T18:00:00+01:00">
       <Pricing Currency="EUR">
         <Price DescriptiveName="1000 Flyer DIN A6" LineID="L-1"
           Price="100.00" PriceType="Product" TaxType="Net"/>
@@ -28,7 +28,8 @@
         <Price DescriptiveName="Total Price" LineID="L-3"
           LineIDRefs="L-1 L-2" Price="119.00" PriceType="Total" TaxType="Gross"/>
       </Pricing>
-      <xjdf:XJDF JobID="JOB-22" Types="Product">
+      <xjdf:XJDF xmlns:xjdf="http://www.CIP4.org/JDFSchema_2_0"
+        JobID="JOB-22" Types="Product">
         <xjdf:ProductList>
           <xjdf:Product Amount="1000">
             <xjdf:GeneralID IDUsage="LineID" IDValue="L-1"/>
@@ -53,31 +54,32 @@
         </xjdf:ProductList>
         <xjdf:ResourceSet Name="Contact" Usage="Input">
           <xjdf:Resource>
-            <xjdf:Part ContactType="Delivery"/>
             <xjdf:Contact>
               <xjdf:Address City="ExampleCity" Country="Germany"
                 CountryCode="DE" PostalCode="12345"
                 Region="North Rhine-Westphalia" Street="ExampleStreet 1"/>
               <xjdf:Company OrganizationName="Example Company Ltd."/>
             </xjdf:Contact>
+            <Part ContactType="Delivery"/>
           </xjdf:Resource>
           <xjdf:Resource>
-            <xjdf:Part ContactType="SenderAlias"/>
             <xjdf:Contact>
-              <xjdf:Address City="PrinterCity" Country="Germany"
-                CountryCode="DE" PostalCode="54321" Street="Printerstreet 1"/>
-              <xjdf:Company OrganizationName="ACME Printing"/>
+              <xjdf:Address City="ExampleCity" Country="Germany"
+                CountryCode="DE" PostalCode="12345"
+                Region="North Rhine-Westphalia" Street="ExampleStreet 1"/>
+              <xjdf:Person FamilyName="Mustermann" FirstName="Max"/>
             </xjdf:Contact>
+            <Part ContactType="SenderAlias"/>
           </xjdf:Resource>
         </xjdf:ResourceSet>
         <xjdf:ResourceSet Name="DeliveryParams" Usage="Input">
           <xjdf:Resource>
-            <xjdf:DeliveryParams Method="StandardShipping" Required="2023-10-28T16:00:00.000+02:00"/>
+            <xjdf:DeliveryParams Method="StandardShipping" Required="2019-10-28T16:00:00.000+02:00"/>
           </xjdf:Resource>
         </xjdf:ResourceSet>
         <xjdf:ResourceSet Name="NodeInfo" Usage="Input">
           <xjdf:Resource>
-            <xjdf:NodeInfo NaturalLang="de-DE"/>
+            <xjdf:NodeInfo NaturalLang="German"/>
           </xjdf:Resource>
         </xjdf:ResourceSet>
         <xjdf:ResourceSet Name="RunList" Usage="Input">
