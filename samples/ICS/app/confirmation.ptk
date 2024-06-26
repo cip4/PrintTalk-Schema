@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- START SNIPPET -->
-<PrintTalk xmlns="http://www.printtalk.org/schema_20" Version="2.2"
-  payloadID="P_000003" timestamp="2024-03-22T16:30:12+01:00">
+<PrintTalk ICSVersions="Cus-APP_L1-2.2" Version="2.2"
+  payloadID="P_000011" timestamp="2024-06-26T19:54:15+02:00" xmlns="http://www.printtalk.org/schema_20">
   <Header>
     <From>
       <Credential domain="URL">
@@ -14,8 +13,7 @@
       </Credential>
     </To>
   </Header>
-  <Request BusinessID="Confirmation_000004" BusinessRefID="PO_ID">
+  <Request BusinessID="B-47" BusinessRefID="B-42">
     <Confirmation/>
   </Request>
 </PrintTalk>
-<!-- END SNIPPET -->
